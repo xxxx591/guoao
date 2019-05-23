@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<nav-bar></nav-bar>
+<view class="container">
+
+  <view class='img-box'>
+    <image src='/assets/image/banner.png' class='img'></image>
+
+  </view>
+
+  <view class='tab-box' style=''>
+    <image src='/assets/image/tag.png' class='tag-img'></image>
+    <text>国奥越野奥体中心店</text>
+  </view>
+
+  <swiper class='swiper' indicator-dots circular autoplay indicator-color="rgba(255,255,255,1)" indicator-active-color="green">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item class='swiper-item'>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='free'>
+    <image src='/assets/image/a10-free.png'></image>
+  </view>
+  <view class='new'>
+    <view class='new-1'>
+      <view class='box1'>
+        <image src='/assets/image/a10-title.png'></image>
+        <text>最新资讯</text>
+      </view>
+      <view class='box2'>
+        <text>更多</text>
+        <image src='/assets/image/more.png'></image>
+      </view>
+    </view>
+    <view class='new-2'>
+      <view class='new-left'>
+        <view class='title1'>
+          <text>四川U19足球赛出现夸张比分,这对国足是好事还是坏事?</text>
+        </view>
+        <view class='title2'>
+          <text>30分钟前</text>
+          <text></text>
+
+        </view>
+      </view>
+      <view class='new-right'>
+
+      </view>
+    </view>
+  </view>
+    <view class='new team'>
+      <view class='new-1'>
+        <view class='box1'>
+          <image src='/assets/image/a10-title.png'></image>
+          <text>团队风采</text>
+        </view>
+        <view class='box2'>
+          <text>更多</text>
+          <image src='/assets/image/more.png'></image>
+        </view>
+      </view>
+
+    </view>
+</view>
+<view class='new-2' >
+  <swiper class='swiper' circular display-multiple-items="2">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item class='swiper-item'>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" />
+        <text>教练名字</text>
+      </swiper-item>
+    </block>
+  </swiper>
+
+</view>

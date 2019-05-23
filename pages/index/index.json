@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "nav-bar":"/components/navbar/header"
+  },
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小程序",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "navigationStyle":"custom" 
+}
