@@ -51,6 +51,9 @@ Page({
         console.log(res)
       }
     })
+  },
+  trainDetails(event) {
+    console.log(event)
   }
 
 })

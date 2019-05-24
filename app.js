@@ -42,7 +42,7 @@ App({
   },
   globalData: {
     token: '123',
-    url: "http://gczj.sinmore.vip/",
+    url: "https://api.yueyefc.com/",
     height: wx.getSystemInfoSync()['statusBarHeight'] ,
   }
 })

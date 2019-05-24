@@ -58,10 +58,11 @@
   height: 100%;
 }
 
-.new { 
+.new {
   width: 100%;
 }
-.new,.team{
+
+.new, .team,.teach {
   padding-top: 40rpx;
 }
 
@@ -100,9 +101,8 @@
 
 .new-2 {
   display: flex;
-  
   padding-bottom: 34rpx;
-  border-bottom: 1rpx solid #E5E5E5
+  border-bottom: 1rpx solid #e5e5e5;
 }
 
 .new-2 .new-left {
@@ -110,23 +110,28 @@
 }
 
 .new-2 .new-left .title1 text {
-  height: 77rpx;
   font-size: 32rpx;
   font-family: PingFangSC-Medium;
   font-weight: 500;
   color: rgba(51, 51, 51, 1);
   line-height: 46rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
-.new-2 .new-left .title2{
+
+.new-2 .new-left .title2 {
   padding-top: 80rpx;
 }
+
 .new-2 .new-left .title2 text {
-height:23rpx;
-font-size:24rpx;
-font-family:PingFangSC-Regular;
-font-weight:400;
-color:rgba(153,153,153,1);
-line-height:48rpx;
+  height: 23rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: 48rpx;
 }
 
 .new-2 .new-right {
@@ -134,4 +139,41 @@ line-height:48rpx;
   box-sizing: border-box;
   margin-left: 43rpx;
   border: 1px solid red;
+}
+
+.scroll-view {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-left: 30rpx;
+}
+
+.view-item {
+  align-items: center;
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.view-item image {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+}
+.teach{
+  box-sizing: border-box;
+  padding:  30rpx;
+}
+.teact-view{
+  display: flex;
+  text-align: center;
+  flex-wrap: nowrap;
+  padding-top: 20rpx;
+}
+.teach-box{
+  width: 50%
+}
+.teach-box image{
+  width: 100%;
+  height: 200rpx;
 }

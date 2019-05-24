@@ -49,28 +49,46 @@
       </view>
     </view>
   </view>
-    <view class='new team'>
-      <view class='new-1'>
-        <view class='box1'>
-          <image src='/assets/image/a10-title.png'></image>
-          <text>团队风采</text>
-        </view>
-        <view class='box2'>
-          <text>更多</text>
-          <image src='/assets/image/more.png'></image>
+  <view class='new team'>
+    <view class='new-1'>
+      <view class='box1'>
+        <image src='/assets/image/a10-title.png'></image>
+        <text>团队风采</text>
+      </view>
+      <view class='box2'>
+        <text>更多</text>
+        <image src='/assets/image/more.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='new-2 '>
+  <scroll-view scroll-x scroll-left>
+    <view class='scroll-view'>
+      <view class='view-item' wx:for="{{imgUrls}}" wx:key="index">
+        <view bindtap="trainDetails" data-id="{{index}}">
+          <image src="{{item}}" class="slide-image" mode="aspectFit" />
+          <text>教练名字</text>
         </view>
       </view>
-
     </view>
+  </scroll-view>
 </view>
-<view class='new-2' >
-  <swiper class='swiper' circular display-multiple-items="2">
-    <block wx:for="{{imgUrls}}" wx:key="index">
-      <swiper-item class='swiper-item'>
-        <image src="{{item}}" class="slide-image" mode="aspectFit" />
-        <text>教练名字</text>
-      </swiper-item>
-    </block>
-  </swiper>
-
+<view class='new team teach'>
+  <view class='new-1'>
+    <view class='box1'>
+      <image src='/assets/image/a10-title.png'></image>
+      <text>团队风采</text>
+    </view>
+    <view class='box2'>
+      <text>更多</text>
+      <image src='/assets/image/more.png'></image>
+    </view>
+  </view>
+  <view  class='teact-view'>
+    <view wx:for="{{imgUrls}}" wx:key="index"  class='teach-box' wx:if="{{index>0}}" >
+      <image src="{{item}}" class="teach-image" mode="aspectFit" />
+      <text>团队标题名字</text>
+    </view>
+  </view>
 </view>
