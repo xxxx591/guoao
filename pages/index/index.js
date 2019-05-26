@@ -17,12 +17,45 @@ Page({
   },
   //事件处理函数  
   onLoad: function() {
-    console.log(this.data)
+    this.getAddress()
   },
   onShow: function() {
-    this.getImage()
-    this.getNew()
+    // this.getImage()
+    // this.getNew()
   },
+  // 跳转至预约
+  appointment() {
+    wx.navigateTo({
+      url: '/pages/appointment/appointment'
+    })
+  },
+  // 跳转至更多新闻
+  moreNew(e) {
+    console.log(e)
+    if (e.currentTarget.id == '') {
+      wx.navigateTo({
+        url: '/pages/nnews/nnews'
+      })
+    } else {
+      console.log('详情')
+    }
+
+  },
+  // 获取地理位置
+  getAddress() {
+    wx.request({
+      url: app.globalData.url + 'api/user/upsite',
+      data: {
+        lng: app.globalData.lnt,
+        lat: app.globalData.lat
+      },
+      method: 'post',
+      success: res => {
+        console.log(res)
+      }
+    })
+  },
+
   // 获取图片
   getImage() {
     wx.request({

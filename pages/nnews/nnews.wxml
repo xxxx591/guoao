@@ -1,0 +1,10 @@
+<view class='tab-box'>
+  <text class='active'>教练团队</text>
+  <text bindtap='gostudent'>学员风采</text>
+</view>
+<view class="nnews">
+  <view class='img-box' wx:for="100" bindtap='checkDetails' id='{{index}}'>
+    <image src='/assets/image/teach.png'></image>
+    <text>某老师</text>
+  </view>
+</view>

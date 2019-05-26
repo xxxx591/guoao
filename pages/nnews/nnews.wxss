@@ -1,0 +1,47 @@
+/* pages/nnews/nnews.wxss */
+
+
+.tab-box {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: #006428;
+}
+
+.tab-box text {
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(171, 199, 182, 1);
+  flex: 1;
+  box-sizing: border-box;
+  margin: 0 30rpx;
+}
+
+.tab-box .active {
+  color: rgba(255, 255, 255, 1);
+  border-bottom: 3px solid #fff;
+}
+
+.nnews {
+  padding: 31rpx;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.nnews .img-box{
+  width: 330rpx;
+  height: 420rpx;
+}
+.nnews .img-box text{
+  line-height: 60rpx;
+}
+.nnews .img-box image{
+  width: 330rpx;
+  height: 330rpx;
+  border-radius:6px;
+
+}

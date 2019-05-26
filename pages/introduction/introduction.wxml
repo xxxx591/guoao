@@ -1,0 +1,45 @@
+<view class='tab-box'>
+  <text class="{{type==1?'active':''}}" bindtap='gostudent' data-num="1">新闻资讯</text>
+  <text bindtap='gostudent' class="{{type==2?'active':''}}" data-num="2">品牌介绍</text>
+</view>
+<view class='introduction'>
+  <view>
+    <view class='new'>
+      <view class='new-2'>
+        <view class='new-left'>
+          <view class='title1' bindtap='moreNew' id='123'>
+            <text>四川U19足球赛出现夸张比分,这对国足是好事还是坏事?</text>
+          </view>
+          <view class='title2'>
+            <text>30分钟前</text>
+            <text>123浏览</text>
+          </view>
+        </view>
+        <view class='new-right'>
+
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class='new'>
+      <view class='new-two'>
+        <view class='new-left'>
+          <view class='title1' bindtap='moreNew' id='123'>
+            <text>四川U19足球赛出现夸张比分,这对国足是好事还是坏事?</text>
+          </view>
+          <view class='new-right'>
+          <view class='image-box'>
+            <image></image>
+          </view>
+        </view>
+          <view class='title2'>
+            <text>30分钟前</text>
+            <text>123浏览</text>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+</view>

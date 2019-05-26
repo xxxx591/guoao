@@ -20,7 +20,7 @@
     </block>
   </swiper>
   <view class='free'>
-    <image src='/assets/image/a10-free.png'></image>
+    <image src='/assets/image/a10-free.png' bindtap="appointment"></image>
   </view>
   <view class='new'>
     <view class='new-1'>
@@ -28,19 +28,19 @@
         <image src='/assets/image/a10-title.png'></image>
         <text>最新资讯</text>
       </view>
-      <view class='box2'>
+      <view class='box2' bindtap='moreNew'>
         <text>更多</text>
         <image src='/assets/image/more.png'></image>
       </view>
     </view>
     <view class='new-2'>
       <view class='new-left'>
-        <view class='title1'>
+        <view class='title1' bindtap='moreNew' id='123'>
           <text>四川U19足球赛出现夸张比分,这对国足是好事还是坏事?</text>
         </view>
         <view class='title2'>
           <text>30分钟前</text>
-          <text></text>
+          <text>123浏览</text>
 
         </view>
       </view>
@@ -85,8 +85,8 @@
       <image src='/assets/image/more.png'></image>
     </view>
   </view>
-  <view  class='teact-view'>
-    <view wx:for="{{imgUrls}}" wx:key="index"  class='teach-box' wx:if="{{index>0}}" >
+  <view class='teact-view'>
+    <view wx:for="{{imgUrls}}" wx:key="index" class='teach-box' wx:if="{{index>0}}">
       <image src="{{item}}" class="teach-image" mode="aspectFit" />
       <text>团队标题名字</text>
     </view>

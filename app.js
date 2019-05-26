@@ -44,5 +44,7 @@ App({
     token: '123',
     url: "https://api.yueyefc.com/",
     height: wx.getSystemInfoSync()['statusBarHeight'] ,
+    lat:'',
+    lnt:''
   }
 })

@@ -1,13 +1,26 @@
 {
   "pages": [
+    "pages/details-news/details-news",
+    "pages/introduction/introduction",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/init/init",
+    "pages/details/details",
+    "pages/nnews/nnews",
+    "pages/appointment/appointment",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/student/student"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "tabBar": {
     "list": [
