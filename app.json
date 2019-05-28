@@ -1,9 +1,13 @@
 {
   "pages": [
-    "pages/details-news/details-news",
-    "pages/introduction/introduction",
+    "pages/all-course/course",
+    "pages/course-details/courseDetails",
+    "pages/storeList/storeList",
+    "pages/store-details/storeDetails",
     "pages/index/index",
     "pages/init/init",
+    "pages/details-news/details-news",
+    "pages/introduction/introduction",
     "pages/details/details",
     "pages/nnews/nnews",
     "pages/appointment/appointment",

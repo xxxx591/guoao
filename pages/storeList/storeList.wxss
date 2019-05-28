@@ -1,0 +1,112 @@
+/* pages/storeList/storeList.wxss */
+
+.store-list {
+  padding: 30rpx;
+}
+
+.new {
+  width: 100%;
+}
+
+.new, .team, .teach {
+  padding-top: 40rpx;
+}
+
+.new-1 {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.box1 {
+  display: flex;
+  justify-items: center;
+}
+
+.new-1 .box1 text {
+  padding: 0 16rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.new-1 .box1 image {
+  width: 14rpx;
+  height: 38rpx;
+}
+
+.new-1 .box2 text {
+  padding: 0 16rpx;
+  height: 38rpx;
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.new-1 .box2 image {
+  width: 10rpx;
+  height: 16rpx;
+}
+
+.new-2 {
+  display: flex;
+  padding-bottom: 34rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.new-2 .new-left {
+  flex: 3;
+  position: relative;
+}
+
+.new-2 .new-left .title1 text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: 46rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.title2 image {
+  width: 22rpx;
+  height: 26rpx;
+  margin-right: 11rpx;
+}
+
+.new-2 .new-left .title2 {
+  position: absolute;
+
+  width: 100%;
+  bottom: 0;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.title3 {
+  background: #006428;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 241, 0, 1);
+}
+
+.new-2 .new-left .title2 text {
+  height: 23rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: 48rpx;
+}
+
+.new-2 .new-right {
+  height: 200rpx;
+  width: 200rpx;
+  flex: 1.5;
+  box-sizing: border-box;
+  margin-right: 43rpx;
+  border: 1px solid red;
+}

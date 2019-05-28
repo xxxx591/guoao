@@ -1,0 +1,21 @@
+<view class='store-list'>
+  <view class='new' wx:for="[1,2,3,4]" wx:key="index">
+    <view class='new-2' id="{{index}}" bindtap='goCourseDetails'>
+      <view class='new-right'>
+
+      </view>
+      <view class='new-left'>
+        <view class='title1' bindtap='moreNew' id='123'>
+          <text>详细介绍头顶球技术要领和训练方法</text>
+        </view>
+         
+        <view class='title2'>
+          ￥599
+          <view class='button' bindtap='buy'>
+            <button>立即购买</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

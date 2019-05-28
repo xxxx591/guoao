@@ -22,20 +22,17 @@ Page({
         wx.request({
           url: app.globalData.url + 'api/wechat/miniLogin',
           data: {
-            'encryptedData': encodeURIComponent(e.detail.encryptedData),
+            'encryptedData': (e.detail.encryptedData),
             'iv': e.detail.iv,
             'code': res.code
           },
-          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+          method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
           header: {
-            'content-type': 'application/json'
+            "content-type": "application/x-www-form-urlencoded"
           }, // 设置请求的 header
           success: function(res) {
             console.log(res)
-            // if (res.status == 1) { //我后台设置的返回值为1是正确
-            //   //存入缓存即可
-            //   wx.setStorageSync('phone', res.phone);
-            // }
+
           },
           fail: function(err) {
             console.log(err);
@@ -55,7 +52,7 @@ Page({
           wx.getLocation({
             type: 'wgs84',
             success(res) {
-              console.log(res)
+              console.log('地理位置', res)
               app.globalData.lat = res.latitude
               app.globalData.lnt = res.longitude
               lat = res.latitude

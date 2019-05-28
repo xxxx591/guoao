@@ -9,7 +9,7 @@
 
   <view class='tab-box' style=''>
     <image src='/assets/image/tag.png' class='tag-img'></image>
-    <text>国奥越野奥体中心店</text>
+    <text bindtap='goShopList'>国奥越野奥体中心店</text>
   </view>
 
   <swiper class='swiper' indicator-dots circular autoplay indicator-color="rgba(255,255,255,1)" indicator-active-color="green">

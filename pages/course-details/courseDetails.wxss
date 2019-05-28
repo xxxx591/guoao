@@ -1,0 +1,171 @@
+.details {
+  position: relative;
+}
+
+.photo-1 {
+  height: 140rpx;
+  background: #006428;
+}
+
+.img-box {
+  position: absolute;
+  left: 30rpx;
+  top: 30rpx;
+  width: 690rpx;
+  height: 411rpx;
+  background: #fff;
+  z-index: 999;
+}
+
+.photo-1 image {
+  margin-left: 4rpx;
+  margin-top: 4rpx;
+  width: 690rpx;
+  height: 411rpx;
+}
+
+.photo-2 {
+  position: absolute;
+  top: 100rpx;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  border-radius: 30rpx;
+}
+
+.details-box {
+  margin-top: 60rpx;
+  margin-bottom: 45rpx;
+}
+
+.basic {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.basic text {
+  height: 42rpx;
+  box-sizing: border-box;
+  padding: 9rpx 20rpx;
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  margin-right: 10rpx;
+  background: #e4f5eb;
+  color: rgba(0, 100, 40, 1);
+}
+
+.basic image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.details-year {
+  height: 260rpx;
+  margin: 0 30rpx;
+  /* border-bottom: 1px solid rgba(229, 229, 229, 1); */
+  display: flex;
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.details-year .level {
+  flex: 1;
+  width: 344rpx;
+  text-align: center;
+}
+
+.num {
+  display: block;
+  font-size: 64rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(51, 51, 51, 1);
+}
+
+.year-1 {
+  display: block;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.details-text {
+  padding: 40rpx 30rpx;
+}
+
+.txt-box {
+}
+
+.txt-box .txt {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(77, 77, 77, 1);
+  line-height: 46rpx;
+}
+
+.txt-img {
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.details-students {
+  padding: 30rpx 30rpx 40rpx;
+  border-bottom: 1px solid rgba(229, 229, 229, 1);
+ 
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  text-align: center;
+}
+
+.bold {
+  color: #333;
+  font-weight: 600;
+}
+
+.onsd {
+  margin-right: 30rpx;
+}
+
+.box1 text{
+  font-size:32rpx;
+font-family:PingFangSC-Semibold;
+font-weight:600;
+color:rgba(51,51,51,1);
+}
+.buy-box{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height:120rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.buy-box text{
+  flex: 1;
+  font-size:48rpx;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(244,83,66,1);
+line-height:48rpx;
+}
+.buy-box button{
+  flex: 1;
+  width: 320rpx;
+  height: 94rpx;
+  box-sizing: border-box;
+  background: #006428;
+  border-bottom: 6rpx solid yellow;
+  color: #fff;
+}

@@ -29,6 +29,11 @@ Page({
       url: '/pages/appointment/appointment'
     })
   },
+  goShopList(){
+    wx.navigateTo({
+      url: '/pages/storeList/storeList'
+    })
+  },
   // 跳转至更多新闻
   moreNew(e) {
     console.log(e)
