@@ -1,47 +1,91 @@
 // pages/init/init.js
 const app = getApp()
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
-  getPhoneNumber: function(e) {
-    console.log(e);
+  onLoad: function() {
+    // 查看是否授权
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function(res) {
+              wx.request({
+                url: app.globalData.url + 'api/wechat/miniLogin',
+                header: {
+                  "content-type": "application/x-www-form-urlencoded"
+                }, // 设置请求的 header
+                data: {
+                  'encryptedData': app.globalData.encryptedData,
+                  'iv': app.globalData.iv,
+                  'code': app.globalData.code
+                },
+                method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                success: function(res) {
+                  console.log(res)
+                  // 转存token
+                  app.globalData.token = res.data.data.token
+                },
+                fail: function(err) {
+                  console.log(err);
+                }
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  bindGetUserInfo: function(e) {
 
     wx.login({
       success: res => {
         console.log(res.code);
-        wx.request({
-          url: app.globalData.url + 'api/wechat/miniLogin',
-          data: {
-            'encryptedData': (e.detail.encryptedData),
-            'iv': e.detail.iv,
-            'code': res.code
-          },
-          method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-          header: {
-            "content-type": "application/x-www-form-urlencoded"
-          }, // 设置请求的 header
-          success: function(res) {
-            console.log(res)
-
-          },
-          fail: function(err) {
-            console.log(err);
+        wx.getUserInfo({
+          success: function(data) {
+            console.log('点击登陆获取的数据', res)
+            wx.request({
+              url: app.globalData.url + 'api/wechat/miniLogin',
+              header: {
+                "content-type": "application/x-www-form-urlencoded"
+              }, // 设置请求的 header
+              data: {
+                'encryptedData': data.encryptedData,
+                'iv': data.iv,
+                'code': res.code
+              },
+              method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+              success: function(res) {
+                console.log(res)
+                // 转存token
+                app.globalData.token = res.data.data.token;
+                wx.switchTab({
+                  url: '/pages/index/index',
+                })
+              },
+              fail: function(err) {
+                console.log(err);
+              }
+            })
           }
         })
       }
     })
 
   },
+
   getuser() {
     wx.getSetting({
       success(res) {

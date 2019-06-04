@@ -107,6 +107,10 @@
   width: 200rpx;
   flex: 1.5;
   box-sizing: border-box;
-  margin-right: 43rpx;
-  border: 1px solid red;
+  margin-right: 43rpx; 
+}
+
+.new-2 .new-right image{
+  width: 200rpx;
+  height: 200rpx;
 }

@@ -1,23 +1,43 @@
 // pages/storeList/storeList.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    shopList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.getNearbyShop()
+  },
+  // 获取门店列表
+  getNearbyShop() {
+    wx.request({
+      url: app.globalData.url + 'api/store/list',
+      data: {
+        token: app.globalData.token,
+        page: 1,
+        pagesize: 100
+      },
+      method: 'post',
+      success: res => {
+        console.log('获取门店列表接口返回', res)
+        this.setData({
+          shopList: res.data.data.data,
+        })
 
+      }
+    })
   },
   goStoreDetails(e) {
     console.log(e)
     wx.navigateTo({
-      url: '/pages/store-details/storeDetails?id=' + e.currentTarget.id,
+      url: '/pages/store-details/storeDetails?id=' + e.currentTarget.dataset.id,
     })
   },
   /**

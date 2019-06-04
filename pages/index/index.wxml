@@ -9,13 +9,13 @@
 
   <view class='tab-box' style=''>
     <image src='/assets/image/tag.png' class='tag-img'></image>
-    <text bindtap='goShopList'>国奥越野奥体中心店</text>
+    <text bindtap='goShopList'>{{shopName}}</text>
   </view>
 
   <swiper class='swiper' indicator-dots circular autoplay indicator-color="rgba(255,255,255,1)" indicator-active-color="green">
     <block wx:for="{{imgUrls}}" wx:key="index">
-      <swiper-item class='swiper-item'>
-        <image src="{{item}}" class="slide-image" mode="aspectFit" />
+      <swiper-item class='swiper-item' >
+        <image src="{{item.pic}}" class="slide-image" mode="aspectFit" data-id='{{item.id}}' />
       </swiper-item>
     </block>
   </swiper>
@@ -28,24 +28,24 @@
         <image src='/assets/image/a10-title.png'></image>
         <text>最新资讯</text>
       </view>
-      <view class='box2' bindtap='moreNew'>
+      <view class='box2' >
         <text>更多</text>
         <image src='/assets/image/more.png'></image>
       </view>
     </view>
-    <view class='new-2'>
+    <view class='new-2' wx:for="{{newsList}}">
       <view class='new-left'>
-        <view class='title1' bindtap='moreNew' id='123'>
-          <text>四川U19足球赛出现夸张比分,这对国足是好事还是坏事?</text>
+        <view class='title1' bindtap='moreNew' id='{{item.id}}'>
+          <text>{{item.name}}</text>
         </view>
         <view class='title2'>
-          <text>30分钟前</text>
-          <text>123浏览</text>
+          <text>{{item.time_ago}}</text>
+          <text>{{item.view}}浏览</text>
 
         </view>
       </view>
       <view class='new-right'>
-
+        <image src='{{item.get_pic[0].content}}'></image>
       </view>
     </view>
   </view>
@@ -55,7 +55,7 @@
         <image src='/assets/image/a10-title.png'></image>
         <text>团队风采</text>
       </view>
-      <view class='box2'>
+      <view class='box2' bindtap='moreNew'>
         <text>更多</text>
         <image src='/assets/image/more.png'></image>
       </view>
@@ -64,11 +64,11 @@
 </view>
 <view class='new-2 '>
   <scroll-view scroll-x scroll-left>
-    <view class='scroll-view'>
-      <view class='view-item' wx:for="{{imgUrls}}" wx:key="index">
-        <view bindtap="trainDetails" data-id="{{index}}">
-          <image src="{{item}}" class="slide-image" mode="aspectFit" />
-          <text>教练名字</text>
+    <view class='scroll-view' >
+      <view class='view-item' wx:for="{{coachList}}" wx:key="index">
+        <view bindtap="trainDetails" data-id="{{item.id}}">
+          <image src="{{item.avatar}}" class="slide-image" mode="aspectFit" />
+          <text>{{item.name}}</text>
         </view>
       </view>
     </view>
@@ -78,7 +78,7 @@
   <view class='new-1'>
     <view class='box1'>
       <image src='/assets/image/a10-title.png'></image>
-      <text>团队风采</text>
+      <text>推荐课程</text>
     </view>
     <view class='box2'>
       <text>更多</text>
@@ -86,9 +86,9 @@
     </view>
   </view>
   <view class='teact-view'>
-    <view wx:for="{{imgUrls}}" wx:key="index" class='teach-box' wx:if="{{index>0}}">
-      <image src="{{item}}" class="teach-image" mode="aspectFit" />
-      <text>团队标题名字</text>
+    <view wx:for="{{curriculumList}}" wx:key="index" class='teach-box'  data-id="{{item.id}}">
+      <image src="{{item.pic}}" class="teach-image" mode="aspectFit" />
+      <text>{{item.name}}</text>
     </view>
   </view>
 </view>

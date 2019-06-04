@@ -1,17 +1,17 @@
 <view class='store-list'>
-  <view class='new' wx:for="[1,2,3,4]" wx:key="index">
-    <view class='new-2' id="{{index}}" bindtap='goStoreDetails'>
+  <view class='new' wx:for="{{shopList}}" wx:key="index">
+    <view class='new-2' data-id="{{item.id}}" bindtap='goStoreDetails'>
       <view class='new-right'>
-
+        <image src='{{item.logo}}'></image>
       </view>
       <view class='new-left'>
         <view class='title1' bindtap='moreNew' id='123'>
-          <text>北京国奥越野店</text>
+          <text>{{item.name}}</text>
         </view>
-        <text class='title3'>北京国奥越野店</text>
+        <text class='title3'>{{item.open_time}}</text>
         <view class='title2'>
           <image src='/assets/image/address.png'></image>
-          北京市朝阳区奥林匹克体育场国奥越野
+          {{item.prov+item.city+item.area+item.address}}
         </view>
       </view>
     </view>

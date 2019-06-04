@@ -103,6 +103,7 @@
 .new-2 {
   display: flex;
   padding-bottom: 34rpx;
+  padding-top:40rpx;
   border-bottom: 1rpx solid #e5e5e5;
 }
 
@@ -139,9 +140,14 @@
 
 .new-2 .new-right {
   flex: 1.5;
+  width: 200rpx;
+  height: 200rpx;
   box-sizing: border-box;
-  margin-left: 43rpx;
-  border: 1px solid red;
+  margin-left: 43rpx; 
+}
+.new-2 .new-right image{
+  width: 200rpx;
+  height: 200rpx;
 }
 
 .scroll-view {

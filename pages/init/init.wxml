@@ -1,8 +1,7 @@
 <!--pages/init/init.wxml-->
 <view>
-  <view>
-    <image></image>
-  </view>
+  <open-data type="userAvatarUrl"></open-data>
+  <open-data type="userNickName"></open-data>
   <!-- <button open-type="getUserInfo">微信登陆</button> -->
-  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信登陆</button>
+  <button open-type="getUserInfo" bindgetuserinfo='bindGetUserInfo' >微信登陆</button>
 </view>

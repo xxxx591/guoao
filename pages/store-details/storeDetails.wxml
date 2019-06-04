@@ -1,10 +1,10 @@
 <view class='details-text'>
  
   <view class='txt-box'>
-  <text class='bolder'>北京国奥越野店</text>
+  <text class='bolder'>{{details.name}}</text>
     <text class='txt'>
-      李春满，男，1962年生，朝鲜族，现任北京体育大学足球教研室教授、博士生导师，亚足联A级教练员培训班讲师，中国足协技术委员会副主任，全国校园足球专家委员会副主任，其执教履历丰富，曾先后在重庆力帆、青岛颐中、北京国安、河南建业、贵州人和等多家职业足球俱乐部执教，拥有极高的理论知识和实战经验。</text>
-    <image src='/assets/image/teach.png' class='txt-img'></image>
+      {{details.desc}}</text>
+    <image src='{{details.logo}}' class='txt-img'></image>
   </view>
   <view>
     <view class='submit'>

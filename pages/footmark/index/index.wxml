@@ -1,0 +1,50 @@
+<view class='details'>
+  <view class='photo-1'>
+    <view class='img-box'>
+      <image src='/assets/image/teach.png'></image>
+    </view>
+  </view>
+  <view class='photo-2'>
+    <view>
+    </view>
+  </view>
+</view>
+<view class='details-box'>
+  <view class='basic'>
+    <text>本科</text>
+    <text>28岁</text>
+    <image src='/assets/image/man.png'></image>
+    <image src='/assets/image/woman.png'></image>
+  </view>
+</view>
+<view class='details-year'>
+  <view class='years'>
+    <text class='num'>6年</text>
+    <text class='year-1'>执教年限</text>
+  </view>
+  <view class='level'>
+    <text class='num'>B级别</text>
+    <text class='year-1'>教练级别</text>
+  </view>
+</view>
+<view class='details-students'>
+  <text >位置：</text>
+  <text class='onsd bold' >影子先锋</text>
+  <text >位置：</text>
+  <text  class='bold'>影子先锋</text>
+  
+</view>
+<view class='details-text'>
+  <view class='new-1'>
+    <view class='box1'>
+      <image src='/assets/image/a10-title.png'></image>
+      <text>教练介绍</text>
+    </view>
+
+  </view>
+  <view class='txt-box'>
+    <text class='txt'>
+      李春满，男，1962年生，朝鲜族，现任北京体育大学足球教研室教授、博士生导师，亚足联A级教练员培训班讲师，中国足协技术委员会副主任，全国校园足球专家委员会副主任，其执教履历丰富，曾先后在重庆力帆、青岛颐中、北京国安、河南建业、贵州人和等多家职业足球俱乐部执教，拥有极高的理论知识和实战经验。</text>
+    <image src='/assets/image/teach.png' class='txt-img'></image>
+  </view>
+</view>

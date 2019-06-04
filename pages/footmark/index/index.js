@@ -1,13 +1,11 @@
 // pages/details/details.js
-const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    details:{},
-    content:''
+
   },
 
   /**
@@ -15,24 +13,8 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
-    this.getShopDetails(options.id)
   },
-  // 获取门店详情
-  getShopDetails(id){
-    wx.request({
-      url: app.globalData.url + 'api/store/detail',
-      data: {
-        store_id: parseInt(id), 
-      },
-      method: 'post',
-      success: res => {
-        console.log('获取门店详情接口返回', res)
-        this.setData({
-          details: res.data.data, 
-        })
-      }
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
