@@ -3,8 +3,8 @@
     <text class='active' >学员风采</text>
   </view>
 <view class="nnews">
-  <view class='img-box' wx:for="100">
-    <image src='/assets/image/teach.png'></image>
-    <text>某老师</text>
+  <view class='img-box' wx:for="coachList" id='{{item.id}}' bindtap='goStudentDetails'>
+    <image src='{{item.pic}}'></image>
+    <text>{{item.name}}</text>
   </view>
 </view>

@@ -27,6 +27,12 @@
     <text class='year-1'>教练级别</text>
   </view>
 </view>
+    <view class='details-students'>
+  <text >位置：</text>
+  <text class='onsd bold' >影子先锋</text>
+  <text >位置：</text>
+  <text  class='bold'>影子先锋</text>
+</view>
 <view class='details-text'>
   <view class='new-1'>
     <view class='box1'>

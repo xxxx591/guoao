@@ -15,9 +15,9 @@ Page({
     page: 1,
     pageNum: 3,
     shopName: '123',
-    newsList:[],
-    coachList:[],
-    curriculumList:[]
+    newsList: [],
+    coachList: [],
+    curriculumList: []
   },
   //事件处理函数  
   onLoad: function() {
@@ -29,7 +29,7 @@ Page({
     // this.getNew()
   },
   // 是否显示体验课
-  isShowExperience(){
+  isShowExperience() {
     wx.request({
       url: app.globalData.url + 'api/user/course',
       data: {
@@ -38,7 +38,7 @@ Page({
       method: 'post',
       success: res => {
         console.log('是否显示体验课返回', res)
-        
+
       }
     })
   },
@@ -64,7 +64,7 @@ Page({
     })
   },
   // 获取教练团队
-  getCoachList(id){
+  getCoachList(id) {
     wx.request({
       url: app.globalData.url + 'api/coach/list',
       data: {
@@ -82,7 +82,7 @@ Page({
     })
   },
   // 获取推荐课程
-  getCurriculumList(id){
+  getCurriculumList(id) {
     wx.request({
       url: app.globalData.url + 'api/course/list',
       data: {
@@ -100,25 +100,25 @@ Page({
     })
   },
   // 获取新闻列表
-  getNewsList(id){
+  getNewsList(id) {
     wx.request({
       url: app.globalData.url + 'api/info/list',
       data: {
         store_id: id,
-        page:1,
-        pagesize:2
+        page: 1,
+        pagesize: 2
       },
       method: 'post',
       success: res => {
         console.log('获取新闻列表接口返回', res)
-         this.setData({
-           newsList: res.data.data.data
-         })
+        this.setData({
+          newsList: res.data.data.data
+        })
       }
     })
   },
   // 获取banner图组
-  getBannerList(id){
+  getBannerList(id) {
     wx.request({
       url: app.globalData.url + 'api/banner/list',
       data: {
@@ -150,7 +150,7 @@ Page({
     console.log(e)
     if (e.currentTarget.id == '') {
       wx.navigateTo({
-        url: '/pages/nnews/nnews'
+        url: '/pages/nnews/nnews?id=' + this.data.shopId
       })
     } else {
       console.log('详情')
@@ -187,8 +187,10 @@ Page({
       }
     })
   },
-  trainDetails(event) {
-    console.log(event)
+  trainDetails(e) {
+    wx.navigateTo({
+      url: '/pages/details/details?id=' + e.currentTarget.dataset.id,
+    })
   }
 
 })

@@ -1,22 +1,46 @@
 // pages/nnews/nnews.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    coachList:[],
+    id:''
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    console.log(options)
+    this.setData({
+      id: options.id
+    })
+    this.getCoachList(options.id)
+  },
+  // 获取老师列表
+  getCoachList(id) {
+    wx.request({
+      url: app.globalData.url + 'api/coach/list',
+      data: {
+        store_id: id,
+        page: 1,
+        pagesize: 10
+      },
+      method: 'post',
+      success: res => {
+        console.log('获取教练团队接口返回', res)
+        this.setData({
+          coachList: res.data.data.data
+        })
+      }
+    })
   },
   gostudent() {
     wx.redirectTo({
-      url: '/pages/student/student'
+      url: '/pages/student/student?id='+this.data.id
     })
   },
   checkDetails(e) {
