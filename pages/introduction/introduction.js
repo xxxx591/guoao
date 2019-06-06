@@ -6,15 +6,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-    type: 1
+    type: 1,
+    newsList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getNewsList(options.id)
   },
+  // 获取新闻列表
+  getNewsList(id){
+    wx.request({
+      url: app.globalData.url + 'api/info/list',
+      data: {
+        store_id: parseInt(id),
+        page:1,
+        pagesize:30
+      },
+      method: 'post',
+      success: res => {
+        console.log('获取新闻列表接口返回', res)
+        let list = res.data.data.data
+        let reg = /<\/?.+?\/?>/g; 
+        list.forEach(item=>{
+          item.content = (item.content).replace(reg,'')
+        })
+         this.setData({
+           newsList: list
+         })
+      }
+    })
+  },
+  // 跳转至详情
+  newsDetails(e){
+    wx.navigateTo({
+      url: '/pages/detailsNews/detailsNews?id=' + e.currentTarget.id,
+    })
+  },
+  // 切换至学生列表
   gostudent(e) {
     console.log(e)
     if (e.currentTarget.dataset.num  == 1) {

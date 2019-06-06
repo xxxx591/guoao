@@ -1,5 +1,6 @@
 // pages/details/details.js
 const app = getApp()
+var WxParse = require('../wxParse/wxParse.js');
 Page({
 
   /**
@@ -28,6 +29,8 @@ Page({
       method: 'post',
       success: res => {
         console.log('获取老师详情列表接口返回', res)
+        let article = res.data.data.desc
+        WxParse.wxParse('article', 'html', article, this, 5);
         let education = ''
         switch (res.data.data.education) {
           case 1:

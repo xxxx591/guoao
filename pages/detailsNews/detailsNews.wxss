@@ -112,6 +112,7 @@
 }
 
 .txt-box {
+  padding: 40rpx 30rpx;
 }
 
 .txt-box .txt {

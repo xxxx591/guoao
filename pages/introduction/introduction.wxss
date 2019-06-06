@@ -75,6 +75,7 @@
 
 .new-2 .new-left {
   flex: 3;
+  position: relative;
 }
 
 .new-2 .new-left .title1 text {
@@ -92,11 +93,13 @@
 .new-2 .new-left .title2 {
   display: flex;
   justify-content: space-between;
-  padding-top: 80rpx;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
 }
 
 .new-2 .new-left .title2 text {
-  height: 23rpx;
   font-size: 24rpx;
   font-family: PingFangSC-Regular;
   font-weight: 400;
@@ -104,13 +107,17 @@
   line-height: 48rpx;
 }
 
-.new-2 .new-right {
+.new-2 .new-right { 
   flex: 1.5;
   box-sizing: border-box;
   margin-left: 43rpx;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
+.new-right image{
+  width: 210rpx;
+  height: 210rpx;
+}
 .new-two {
 }
 
@@ -126,13 +133,13 @@
 }
 .new-two .new-right .image-box {
   margin-top: 30rpx;
- width: 220rpx;
- height: 220rpx;
+ width: 210rpx;
+ height: 210rpx;
 }
 .new-two .new-right .image-box image {
- width: 220rpx;
- height: 220rpx;
- border: 1px solid black;
+ width: 210rpx;
+ height: 210rpx; 
+ padding: 0 10rpx
 }
 .new-two .new-left .title2 {
   display: flex;

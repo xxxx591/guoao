@@ -137,7 +137,7 @@ Page({
   // 跳转至预约
   appointment() {
     wx.navigateTo({
-      url: '/pages/appointment/appointment'
+      url: '/pages/appointment/appointment?storeId=' + this.data.shopId
     })
   },
   goShopList() {
@@ -145,17 +145,23 @@ Page({
       url: '/pages/storeList/storeList'
     })
   },
-  // 跳转至更多新闻
-  moreNew(e) {
-    console.log(e)
-    if (e.currentTarget.id == '') {
+  // 跳转至新闻详情
+  NewDetails(e) {  
       wx.navigateTo({
-        url: '/pages/nnews/nnews?id=' + this.data.shopId
-      })
-    } else {
-      console.log('详情')
-    }
+        url: '/pages/detailsNews/detailsNews?id=' + e.currentTarget.id
+      })  
+  },
+  // 跳转至课程详情
+  storeDetails(e) {  
+      wx.navigateTo({
+        url: '/pages/course-details/courseDetails?id=' + e.currentTarget.id
+      })  
+  },
 
+  newsMore(){
+    wx.navigateTo({
+      url: '/pages/introduction/introduction?id='+this.data.shopId,
+    })
   },
 
   // 获取图片

@@ -4,7 +4,7 @@
     "pages/login/login",
     "pages/footmark/index/index",
     "pages/details/details",
-    "pages/details-news/details-news",
+    "pages/detailsNews/detailsNews",
     "pages/course-details/courseDetails",
     "pages/store-details/storeDetails",
     "pages/all-course/course",

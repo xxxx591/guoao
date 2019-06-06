@@ -1,24 +1,29 @@
-<view class='appointment'>
-  <view class='input-box'>
-    <text>家长姓名：</text>
-    <input placeholder='请输入...' type='text'> </input>
-  </view>
-  <view class='input-box'>
-    <text>手机号码：</text>
-    <input placeholder='请输入...' type='number'> </input>
-  </view>
-  <view class='input-box'>
-    <text>孩子年龄：</text>
-    <input placeholder='请输入...' type='number'> </input>
-  </view>
-  <view class='input-box'>
-    <text>所在校区：</text>
-    <input placeholder='请输入...' type='text' confirm-type="done"> </input>
-  </view>
-  <view>
-    <view class='submit'>
-      <text>提交</text>
-      <image src='/assets/image/submit-btn.png'></image>
+<form bindsubmit="formSubmit">
+  <view class='appointment'>
+
+    <view class='input-box'>
+      <text>家长姓名：</text>
+      <input placeholder='请输入...' type='text' name="name"> </input>
+    </view>
+    <view class='input-box'>
+      <text>手机号码：</text>
+      <input placeholder='请输入...' type='number' name="mobile"> </input>
+    </view>
+    <view class='input-box'>
+      <text>孩子年龄：</text>
+      <input placeholder='请输入...' type='number' name="age"> </input>
+    </view>
+    <view class='input-box'>
+      <text>所在校区：</text>
+      <input placeholder='请输入...' type='text' confirm-type="done"  name="school"> </input>
+    </view>
+    <view>
+    <button form-type="submit">
+      <view class='submit' >
+        <text>提交</text>
+        <image src='/assets/image/submit-btn.png'></image>
+      </view>
+    </button>
     </view>
   </view>
-</view>
+</form>

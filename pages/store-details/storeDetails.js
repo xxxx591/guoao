@@ -1,5 +1,6 @@
 // pages/details/details.js
 const app = getApp()
+var WxParse = require('../wxParse/wxParse.js');
 Page({
 
   /**
@@ -27,8 +28,11 @@ Page({
       method: 'post',
       success: res => {
         console.log('获取门店详情接口返回', res)
+        let article = res.data.data.desc
+        WxParse.wxParse('article', 'html', article, this, 5);
         this.setData({
           details: res.data.data, 
+           
         })
       }
     })

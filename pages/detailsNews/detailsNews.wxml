@@ -1,0 +1,15 @@
+<import src="../wxParse/wxParse.wxml"/>
+
+
+<view class='details-text'>
+  <view class='new-1'>
+    <view class='box1'> 
+      <text class='store'>{{details.name}}</text>
+    </view>
+
+  </view>
+  <view class='txt-box'>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    <image wx:for="{{details.get_pic}}" src='{{item.content}}' class='txt-img'></image>
+  </view>
+</view>

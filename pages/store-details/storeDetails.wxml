@@ -1,9 +1,11 @@
+<import src="../wxParse/wxParse.wxml"/>
 <view class='details-text'>
- 
+
   <view class='txt-box'>
-  <text class='bolder'>{{details.name}}</text>
-    <text class='txt'>
-      {{details.desc}}</text>
+    <text class='bolder'>{{details.name}}</text>
+
+    <!-- <rich-text class='txt' nodes="{{content}}"></rich-text> -->
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     <image src='{{details.logo}}' class='txt-img'></image>
   </view>
   <view>

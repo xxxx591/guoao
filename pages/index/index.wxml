@@ -28,14 +28,14 @@
         <image src='/assets/image/a10-title.png'></image>
         <text>最新资讯</text>
       </view>
-      <view class='box2' >
+      <view class='box2' bindtap='newsMore'>
         <text>更多</text>
         <image src='/assets/image/more.png'></image>
       </view>
     </view>
-    <view class='new-2' wx:for="{{newsList}}">
+    <view class='new-2' wx:for="{{newsList}}"  bindtap='NewDetails' id='{{item.id}}'>
       <view class='new-left'>
-        <view class='title1' bindtap='moreNew' id='{{item.id}}'>
+        <view class='title1'  >
           <text>{{item.name}}</text>
         </view>
         <view class='title2'>
@@ -86,7 +86,7 @@
     </view>
   </view>
   <view class='teact-view'>
-    <view wx:for="{{curriculumList}}" wx:key="index" class='teach-box'  data-id="{{item.id}}">
+    <view wx:for="{{curriculumList}}" wx:key="index" class='teach-box'  bindtap='storeDetails' id="{{item.id}}">
       <image src="{{item.pic}}" class="teach-image" mode="aspectFit" />
       <text>{{item.name}}</text>
     </view>
