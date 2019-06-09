@@ -1,20 +1,36 @@
 // pages/details/details.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    haiziDetails:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options.id)
+  onLoad: function (options) { 
+    this.getHaiziDetails()
   },
-
+  // 获取足迹孩子详情
+  getHaiziDetails(){
+    wx.request({
+      url: app.globalData.url + 'api/footprint/homepage/child',
+      data: {
+        token: app.globalData.token,
+      },
+      method: 'post',
+      success: res => {
+        console.log('获取足迹孩子详情接口返回', res) 
+        // this.setData({
+        //   haiziDetails: res.data.data,
+        // })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

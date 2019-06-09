@@ -1,15 +1,15 @@
 {
   "pages": [
+    "pages/footmark/index/index",
+    "pages/index/index",
     "pages/init/init",
     "pages/login/login",
-    "pages/footmark/index/index",
     "pages/details/details",
     "pages/detailsNews/detailsNews",
     "pages/course-details/courseDetails",
     "pages/store-details/storeDetails",
     "pages/all-course/course",
     "pages/storeList/storeList",
-    "pages/index/index",
     "pages/introduction/introduction",
     "pages/nnews/nnews",
     "pages/appointment/appointment",
@@ -37,7 +37,7 @@
         "selectedIconPath": "assets/image/index-on.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/footmark/index/index",
         "text": "足迹",
         "iconPath": "assets/image/pyq.png",
         "selectedIconPath": "assets/image/pyq-on.png"

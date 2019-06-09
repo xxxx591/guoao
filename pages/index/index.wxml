@@ -80,7 +80,7 @@
       <image src='/assets/image/a10-title.png'></image>
       <text>推荐课程</text>
     </view>
-    <view class='box2'>
+    <view class='box2' bindtap='moreCourse'>
       <text>更多</text>
       <image src='/assets/image/more.png'></image>
     </view>

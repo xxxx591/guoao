@@ -56,6 +56,10 @@ Page({
           shopName: res.data.data[0].name,
           shopId: res.data.data[0].id
         })
+        wx.setStorage({
+          key: "storeId",
+          data: res.data.data[0].id
+        })
         this.getBannerList(res.data.data[0].id);
         this.getNewsList(res.data.data[0].id);
         this.getCoachList(res.data.data[0].id);
@@ -137,7 +141,7 @@ Page({
   // 跳转至预约
   appointment() {
     wx.navigateTo({
-      url: '/pages/appointment/appointment?storeId=' + this.data.shopId
+      url: '/pages/appointment/appointment?courseId=null'
     })
   },
   goShopList() {
@@ -149,6 +153,12 @@ Page({
   NewDetails(e) {  
       wx.navigateTo({
         url: '/pages/detailsNews/detailsNews?id=' + e.currentTarget.id
+      })  
+  },
+  // 获取课程列表
+  moreCourse(){
+      wx.navigateTo({
+        url: '/pages/all-course/course?id=' + this.data.shopId
       })  
   },
   // 跳转至课程详情

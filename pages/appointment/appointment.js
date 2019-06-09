@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopId: ''
+    shopId: '',
+    courseId:''
   },
 
   /**
@@ -21,6 +22,11 @@ Page({
     params.mobile = e.detail.value.mobile;
     params.age = e.detail.value.age;
     params.school = e.detail.value.school;
+    if (this.data.courseId==null){
+      console.log(this.data)
+    }else{
+      params.course_id = this.data.courseId
+    }
     wx.request({
       url: app.globalData.url + 'api/course/signUp',
       data: params,
@@ -47,8 +53,15 @@ Page({
   },
 
   onLoad: function(options) {
+    console.log(options)
     this.setData({
-      shopId: options.storeId
+      courseId: options.courseId
+    })
+    wx.getStorage({
+      key: 'storeId',
+      success: res => {
+        this.data.storeId = res.data
+      }
     })
   },
 

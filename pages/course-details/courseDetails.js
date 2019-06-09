@@ -1,11 +1,14 @@
 // pages/details/details.js
+const app = getApp()
+var WxParse = require('../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    courseDetails:{},
+    storeId:'1'
   },
 
   /**
@@ -13,8 +16,37 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
+    this.getDetails(options.id)
+    wx.getStorage({
+      key: 'storeId',
+      success:res=> {
+        this.data.storeId = res.data
+      }
+    })
   },
-
+  // 获取课程详情
+  getDetails(id){
+    wx.request({
+      url: app.globalData.url + 'api/course/detail',
+      data: {
+        course_id: id, 
+      },
+      method: 'post',
+      success: res => {
+        console.log('获取课程详情接口返回', res)
+        let article = res.data.data.content
+        WxParse.wxParse('article', 'html', article, this, 5);
+        this.setData({
+          courseDetails: res.data.data
+        })
+      }
+    })
+  },
+  goBuy(e){
+    wx.navigateTo({
+      url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

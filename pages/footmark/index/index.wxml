@@ -5,6 +5,12 @@
     </view>
   </view>
   <view class='photo-2'>
+    <view class='photo-1-name'>
+      <text>刘天宇</text>
+      <image src='/assets/image/man.png'></image>
+      <image src='/assets/image/woman.png'></image>
+      <image src='/assets/image/more-right.png' class='right'></image>
+    </view>
     <view>
     </view>
   </view>
@@ -13,26 +19,55 @@
   <view class='basic'>
     <text>本科</text>
     <text>28岁</text>
-    <image src='/assets/image/man.png'></image>
-    <image src='/assets/image/woman.png'></image>
+    <text>>></text>
+
   </view>
 </view>
 <view class='details-year'>
-  <view class='years'>
-    <text class='num'>6年</text>
-    <text class='year-1'>执教年限</text>
-  </view>
-  <view class='level'>
-    <text class='num'>B级别</text>
-    <text class='year-1'>教练级别</text>
-  </view>
 </view>
-<view class='details-students'>
-  <text >位置：</text>
-  <text class='onsd bold' >影子先锋</text>
-  <text >位置：</text>
-  <text  class='bold'>影子先锋</text>
-  
+<view class='rongyu-box'>
+  <view class='new-1'>
+    <view class='box1'>
+      <image src='/assets/image/a10-title.png'></image>
+      <text>教练介绍</text>
+    </view>
+  </view>
+  <view class='new-2'>
+    <scroll-view scroll-x scroll-left>
+      <view class='scroll-view'>
+        <view class='view-item'>
+          <view bindtap="trainDetails">
+            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
+          </view>
+          <text>13-12 最近</text>
+        </view>
+        <view class='view-item'>
+          <view bindtap="trainDetails">
+            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
+          </view>
+          <text>13-12 最近</text>
+        </view>
+        <view class='view-item'>
+          <view bindtap="trainDetails">
+            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
+          </view>
+          <text>13-12 最近</text>
+        </view>
+        <view class='view-item'>
+          <view bindtap="trainDetails">
+            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
+          </view>
+          <text>13-12 最近</text>
+        </view>
+        <view class='view-item'>
+          <view bindtap="trainDetails">
+            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
+          </view>
+          <text>13-12 最近</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
 </view>
 <view class='details-text'>
   <view class='new-1'>

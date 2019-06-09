@@ -47,9 +47,10 @@ App({
                   console.log(res)
                   // 转存token
                   this.globalData.token = res.data.data.token;
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                  })
+                  // 打开校验
+                  // wx.switchTab({
+                  //   url: '/pages/index/index',
+                  // })
                 },
                 fail: function(err) {
                   console.log(err);
