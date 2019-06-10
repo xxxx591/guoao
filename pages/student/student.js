@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    coachList:[]
+    coachList:[],
+    storeId:''
   },
 
   /**
@@ -15,6 +16,12 @@ Page({
   onLoad: function (options) {
     console.log(options.id)
     this.getCoachList(options.id)
+    wx.getStorage({
+      key: 'storeId',
+      success: res => {
+        this.data.storeId = res.data
+      }
+    })
   },
   // 获取学生列表
   getCoachList(id) {
@@ -42,7 +49,7 @@ Page({
   },
   goTeach(){
     wx.redirectTo({
-      url: '/pages/nnews/nnews'
+      url: '/pages/nnews/nnews?id=' + this.data.storeId
     })
   },
   /**

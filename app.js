@@ -44,13 +44,14 @@ App({
                 },
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: (res)=> {
-                  console.log(res)
+                  console.log('转存token',res)
                   // 转存token
                   this.globalData.token = res.data.data.token;
                   // 打开校验
-                  // wx.switchTab({
-                  //   url: '/pages/index/index',
-                  // })
+                  wx.switchTab({
+                    // url: '/pages/index/index',
+                    url: '/pages/footmark/index/index',
+                  })
                 },
                 fail: function(err) {
                   console.log(err);
@@ -84,7 +85,7 @@ App({
     })
   },
   globalData: {
-    token: '123',
+    token: '111',
     url: "https://api.yueyefc.com/",
     height: wx.getSystemInfoSync()['statusBarHeight'],
     lat: '',

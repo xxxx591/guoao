@@ -14,7 +14,7 @@
 
   <swiper class='swiper' indicator-dots circular autoplay indicator-color="rgba(255,255,255,1)" indicator-active-color="green">
     <block wx:for="{{imgUrls}}" wx:key="index">
-      <swiper-item class='swiper-item' >
+      <swiper-item class='swiper-item'>
         <image src="{{item.pic}}" class="slide-image" mode="aspectFit" data-id='{{item.id}}' />
       </swiper-item>
     </block>
@@ -33,9 +33,9 @@
         <image src='/assets/image/more.png'></image>
       </view>
     </view>
-    <view class='new-2' wx:for="{{newsList}}"  bindtap='NewDetails' id='{{item.id}}'>
+    <view class='new-2' wx:for="{{newsList}}" bindtap='NewDetails' id='{{item.id}}'>
       <view class='new-left'>
-        <view class='title1'  >
+        <view class='title1'>
           <text>{{item.name}}</text>
         </view>
         <view class='title2'>
@@ -64,12 +64,12 @@
 </view>
 <view class='new-2 '>
   <scroll-view scroll-x scroll-left>
-    <view class='scroll-view' >
+    <view class='scroll-view'>
       <view class='view-item' wx:for="{{coachList}}" wx:key="index">
         <view bindtap="trainDetails" data-id="{{item.id}}">
           <image src="{{item.avatar}}" class="slide-image" mode="aspectFit" />
-          <text>{{item.name}}</text>
         </view>
+        <text>{{item.name}}</text>
       </view>
     </view>
   </scroll-view>
@@ -85,10 +85,19 @@
       <image src='/assets/image/more.png'></image>
     </view>
   </view>
-  <view class='teact-view'>
-    <view wx:for="{{curriculumList}}" wx:key="index" class='teach-box'  bindtap='storeDetails' id="{{item.id}}">
+  <!-- <view class='teact-view'>
+    <view wx:for="{{curriculumList}}" wx:key="index" bindtap='storeDetails' id="{{item.id}}">
       <image src="{{item.pic}}" class="teach-image" mode="aspectFit" />
       <text>{{item.name}}</text>
     </view>
-  </view>
+  </view> -->
+
+  <scroll-view scroll-x scroll-left>
+    <view class='scroll-view'>
+      <view class='view-item' wx:for="{{curriculumList}}" wx:key="index" bindtap='storeDetails' id="{{item.id}}">
+        <image src="{{item.pic}}" class="teach-image" mode="aspectFit" />
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
 </view>

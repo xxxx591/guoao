@@ -139,7 +139,7 @@
 .new-two .new-right .image-box image {
  width: 210rpx;
  height: 210rpx; 
- padding: 0 10rpx
+ 
 }
 .new-two .new-left .title2 {
   display: flex;
@@ -154,4 +154,10 @@
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
   line-height: 48rpx;
+}
+.new-right002{
+  display: flex;
+}
+.new-right002 .image-box{
+  padding: 0 10rpx
 }

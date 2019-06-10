@@ -20,9 +20,15 @@ Page({
     curriculumList: []
   },
   //事件处理函数  
-  onLoad: function() {
-    this.isShowExperience()
-    this.getNearbyShop()
+  onLoad: function(options) {
+    console.log(options)
+    if (options.id) {
+      this.isShowExperience()
+      this.getNearbyShop02(options.id)
+    } else {
+      this.isShowExperience()
+      this.getNearbyShop()
+    }
   },
   onShow: function() {
     // this.getImage()
@@ -64,6 +70,33 @@ Page({
         this.getNewsList(res.data.data[0].id);
         this.getCoachList(res.data.data[0].id);
         this.getCurriculumList(res.data.data[0].id)
+      }
+    })
+  },
+  // 获取最近门店选择门店版本
+  getNearbyShop02(id) {
+    wx.request({
+      url: app.globalData.url + 'api/user/store',
+      data: {
+        token: app.globalData.token,
+      },
+      method: 'post',
+      success: res => {
+        console.log('附近门店接口返回', res)
+        let arr = res.data.data
+        arr.forEach(item=>{
+          console.log(item.id)
+          if(item.id == id ){
+            this.setData({
+              shopName: item.name,
+              shopId: item.id
+            })
+          }
+        })
+        this.getBannerList(id);
+        this.getNewsList(id);
+        this.getCoachList(id);
+        this.getCurriculumList(id)
       }
     })
   },
@@ -150,27 +183,33 @@ Page({
     })
   },
   // 跳转至新闻详情
-  NewDetails(e) {  
-      wx.navigateTo({
-        url: '/pages/detailsNews/detailsNews?id=' + e.currentTarget.id
-      })  
+  NewDetails(e) {
+    wx.navigateTo({
+      url: '/pages/detailsNews/detailsNews?id=' + e.currentTarget.id
+    })
   },
   // 获取课程列表
-  moreCourse(){
-      wx.navigateTo({
-        url: '/pages/all-course/course?id=' + this.data.shopId
-      })  
+  moreCourse() {
+    wx.navigateTo({
+      url: '/pages/all-course/course?id=' + this.data.shopId
+    })
+  },
+  // 获取课程列表
+  moreNew() {
+    wx.navigateTo({
+      url: '/pages/nnews/nnews?id=' + this.data.shopId
+    })
   },
   // 跳转至课程详情
-  storeDetails(e) {  
-      wx.navigateTo({
-        url: '/pages/course-details/courseDetails?id=' + e.currentTarget.id
-      })  
+  storeDetails(e) {
+    wx.navigateTo({
+      url: '/pages/course-details/courseDetails?id=' + e.currentTarget.id
+    })
   },
 
-  newsMore(){
+  newsMore() {
     wx.navigateTo({
-      url: '/pages/introduction/introduction?id='+this.data.shopId,
+      url: '/pages/introduction/introduction?id=' + this.data.shopId,
     })
   },
 

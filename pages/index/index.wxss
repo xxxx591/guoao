@@ -176,7 +176,7 @@
 .teact-view{
   display: flex;
   text-align: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   padding-top: 20rpx;
 }
 .teach-box{

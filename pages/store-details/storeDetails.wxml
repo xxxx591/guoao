@@ -9,7 +9,7 @@
     <image src='{{details.logo}}' class='txt-img'></image>
   </view>
   <view>
-    <view class='submit'>
+    <view class='submit' bindtap='selectIt'>
       <text>选择该门店</text>
       <image src='/assets/image/submit-btn.png'></image>
     </view>

@@ -34,7 +34,7 @@ Page({
                 },
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: function(res) {
-                  console.log(res)
+                  console.log('转存token',res)
                   // 转存token
                   app.globalData.token = res.data.data.token
                 },

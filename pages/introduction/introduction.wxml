@@ -27,9 +27,9 @@
             <view class='title1'>
               <text>{{item.content}}</text>
             </view>
-            <view class='new-right'>
-              <view class='image-box'>
-                <image  wx:for="{{item.get_pic}}"  wx:for-item="picItem" src='{{picItem.content}}'></image>
+            <view class='new-right new-right002'>
+              <view class='image-box'  wx:for="{{item.get_pic}}"  wx:for-item="picItem">
+                <image  src='{{picItem.content}}'></image>
               </view>
             </view>
             <view class='title2'>

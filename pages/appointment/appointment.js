@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopId: '',
+    storeId: '',
     courseId:''
   },
 
@@ -17,7 +17,7 @@ Page({
   formSubmit(e) {
     console.log(e)
     let params = {};
-    params.store_id = this.data.shopId;
+    params.store_id = this.data.storeId;
     params.name = e.detail.value.name;
     params.mobile = e.detail.value.mobile;
     params.age = e.detail.value.age;
