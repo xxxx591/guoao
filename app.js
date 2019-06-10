@@ -50,7 +50,7 @@ App({
                   // 打开校验
                   wx.switchTab({
                     // url: '/pages/index/index',
-                    url: '/pages/footmark/index/index',
+                    url: '/pages/index/index',
                   })
                 },
                 fail: function(err) {

@@ -85,19 +85,16 @@
       <image src='/assets/image/more.png'></image>
     </view>
   </view>
-  <!-- <view class='teact-view'>
-    <view wx:for="{{curriculumList}}" wx:key="index" bindtap='storeDetails' id="{{item.id}}">
-      <image src="{{item.pic}}" class="teach-image" mode="aspectFit" />
-      <text>{{item.name}}</text>
-    </view>
-  </view> -->
-
-  <scroll-view scroll-x scroll-left>
-    <view class='scroll-view'>
-      <view class='view-item' wx:for="{{curriculumList}}" wx:key="index" bindtap='storeDetails' id="{{item.id}}">
-        <image src="{{item.pic}}" class="teach-image" mode="aspectFit" />
-        <text>{{item.name}}</text>
+  <view class='new-2 '>
+    <scroll-view scroll-x scroll-left>
+      <view class='scroll-view'>
+        <view class='view-item' wx:for="{{curriculumList}}" wx:key="index">
+          <view bindtap="storeDetails" id="{{item.id}}">
+            <image src="{{item.pic}}" class="slide-image" mode="aspectFit" />
+          </view>
+          <text>{{item.name}}</text>
+        </view>
       </view>
-    </view>
-  </scroll-view>
+    </scroll-view>
+  </view>
 </view>

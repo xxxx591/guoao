@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/init/init",
     "pages/footmark/index/index",
-    "pages/index/index",
     "pages/login/login",
     "pages/details/details",
     "pages/detailsNews/detailsNews",
