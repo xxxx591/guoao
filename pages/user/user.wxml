@@ -1,0 +1,43 @@
+<view class='wrapper'>
+  <view class='banner'>
+     <image class='banner-pic' src='/assets/image/user-banner.png'></image>
+     <view class='user-pic'>
+      <image src='{{userInfo.avatarUrl}}'></image>
+     </view>
+     <view class='user-name'>{{userInfo.nickName}}</view>
+  </view>
+  <!-- 报名/订单/合同/邀请/联系 -->
+  <view class='main-wrapper'>
+  <!-- 报名 -->
+    <view class='item-wrapper' bindtap='handleRegist'>
+      <image class='item-icon' src='/assets/image/user-baoming.png'></image>
+      <text class='item-text'>比赛报名</text>
+      <image class='item-right' src='/assets/image/user-right.png'></image>
+    </view>
+    <!-- 订单 -->
+    <view class='item-wrapper' bindtap='handleOrder'>
+      <image class='item-icon' src='/assets/image/user-dingdan.png'></image>
+      <text class='item-text'>我的订单</text>
+      <image class='item-right' src='/assets/image/user-right.png'></image>
+    </view>
+    <!-- 合同 -->
+    <view class='item-wrapper' bindtap='handleContract'>
+      <image class='item-icon' src='/assets/image/user-hetong.png'></image>
+      <text class='item-text'>合同管理</text>
+      <image class='item-right' src='/assets/image/user-right.png'></image>
+    </view>
+    <!-- 邀请 -->
+    <view class='item-wrapper' bindtap='handleJoin'>
+      <image class='item-icon' src='/assets/image/user-yaoqing.png'></image>
+      <text class='item-text'>邀请</text>
+      <image class='item-right' src='/assets/image/user-right.png'></image>
+    </view>
+    <!-- 联系我们 -->
+    <view class='item-wrapper' bindtap='handleCall'>
+      <image class='item-icon' src='/assets/image/user-call.png'></image>
+      <text class='item-text'>联系我们</text>
+      <image class='item-right' src='/assets/image/user-right.png'></image>
+      <text class='item-phone'>01064941655</text>
+    </view>
+  </view>
+</view>

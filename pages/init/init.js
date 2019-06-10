@@ -70,7 +70,8 @@ Page({
               success: function(res) {
                 console.log(res)
                 // 转存token
-                app.globalData.token = res.data.data.token;
+                // app.globalData.token = res.data.data.token;
+                app.globalData.token = '111';
                 wx.switchTab({
                   url: '/pages/index/index',
                 })

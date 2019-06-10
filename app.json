@@ -1,7 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/init/init",
+    "pages/user/user",
+    "pages/contractManager/contractManager",
+    "pages/orderList/orderList",
+    "pages/myOrder/myOrder",
+    "pages/gameList/gameList",
+    "pages/index/index",
     "pages/footmark/index/index",
     "pages/login/login",
     "pages/details/details",
@@ -43,7 +48,7 @@
         "selectedIconPath": "assets/image/pyq-on.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/user/user",
         "text": "我的",
         "iconPath": "assets/image/self.png",
         "selectedIconPath": "assets/image/self-on.png"
