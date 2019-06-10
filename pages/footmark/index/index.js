@@ -15,6 +15,12 @@ Page({
   onLoad: function (options) { 
     this.getHaiziDetails()
   },
+  // 跳转到孩子详情
+  haiziDetails(e){
+    wx.navigateTo({
+      url: '/pages/footmark/childInfo/childInfo?id=' + e.currentTarget.id
+    })
+  },
   // 获取足迹孩子详情
   getHaiziDetails(){
     wx.request({
@@ -25,9 +31,9 @@ Page({
       method: 'post',
       success: res => {
         console.log('获取足迹孩子详情接口返回', res) 
-        // this.setData({
-        //   haiziDetails: res.data.data,
-        // })
+        this.setData({
+          haiziDetails: res.data.data,
+        })
       }
     })
   },

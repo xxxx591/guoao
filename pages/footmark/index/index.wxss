@@ -109,6 +109,7 @@
 }
 
 .details-text {
+  position: relative;
   padding: 40rpx 30rpx;
 }
 
@@ -199,11 +200,8 @@
   color: rgba(77, 77, 77, 1);
 }
 
-
-
-
 .view-item {
- margin-right: 60rpx;
+  margin-right: 60rpx;
 }
 
 .view-item text {
@@ -217,7 +215,7 @@
   width: 132rpx;
   height: 123rpx;
   border-radius: 20rpx;
-  margin-right: 20rpx; 
+  margin-right: 20rpx;
 }
 
 .teach {
@@ -239,4 +237,54 @@
 .teach-box image {
   width: 100%;
   height: 200rpx;
+}
+
+.dongtai-box {
+  position: relative;
+  padding: 30rpx;
+  background:rgba(245,247,250,1);
+}
+
+.title-header {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(77, 77, 77, 1);
+}
+
+.title {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.title-green {
+  background: rgba(0, 100, 40, 1);
+  color: #fff100;
+}
+
+.title-red {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(244, 83, 66, 1);
+}
+
+.left-box image {
+  width: 22rpx;
+  height: 26rpx;
+}
+
+.right-tight .img {
+  position: absolute;
+  width: 107rpx;
+  height: 100rpx;
+  right: 18rpx;
+  top: 18rpx;
+}
+.banner{
+  margin-top: 40rpx;
+  width: 100%;
+  height: 140rpx;
 }

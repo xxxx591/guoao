@@ -1,0 +1,57 @@
+<form bindsubmit="formSubmit">
+  <view class='appointment'>
+
+    <view class='input-box' bindtap='changerPhoto'>
+      <text>孩子头像：</text>
+       <image src='{{imgUrl}}' class='child-img' name="avatar" ></image>
+    </view>
+    <view class='input-box'>
+      <text>孩子姓名：</text>
+      <input placeholder='请输入...' type='number' name="name" value='{{haiziDetails.name}}'> </input>
+    </view>
+    <view class='input-box'>
+      <text>孩子性别：</text>
+      <radio-group class="radio-group" bindchange="radioChange" >
+        <label class="radio" wx:for="{{sexItems}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}"  name="sex"/>{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+    <view class='input-box'>
+      <text>孩子学校：</text>
+      <input placeholder='请输入...' type='text' confirm-type="done" name="school" value='{{haiziDetails.school}}'> </input>
+    </view>
+    <view class='input-box'>
+      <text>身份证号：</text>
+      <input placeholder='请输入...' type='text' confirm-type="done" name="id_card" value='{{haiziDetails.id_card}}'> </input>
+    </view>
+    <view class='input-box'>
+      <text>家庭住址：</text>
+      <picker mode="region" bindchange="bindRegionChange1" value="{{region1}}" name="address" custom-item="{{customItem}}">
+        <view class="picker">
+          {{region1}}
+        </view>
+      </picker>
+    </view>
+    <view class='input-box'>
+      <text>详细地址：</text>
+      <input placeholder='请输入...' type='text' confirm-type="done" name="addressdetails" value='{{haiziDetails.address}}'> </input>
+    </view>
+    <view class='input-box'>
+      <text>户口所在地：</text>
+      <picker mode="region" bindchange="bindRegionChange2" value="{{region2}}" name="account" custom-item="{{customItem}}">
+        <view class="picker">
+          {{region2}}
+        </view>
+      </picker>
+    </view>
+    <view>
+      <button form-type="submit">
+        <view class='submit'>
+          <text>提交</text>
+          <image src='/assets/image/submit-btn.png'></image>
+        </view>
+      </button>
+    </view>
+  </view>
+</form>

@@ -1,0 +1,70 @@
+/* pages/appointment/appointment.wxss */
+
+.appointment {
+  padding: 31rpx;
+  position: relative;
+}
+
+.input-box {
+  display: flex;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.input-box text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  margin-right: 30rpx;
+}
+
+.input-box input {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #333;
+  flex: 3;
+}
+
+.picker {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #333;
+}
+.radio{
+  font-size: 32rpx;
+}
+
+.submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 31rpx;
+  width: 100%;
+  height: 94rpx;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+}
+
+.submit text {
+  z-index: 999;
+  width: 100%;
+  line-height: 94rpx;
+}
+
+.submit image {
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  width: 690rpx;
+  height: 94rpx;
+}
+.child-img{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}

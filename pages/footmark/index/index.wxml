@@ -1,14 +1,14 @@
 <view class='details'>
   <view class='photo-1'>
     <view class='img-box'>
-      <image src='/assets/image/teach.png'></image>
+      <image src='{{haiziDetails.avatar}}'></image>
     </view>
   </view>
   <view class='photo-2'>
-    <view class='photo-1-name'>
-      <text>刘天宇</text>
-      <image src='/assets/image/man.png'></image>
-      <image src='/assets/image/woman.png'></image>
+    <view class='photo-1-name' bindtap='haiziDetails' id="{{haiziDetails.id}}">
+      <text>{{haiziDetails.name}}</text>
+      <image src='/assets/image/man.png' wx:if="{{haiziDetails.sex ==1}}"></image>
+      <image src='/assets/image/woman.png' wx:if="{{haiziDetails.sex ==2}}"></image>
       <image src='/assets/image/more-right.png' class='right'></image>
     </view>
     <view>
@@ -17,8 +17,7 @@
 </view>
 <view class='details-box'>
   <view class='basic'>
-    <text>本科</text>
-    <text>28岁</text>
+    <text wx:for="{{haiziDetails.label}}">{{item.name}}</text>
     <text>>></text>
 
   </view>
@@ -29,41 +28,17 @@
   <view class='new-1'>
     <view class='box1'>
       <image src='/assets/image/a10-title.png'></image>
-      <text>教练介绍</text>
+      <text>荣誉</text>
     </view>
   </view>
   <view class='new-2'>
     <scroll-view scroll-x scroll-left>
       <view class='scroll-view'>
-        <view class='view-item'>
+        <view class='view-item' wx:for="{{haiziDetails.honor}}" bindtap='rongyuDetails' id="{{item.team_library_id}}">
           <view bindtap="trainDetails">
-            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
+            <image src="{{item.pic}}" class="slide-image" mode="aspectFit" />
           </view>
-          <text>13-12 最近</text>
-        </view>
-        <view class='view-item'>
-          <view bindtap="trainDetails">
-            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
-          </view>
-          <text>13-12 最近</text>
-        </view>
-        <view class='view-item'>
-          <view bindtap="trainDetails">
-            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
-          </view>
-          <text>13-12 最近</text>
-        </view>
-        <view class='view-item'>
-          <view bindtap="trainDetails">
-            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
-          </view>
-          <text>13-12 最近</text>
-        </view>
-        <view class='view-item'>
-          <view bindtap="trainDetails">
-            <image src="/assets/image/rongyu.png" class="slide-image" mode="aspectFit" />
-          </view>
-          <text>13-12 最近</text>
+          <text>{{item.name}}</text>
         </view>
       </view>
     </scroll-view>
@@ -73,13 +48,26 @@
   <view class='new-1'>
     <view class='box1'>
       <image src='/assets/image/a10-title.png'></image>
-      <text>教练介绍</text>
+      <text>课程动态</text>
     </view>
+  </view>
+  <view class='class-dongtai'>
+    <view class='dongtai-box' wx:for="{{haiziDetails.course}}">
+      <view class='left-box'>
+        <text class='title-header'>比赛名称：{{item.name}}</text>
+        <view>
+          <image src='/assets/image/time.png'></image>
+          <text class='title'>上课时间：</text>
+          <text class='title title-green'>{{item.started_at}}</text>
+        </view>
+        <text class='title-red'>{{item.epilog == ''?'待总结':item.epilog}}</text>
+      </view>
+      <view class='right-tight'>
+        <image class='img' src=''></image>
+      </view>
 
+    </view>
   </view>
-  <view class='txt-box'>
-    <text class='txt'>
-      李春满，男，1962年生，朝鲜族，现任北京体育大学足球教研室教授、博士生导师，亚足联A级教练员培训班讲师，中国足协技术委员会副主任，全国校园足球专家委员会副主任，其执教履历丰富，曾先后在重庆力帆、青岛颐中、北京国安、河南建业、贵州人和等多家职业足球俱乐部执教，拥有极高的理论知识和实战经验。</text>
-    <image src='/assets/image/teach.png' class='txt-img'></image>
-  </view>
+  <image class='banner' bindtap='reportDetails' id="{{haiziDetails.id}}"  src='/assets/image/viewReport.png'></image>
+  <image class='kefu-log'></image>
 </view>

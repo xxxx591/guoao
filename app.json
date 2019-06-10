@@ -15,7 +15,8 @@
     "pages/appointment/appointment",
     "pages/logs/logs",
     "pages/student/student",
-    "pages/studentDetails/details"
+    "pages/studentDetails/details",
+    "pages/footmark/childInfo/childInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
