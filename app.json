@@ -22,7 +22,9 @@
     "pages/student/student",
     "pages/studentDetails/details",
     "pages/footmark/childInfo/childInfo",
-    "pages/footmark/rongyuDetails/rongyuDetails"
+    "pages/footmark/rongyuDetails/rongyuDetails",
+    "pages/footmark/raceList/racelist",
+    "pages/footmark/raceDetails/raceDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

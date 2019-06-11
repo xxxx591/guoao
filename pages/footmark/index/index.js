@@ -15,6 +15,18 @@ Page({
   onLoad: function(options) {
     this.getHaiziDetails()
   },
+  // 跳转到比赛列表
+  raceMore(e){
+    wx.navigateTo({
+      url: '/pages/footmark/raceList/racelist?id=' + e.currentTarget.id 
+    })
+  },
+  // 跳转到比赛详情
+  bisaiDetails(e){
+    wx.navigateTo({
+      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id +'&cid='+this.data.haiziDetails.id
+    })
+  },
   // 跳转到荣誉详情
   rongyuDetails(e) {
     wx.navigateTo({
@@ -38,6 +50,7 @@ Page({
       success: res => {
         console.log('获取足迹孩子详情接口返回', res)
         this.setData({
+
           haiziDetails: res.data.data,
         })
       }

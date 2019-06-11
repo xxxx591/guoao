@@ -3,8 +3,14 @@
 }
 
 .photo-1 {
+  position: relative;
   height: 140rpx;
   background: #006428;
+}
+.photo-1 .banner-02{
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .rongyu-box {
@@ -306,4 +312,15 @@ bottom: 50rpx;
   position: absolute;
   left: 0;
   top: 0;
+}
+.new-1 .box2 text {
+  padding: 0 16rpx;
+  height: 38rpx;
+  font-size: 24rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.new-1 .box2 image {
+  width: 10rpx;
+  height: 16rpx;
 }
