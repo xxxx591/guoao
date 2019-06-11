@@ -1,5 +1,6 @@
 // pages/details/details.js
 const app = getApp()
+var WxParse = require('../wxParse/wxParse.js');
 Page({
 
   /**
@@ -15,43 +16,28 @@ Page({
    */
   onLoad: function(options) {
     console.log(options.id)
-    
+
     this.getCoachList(options.id)
   },
-  // 获取老师详情列表
+  // 获取学生详情列表
   getCoachList(id) {
     wx.request({
-      url: app.globalData.url + 'api/coach/detail',
+      url: app.globalData.url + 'api/style/detail',
       data: {
-        coach_id: id,
+        style_id: id,
       },
       method: 'post',
       success: res => {
-        console.log('获取老师详情列表接口返回', res)
-        let education = ''
-        switch (res.data.data.education) {
-          case 1:
-            education = '高中'
-            break;
-          case 2:
-            education = '专科'
-            break;
-          case 3:
-            education = '本科'
-            break;
-          case 4:
-            education = '硕士'
-            break;
-          case 5:
-            education = '博士'
-            break;
-        }
+        console.log('获取学生详情列表接口返回', res)
+        let article = res.data.data.honor
+        WxParse.wxParse('article', 'html', article, this, 5);
+
         wx.setNavigationBarTitle({
           title: res.data.data.name,
         })
+
         this.setData({
           details: res.data.data,
-          education: education
         })
       }
     })

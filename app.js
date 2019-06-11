@@ -51,8 +51,8 @@ App({
                   this.globalData.token = '111';
                   // 打开校验
                   wx.switchTab({
-                    // url: '/pages/index/index',
-                    url: '/pages/user/user',
+                    url: '/pages/index/index',
+                    // url: '/pages/user/user',
                   })
                 },
                 fail: function(err) {

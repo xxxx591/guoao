@@ -1,7 +1,8 @@
+<import src="../wxParse/wxParse.wxml" />
 <view class='details'>
   <view class='photo-1'>
     <view class='img-box'>
-      <image src='{{details.avatar}}'></image>
+      <image src='{{details.pic}}'></image>
     </view>
   </view>
   <view class='photo-2'>
@@ -11,39 +12,28 @@
 </view>
 <view class='details-box'>
   <view class='basic'>
-    <text>{{education}}</text>
     <text>{{details.age}}岁</text>
     <image src='/assets/image/man.png' wx:if="{{details.sex==1}}"></image>
-    <image src='/assets/image/woman.png'wx:else></image>
+    <image src='/assets/image/woman.png' wx:else></image>
   </view>
 </view>
-<view class='details-year'>
-  <view class='years'>
-    <text class='num'>{{details.years}}年</text>
-    <text class='year-1'>执教年限</text>
-  </view>
-  <view class='level'>
-    <text class='num'>{{details.level}}级别</text>
-    <text class='year-1'>教练级别</text>
-  </view>
-</view>
-    <view class='details-students'>
-  <text >位置：</text>
-  <text class='onsd bold' >影子先锋</text>
-  <text >位置：</text>
-  <text  class='bold'>影子先锋</text>
+<view class='details-students'>
+  <text>所属俱乐部：</text>
+  <text class='onsd bold'>{{details.club}}</text>
+  <text>位置：</text>
+  <text class='onsd bold'>{{details.position}}</text>
+
 </view>
 <view class='details-text'>
   <view class='new-1'>
     <view class='box1'>
       <image src='/assets/image/a10-title.png'></image>
-      <text>教练介绍</text>
+      <text>学员介绍</text>
     </view>
 
   </view>
   <view class='txt-box'>
-    <text class='txt'>
-      {{details.desc}}</text>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     <!-- <image src='/assets/image/teach.png' class='txt-img'></image> -->
   </view>
 </view>

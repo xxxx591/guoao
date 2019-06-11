@@ -1,5 +1,7 @@
 /* pages/appointment/appointment.wxss */
-
+picker{
+  flex: 2
+}
 .appointment {
   padding: 31rpx;
   position: relative;

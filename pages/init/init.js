@@ -36,7 +36,8 @@ Page({
                 success: function(res) {
                   console.log('转存token',res)
                   // 转存token
-                  app.globalData.token = res.data.data.token
+                  // app.globalData.token = res.data.data.token
+                  app.globalData.token = '111'
                 },
                 fail: function(err) {
                   console.log(err);

@@ -38,7 +38,8 @@
 
 .details-box {
   margin-top: 60rpx;
-  margin-bottom: 45rpx;
+  padding-bottom: 45rpx;
+  border-bottom: 1px solid rgba(229, 229, 229, 1);
 }
 
 .basic {
@@ -134,6 +135,7 @@
   color: rgba(153, 153, 153, 1);
   text-align: center;
   font-weight: 400;
+
 }
 
 .bold {

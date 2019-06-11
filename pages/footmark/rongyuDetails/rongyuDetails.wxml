@@ -1,0 +1,17 @@
+<!--pages/footmark/rongyuDetails/rongyuDetails.wxml-->
+<view class='top-box'>
+  <image src='/assets/image/banner.png' class='top-banner'></image>
+  <image src='{{rongyuDetails.honor.pic}}' class='rongyu-logo'></image>
+  <view class='top-title'>
+    <image src='/assets/image/top-title.png' class='top-log'></image>
+    <text>{{rongyuDetails.honor.name}}</text>
+  </view>
+</view>
+<view class='title-01'>
+  <text class='title-01-box'>
+  恭喜 <text class='title-01-01'>{{rongyuDetails.child.name}}</text> 获得 <text class='title-01-01'>{{rongyuDetails.honor.name}}</text> 荣誉
+  </text>
+</view>
+<view class=' title-02'>
+  <text>本节课 {{rongyuDetails.child.name}} 同学表现出色，特赋予 {{rongyuDetails.honor.name}} 称号，希望后面的课程继续努力.....</text>
+</view>

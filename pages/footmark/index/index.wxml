@@ -18,7 +18,7 @@
 <view class='details-box'>
   <view class='basic'>
     <text wx:for="{{haiziDetails.label}}">{{item.name}}</text>
-    <text>>></text>
+    <text wx:if="{{haiziDetails.label.length>6}}">>></text>
 
   </view>
 </view>
@@ -68,6 +68,8 @@
 
     </view>
   </view>
+  <button open-type='share' class='kefu-log'>
+  <image src='/assets/image/kefu.png'></image></button>
   <image class='banner' bindtap='reportDetails' id="{{haiziDetails.id}}"  src='/assets/image/viewReport.png'></image>
-  <image class='kefu-log'></image>
+
 </view>

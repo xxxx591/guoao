@@ -11,7 +11,7 @@
          
         <view class='title2'>
           ￥{{item.price}}
-          <view class='button' bindtap='buy' id="{{item.id}}">
+          <view class='button' catchtap='buy' id="{{item.id}}">
             <button>立即购买</button>
           </view>
         </view>

@@ -3,7 +3,7 @@
 
     <view class='input-box' bindtap='changerPhoto'>
       <text>孩子头像：</text>
-       <image src='{{imgUrl}}' class='child-img' name="avatar" ></image>
+       <image src='{{haiziDetails.avatar}}' class='child-img' name="avatar" ></image>
     </view>
     <view class='input-box'>
       <text>孩子姓名：</text>
@@ -13,7 +13,7 @@
       <text>孩子性别：</text>
       <radio-group class="radio-group" bindchange="radioChange" >
         <label class="radio" wx:for="{{sexItems}}">
-          <radio value="{{item.name}}" checked="{{item.checked}}"  name="sex"/>{{item.value}}
+          <radio value="{{item.sex}}" checked="{{item.checked}}"  name="sex"/>{{item.value}}
         </label>
       </radio-group>
     </view>

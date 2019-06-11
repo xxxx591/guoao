@@ -6,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    coachList:[],
-    storeId:''
+    coachList: [],
+    storeId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(options.id)
     this.getCoachList(options.id)
     wx.getStorage({
@@ -42,12 +42,12 @@ Page({
     })
   },
   // 跳转至学生详情
-  goStudentDetails(e){
+  goStudentDetails(e) {
     wx.navigateTo({
-      url: '',
+      url: '/pages/studentDetails/details?id=' + e.currentTarget.id,
     })
   },
-  goTeach(){
+  goTeach() {
     wx.redirectTo({
       url: '/pages/nnews/nnews?id=' + this.data.storeId
     })
@@ -55,49 +55,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

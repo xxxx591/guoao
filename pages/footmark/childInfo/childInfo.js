@@ -14,14 +14,19 @@ Page({
     customItem: '全部',
     sexItems: [{
         sex: 1,
-        value: '男'
+        value: '男',
+        checked: 'false'
       },
       {
         sex: 2,
-        value: '女'
+        value: '女',
+        checked: 'false'
       },
     ],
-    params:{}, 
+    params: {
+      childImg: '',
+      sex: ''
+    },
   },
 
   /**
@@ -30,21 +35,27 @@ Page({
 
   onLoad: function(options) {
     console.log(options)
+    this.setData({
+      child_id:options.id
+    })
     this.getChildDetails(options.id)
 
   },
   // 修改图片
   changerPhoto() {
+    let that =this
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success:(res)=> {
+      success: (res) => {
         console.log('图片地址', res)
         // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths[0]
-        this.setData({
+        let tempFilePaths = res.tempFilePaths[0]
+        let childImg = 
+        that.setData({
           imgUrl: tempFilePaths,
+          'haiziDetails.avatar': tempFilePaths
         })
       }
     })
@@ -80,50 +91,70 @@ Page({
   // 改变性别
   radioChange: function(e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
+    let sex = this.data.params.sex;
+    this.setData({
+      'haiziDetails.sex': e.detail.value
+    })
   },
   // 改变家庭地址
   bindRegionChange1(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    let arrlist = e.detail.value 
     this.setData({
-      region1: e.detail.value
+      region1: arrlist,
+      'haiziDetails.prov': arrlist[0],
+      'haiziDetails.city': arrlist[1],
+      'haiziDetails.area': arrlist[2],
     })
   },
   // 改变户口所在地址
   bindRegionChange2(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    let arrlist = e.detail.value
+    let prov = this.data.params.account_prov
+    let city = this.data.params.account_city
     this.setData({
-      region2: e.detail.value
+      region2: arrlist,
+      'haiziDetails.account_prov': arrlist[0],
+      'haiziDetails.account_city': arrlist[1],
     })
   },
-  // 提交体验课
+  // 修改孩子信息
   formSubmit(e) {
     console.log(e)
-    let params = {};
-     
-    // wx.request({
-    //   url: app.globalData.url + 'api/user/child/update',
-    //   data: params,
-    //   method: 'post',
-    //   success: res => {
-    //     console.log('提交体验课接口返回', res)
+    this.setData({
+      'haiziDetails.address':e.detail.value.addressdetails,
+      'haiziDetails.school':e.detail.value.school,
+    })
+    let params = JSON.parse(JSON.stringify(this.data.haiziDetails));
+    console.log(params)
+    params.sex = parseInt(params.sex);
+    params.token = app.globalData.token;
+    params.child_id = this.data.child_id
+    wx.request({
+      url: app.globalData.url + 'api/user/child/update',
+      data: params,
+      method: 'post',
+      success: res => {
+        console.log('修改孩子信息接口返回', res)
 
-    //     if (res.statusCode == 200) {
-    //       wx.showToast({
-    //         title: '预定成功',
-    //         icon: 'success',
-    //         duration: 2000,
-    //         success: function() {
-    //           setTimeout(_ => {
-    //             wx.navigateBack({
-    //               delta: 2
-    //             })
-    //           }, 2000)
+        if (res.statusCode == 200) {
+          wx.showToast({
+            title: '修改成功',
+            icon: 'success',
+            duration: 2000,
+            success: function() {
+              setTimeout(_ => {
+                wx.navigateBack({
+                  delta: 2
+                })
+              }, 2000)
 
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
