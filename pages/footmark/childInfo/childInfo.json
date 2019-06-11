@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#006428",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "孩子详情",
+  "backgroundColor": "#006428",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": false
+}

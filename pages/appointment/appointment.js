@@ -26,7 +26,6 @@ Page({
       console.log(this.data)
     }else{
       params.course_id = parseInt(this.data.courseId)
-
     }
     wx.request({
       url: app.globalData.url + 'api/course/signUp',

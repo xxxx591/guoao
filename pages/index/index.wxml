@@ -85,7 +85,7 @@
       <image src='/assets/image/more.png'></image>
     </view>
   </view>
-  <view class='new-2 '>
+  <view class='new-2 new-2-box'>
     <scroll-view scroll-x scroll-left>
       <view class='scroll-view'>
         <view class='view-item' wx:for="{{curriculumList}}" wx:key="index">
