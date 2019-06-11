@@ -1,5 +1,6 @@
 <view class='details'>
   <view class='photo-1'>
+  <image src='/assets/image/top-banner-02.png' class='banner-02'></image>
     <view class='img-box'>
       <image src='{{haiziDetails.avatar}}'></image>
     </view>
@@ -50,9 +51,13 @@
       <image src='/assets/image/a10-title.png'></image>
       <text>课程动态</text>
     </view>
+    <view class='box2' bindtap='raceMore' id="{{haiziDetails.id}}">
+        <text>更多</text>
+        <image src='/assets/image/more.png'></image>
+      </view>
   </view>
   <view class='class-dongtai'>
-    <view class='dongtai-box' wx:for="{{haiziDetails.course}}">
+    <view class='dongtai-box' wx:for="{{haiziDetails.course}}" bindtap='bisaiDetails' id="{{item.id}}">
       <view class='left-box'>
         <text class='title-header'>比赛名称：{{item.name}}</text>
         <view>
@@ -60,7 +65,7 @@
           <text class='title'>上课时间：</text>
           <text class='title title-green'>{{item.started_at}}</text>
         </view>
-        <text class='title-red'>{{item.epilog == ''?'待总结':item.epilog}}</text>
+        <text class='title-red'>{{item.epilog == ''?'待总结':'总结：'+item.epilog}}</text>
       </view>
       <view class='right-tight'>
         <image class='img' src=''></image>

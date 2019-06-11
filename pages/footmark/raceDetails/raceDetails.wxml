@@ -1,0 +1,114 @@
+<view class='details'>
+  <view class='photo-1'>
+    <image src='/assets/image/top-banner-02.png' class='banner-02'></image>
+  </view>
+  <view class='photo-2'>
+  </view>
+</view>
+<view class='list-box'>
+  <view class='icon'></view>
+  <view class='title'>
+    <text class='title01'>课程名称：{{kDetails.name}}</text>
+    <text class='title02'>课程主题</text>
+  </view>
+  <view class='left'>
+    <view>
+      <image src='/assets/image/jiaolian.png'></image>
+      <text class='title-ccc'>教练</text>
+    </view>
+    <view>
+      <text class='green' wx:for="{{kDetails.team_coach}}" id="{{item.coach_id}}" bindtap='jiaolianDetails'>[{{item.type=='1'?'主':'助'}}]{{item.get_coach.name}}</text>
+    </view>
+  </view>
+  <view class='right'>
+    <view>
+      <image src='/assets/image/time.png'></image>
+      <text class='title-ccc'>上课时间</text>
+    </view>
+    <view>
+      <text class='title-black'>{{kDetails.started_at+'-'+kDetails.ended_at}}</text>
+    </view>
+  </view>
+</view>
+<view class='rongyu-box'>
+  <view class='new-1'>
+    <view class='box1'>
+      <image src='/assets/image/a10-title.png'></image>
+      <text>课程总结</text>
+    </view>
+  </view>
+</view>
+<view wx:if="{{kDetails.get_child_assess.length == 0}}">
+  <view class='plan-1'>
+    <text>还没有写总结，</text>
+    <text class='green'>马上去总结>></text>
+  </view>
+</view>
+<view wx:else>
+  <view class='plan-2' wx:for="{{kDetails.get_coach_assess}}">
+    <view class='uesr-box'>
+      <view class='user'>
+        <image class='user-img' src='/assets/image/red-star.png'></image>
+        <text>教练名字</text>
+      </view>
+      <view class='star-box'>
+        <block wx:for='{{scoreArray}}' wx:key='item'> 
+          <view class='starLen' bindtouchmove='changeScore' bindtap='changeScore' id="{{index+1}}">
+            <image class='star' src="{{score>index?'/assets/image/red-star.png':'/assets/image/star.png'}}" />
+          </view>
+        </block>
+        <!-- 显示当前评分 -->
+      </view>
+    </view>
+  <!-- 教练信息部分结束 -->
+    <view>
+      <text wx:for="{{item.get_coach_assess_label}}" class='jiaoliantitle'>{{item.get_label.name}}</text>
+    </view>
+    <view  class='contetnt-box'>
+      <text class='contetnt'>{{item.content}}</text>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- 教练评价 -->
+<view class='rongyu-box' wx:if="{{kDetails.get_child_assess.length != 0}}">
+  <view class='new-1'>
+    <view class='box1'>
+      <image src='/assets/image/a10-title.png'></image>
+      <text>教练评价</text>
+    </view>
+  </view>
+</view>
+<view wx:if="{{kDetails.get_child_assess.length == 0}}">
+  <view class='plan-1'>
+    <text>还没有写总结，</text>
+    <text class='green'>马上去总结>></text>
+  </view>
+</view>
+<view wx:else>
+  <view class='plan-2' wx:for="{{kDetails.get_child_assess}}">
+    <view class='uesr-box'>
+      <view class='user'>
+        <image class='user-img' src='/assets/image/red-star.png'></image>
+        <text>教练名字</text>
+      </view>
+      <view class='star-box'>
+        <block wx:for='{{scoreArray2}}' wx:key='item'> 
+          <view class='starLen' bindtouchmove='changeScore2' bindtap='changeScore2' id="{{index+1}}">
+            <image class='star' src="{{score>index?'/assets/image/red-star.png':'/assets/image/star.png'}}" />
+          </view>
+        </block>
+        <!-- 显示当前评分 -->
+      </view>
+    </view>
+  <!-- 教练信息部分结束 -->
+    <view>
+      <text wx:for="{{item.get_child_assess_label}}" class='jiaoliantitle'>{{item.get_label.name}}</text>
+    </view>
+    <view  class='contetnt-box'>
+      <text class='contetnt'>{{item.content}}</text>
+    </view>
+  </view>
+</view>

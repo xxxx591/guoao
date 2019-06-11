@@ -15,3 +15,39 @@
 <view class=' title-02'>
   <text>本节课 {{rongyuDetails.child.name}} 同学表现出色，特赋予 {{rongyuDetails.honor.name}} 称号，希望后面的课程继续努力.....</text>
 </view>
+<view class='list-box'>
+<view class='icon'></view>
+  <view class='title'>
+    <text>课程名称：{{rongyuDetails.name}}</text>
+  </view>
+  <view class='left'>
+    <view>
+      <image src='/assets/image/jiaolian.png'></image>
+      <text class='title-ccc'>教练</text>
+    </view>
+    <view>
+      <text class='green' wx:for="{{rongyuDetails.team_coach}}" id="{{item.coach_id}}" bindtap='jiaolianDetails'>[{{item.type=='1'?'主':'助'}}]{{item.get_coach.name}}</text>
+    </view>
+  </view>
+  <view class='right'>
+    <view>
+      <image src='/assets/image/time.png'></image>
+      <text class='title-ccc'>上课时间</text>
+    </view>
+    <view> 
+      <text class='title-black'>03-14 15:00-16:30</text>
+    </view>
+  </view>
+</view>
+<view>
+
+  <button open-type='share' class='kefu-log'>
+  <image src='/assets/image/kefu.png'></image></button>
+</view>
+
+<view class='erweima-box'>
+<image src='/assets/image/erweima.png' class='erweima'></image>
+<view>
+  <text>扫码进入国奥越野小程序</text>
+</view>
+</view>

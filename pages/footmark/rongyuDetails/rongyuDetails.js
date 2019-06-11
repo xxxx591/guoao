@@ -16,6 +16,12 @@ Page({
     console.log(options)
     this.getRongyuDetails(options.id, options.haiziId)
   },
+  // 跳转到教练详情
+  jiaolianDetails(e){
+    wx.navigateTo({
+      url: '/pages/details/details?id=' + e.currentTarget.id
+    })
+  },
   // 获取荣誉详情
   getRongyuDetails(id,haiziId){
     wx.request({
@@ -79,7 +85,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (e) {
+    console.log(e)
   }
 })

@@ -1,0 +1,23 @@
+<!--pages/gameList/gameList.wxml-->
+<view class='tab-box'>
+  <text class="{{type==1?'active':''}}" bindtap='gostudent' data-num="1">已上课</text>
+  <text bindtap='gostudent' class="{{type==2?'active':''}}" data-num="2">课程计划</text>
+</view>
+<view class='game-wrap' bindtap="handleGoOrder" id="{{item.id}}" wx:for="{{dataList}}" wx:key="index">
+  <view class='game-title'>比赛名称：{{item.name}}</view>
+  <view class='game-msg'>
+    <view class='game-msg-l'>
+      <view class='game-msg-space'>
+        <image lazy-load src='/assets/image/time.png' mode='aspectFit'></image>
+        <text>比赛时间:{{item.started_at+"-"+item.ended_at}}</text>
+      </view>
+    </view>
+   
+  </view>
+  <view class='game-msg-space martop'>
+    <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
+    <text style='color:rgba(244,83,66,1);' wx:if="{{item.epilog==''}}">待评价</text>
+    <text wx:else>评价： <text class='green' wx:for="{{dataList.get_child_assess}}">123</text> </text>
+  </view>
+  <view class='game-button' catchtap='handlePay'>立即支付</view>
+</view>

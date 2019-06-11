@@ -75,3 +75,109 @@
   line-height: 40rpx;
   margin: 0 auto;
 }
+
+.list-box {
+  padding: 30rpx;
+  margin: 30rpx 30rpx 0;
+  position: relative;
+  height: 240rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(245, 247, 250, 1);
+  box-sizing: border-box;
+}
+
+.list-box image {
+  width: 22rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+
+.list-box .icon {
+  position: absolute;
+  top: -110rpx;
+  width: 0;
+  height: 0;
+  border-width: 0 30px 30px;
+  border-style: solid;
+  border-color: transparent transparent rgba(245, 247, 250, 1);
+  margin: 40px auto;
+  left: 50%;
+  margin-left: -30px;
+}
+
+.list-box .title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(77, 77, 77, 1);
+  margin-bottom: 30rpx;
+  width: 100%;
+}
+
+.list-box .left {
+  flex: 2;
+}
+
+.list-box .right {
+  flex: 1;
+}
+
+.list-box .title-ccc {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.list-box .green {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 100, 40, 1);
+}
+
+.list-box .title-black {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(77, 77, 77, 1);
+}
+
+.kefu-log{
+position: fixed; 
+border: 0;
+background: rgba(0,0,0,0);
+right: 30rpx;
+width: 140rpx;
+height: 140rpx;
+bottom: 200rpx; 
+z-index: 999;
+}
+.kefu-log image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.erweima-box {
+  position: fixed;
+  bottom: 100rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.erweima-box text {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(76, 76, 76, 1);
+  line-height: 36rpx;
+}
+
+.erweima {
+  width: 200rpx;
+  height: 200rpx;
+}
