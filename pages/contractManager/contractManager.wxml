@@ -1,7 +1,7 @@
 
 <!--index/contract-ment/index.wxml-->
 <view class='management'>
-  <view wx:for="{{dataList}}" wx:key="index">
+  <view wx:for="{{dataList}}" wx:key="index" bindtap='goConDetail'>
     <view class='management-title'>{{item.name}}-刘天宇</view>
     <view class='management-time'>{{item.started_at}} 至  {{item.ended_at}}</view>
     <view class='management-price'>￥{{item.price}}</view>
@@ -13,12 +13,4 @@
       <view wx:elif="{{item.status === 5}}">已过期</view>
     </view>
   </view>
-  <!-- <view>
-    <view class='management-title'>2019年第二季度初级练习-刘天宇</view>
-    <view class='management-time'>2019-03-15 至  2020-03-14</view>
-    <view class='management-price'>￥2599</view>
-    <view class='management-hint'>
-      <view>履行中</view>
-    </view>
-  </view> -->
 </view>

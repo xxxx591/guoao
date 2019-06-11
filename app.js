@@ -17,7 +17,10 @@ App({
     wx.login({
       success: res => {
         console.log('到后台换取 openId, sessionKey, unionId', res)
+        this.globalData.response = res
         this.globalData.code = res.code
+        this.globalData.appId = 'wx5d7de4e63591f144'
+        this.globalData.key = '289f9b31a09d93db9420df18d60ba9bc'
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -50,10 +53,10 @@ App({
                   // this.globalData.token = res.data.data.token;
                   this.globalData.token = '111';
                   // 打开校验
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                    // url: '/pages/user/user',
-                  })
+                  // wx.switchTab({
+                  //   url: '/pages/index/index',
+                  //   // url: '/pages/user/user',
+                  // })
                 },
                 fail: function(err) {
                   console.log(err);
@@ -94,3 +97,4 @@ App({
     lnt: ''
   }
 })
+

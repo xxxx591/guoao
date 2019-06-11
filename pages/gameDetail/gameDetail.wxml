@@ -1,0 +1,81 @@
+<!--pages/gameDetail/gameDetail.wxml-->
+<import src="../wxParse/wxParse.wxml"/>
+<view class='wrapper'>
+  <view class='detail-top'></view>
+  <!-- content -->
+  <view class='detail-content'>
+    <view class='detail-name'>
+      <text>比赛名称：友谊赛</text>
+    </view>
+    <!-- 付费形式/比扫名称 -->
+    <view class='item-wrapper'>
+      <view class='item-left'>
+        <view class='pay-wrapper-top'>
+          <image class='icon' src='/assets/image/clocks.png'></image>
+          <text class='txt'>付费形式</text>
+        </view>
+        <view class='pay-wrapper-bottom'>
+          <text class='bottom-txt'>免费/￥188</text>
+        </view>
+      </view>
+      <view class='item-right'>
+         <view class='pay-wrapper-top'>
+          <image class='icon' src='/assets/image/clocks.png'></image>
+          <text class='txt'>比赛时间</text>
+        </view>
+        <view class='pay-wrapper-bottom'>
+          <text class='bottom-txt'>2019-03-15 至 2019-03-22</text>
+        </view>
+      </view>
+    </view>
+    <!-- 比赛地点 -->
+    <view class='item-address'>
+     <view class='address'>
+        <view class='pay-wrapper-top'>
+          <image class='icon' src='/assets/image/clocks.png'></image>
+          <text class='txt'>比赛地点</text>
+        </view>
+        <view class='pay-wrapper-bottom'>
+          <text class='bottom-txt'>北京市朝阳区奥林匹克体育场国奥越野</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 比赛介绍 -->
+    <view class='item-desc'>
+      <image class='desc-icon'  src='/assets/image/a10-title.png'></image>
+      <text class='race-desc'>比赛介绍</text>
+      <view class='txt-box'>
+        <template is="wxParse" />
+      </view>
+    </view>
+    <image class='desc-pic' src='/assets/image/a10-free.png'></image>
+    <!-- 表单信息 -->
+    <view class='form-wrapper'>
+      <view class='form-top'>
+        <image class='desc-icon'src='/assets/image/a10-title.png'></image>
+        <text class='race-desc'>报名信息</text>
+      </view>
+      <view>
+       <view class='ipt-wrapper'>
+          <text class='ipt-txt'>学生姓名：</text>
+          <input class='ipt' type='text' placeholder='请输入...'></input>
+        </view>
+        <view class='ipt-wrapper'>
+          <text class='ipt-txt'>学生身高：</text>
+          <input class='ipt' type='text' placeholder='请输入...'></input>
+        </view>
+        <view class='ipt-wrapper' style='padding-bottom:30rpx;'>
+          <text class='ipt-txt'>学生体重：</text>
+          <input class='ipt' type='text' placeholder='请输入...'></input>
+        </view>
+
+        <!-- 按钮 -->
+        <view class='submit-btn'>
+         <image class='btn-img' src='/assets/image/submit-btn.png'></image>
+         <text class='save-txt'>保存</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

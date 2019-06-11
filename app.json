@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/gameDetail/gameDetail",
     "pages/init/init",
+    "pages/contractDetail/contractDetail",
     "pages/user/user",
     "pages/contractManager/contractManager",
     "pages/orderList/orderList",

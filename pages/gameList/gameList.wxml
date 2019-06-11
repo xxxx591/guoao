@@ -22,5 +22,5 @@
     <text>比赛地点</text>
   </view>
   <view class='game-content'>{{item.address}}</view>
-  <view class='game-button' bindtap='handleJoin' id="{{item.id}}">立即报名</view>
+  <view class='game-button' bindtap='handleJoin'>立即报名</view>
 </view>

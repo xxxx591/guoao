@@ -1,56 +1,21 @@
-// pages/user/user.js
+// pages/contractDetail/contractDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:''
-  },
-  /**
-   * @desc:打电话
-   * @author：llc
-   */
-  handleCall(){
-    wx.makePhoneCall({
-      phoneNumber: '01064941655',
-    })
-  },
-  handleRegist(){
-    wx.navigateTo({
-      url: "/pages/gameList/gameList"
-    })
-  },
-  handleOrder(){
-    wx.navigateTo({
-      url: "/pages/myOrder/myOrder"
-    })
-  },
-  handleContract(){
-    wx.navigateTo({
-      url: "/pages/contractManager/contractManager"
-    })
-  },
-  handleJoin(){
-    wx.navigateTo({
-      // url: "/pages/aaa/aaa"
-    })
+    dataList:{
+      text:'123456'
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    wx.getUserInfo({
-      success:(data) => {
-        console.log('获取用户信息数据',data.code)
-        this.setData({
-          userInfo: JSON.parse(data.rawData)
-        })
-      }
-    })
-  },
 
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

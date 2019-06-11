@@ -1,0 +1,26 @@
+<!--index/contract/index.wxml-->
+<view class='contract-head'>
+  <image lazy-load src='/index/images/pdf-icon.png' mode='aspectFit'></image>
+  <view>2019年第二季度初级练习-刘天宇</view>
+  <view><image lazy-load src='/index/images/arrows-right.png' mode='aspectFit'></image></view>
+</view>
+<view class='contract-timer'>合同时间：2019-03-15 至  2020-03-14</view>
+<view class='contract-item-wrap'>
+  <view wx:for="{{3}}" wx:key="index">
+    <view class='contract-item-title'>课程名称：传接球练习</view>
+    <view class='contract-item-msg'>
+      <view>课程时长：60天</view>
+    </view>
+    <view class='contract-item-msg'>
+      <view>优惠信息：无</view>
+      <text>￥5888</text>
+    </view>
+  </view>
+</view>
+
+<view class='shop-wrap'>
+  <view class='shop-prices'>
+    合计:<text>￥599</text>
+  </view>
+  <view class='shop-button'>立即支付</view>
+</view>
