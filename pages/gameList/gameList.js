@@ -42,9 +42,9 @@ Page({
    * @desc:报名
    * @llc
    */
-  handleJoin(){
+  handleJoin(e){
     wx.navigateTo({
-      url: '/pages/gameDetail/gameDetail'
+      url: '/pages/gameDetail/gameDetail?game_id='+e.target.id
     })
   },
   /**
