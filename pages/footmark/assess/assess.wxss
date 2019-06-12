@@ -1,0 +1,225 @@
+/* pages/appointment/appointment.wxss */
+
+picker {
+  flex: 2;
+}
+
+.appointment {
+  padding: 31rpx;
+  position: relative;
+}
+
+.input-box {
+  display: flex;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.input-box text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  margin-right: 30rpx;
+}
+
+.input-box input {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #333;
+  flex: 3;
+}
+
+.picker {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #333;
+}
+
+.radio {
+  font-size: 32rpx;
+}
+
+.submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 31rpx;
+  width: 100%;
+  height: 94rpx;
+  display: flex;
+  color: #fff;
+  background: #fff;
+  align-items: center;
+  text-align: center;
+  z-index: 123;
+}
+
+.submit text {
+  z-index: 999;
+  width: 100%;
+  line-height: 94rpx;
+}
+
+.submit image {
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  width: 690rpx;
+  height: 94rpx;
+}
+
+.child-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.child-list {
+  padding: 30rpx;
+  padding-bottom: 130rpx;
+}
+
+.child-list .child-box {
+  flex: 1;
+  width: 336rpx;
+  height: 371rpx;
+  box-sizing: border-box;
+  background: rgba(245, 247, 250, 1);
+  border-radius: 10rpx;
+  position: relative;
+  margin-bottom: 18rpx;
+  float: left;
+}
+
+.child-box:nth-of-type(odd) {
+  margin-right: 18rpx;
+}
+
+.child-list .right-title {
+  position: absolute;
+  height: 50rpx;
+  width: 122rpx;
+  top: 0;
+  right: 0;
+}
+
+.img-box {
+  padding-top: 40rpx;
+  text-align: center;
+}
+
+.img-box image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.img-box-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  display: block;
+}
+
+.child-list .bottom-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+}
+
+.child-list .bottom-box .bianji {
+  flex: 1;
+  text-align: center;
+  width: 50%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  box-sizing: border-box;
+  border-right: 1px solid rgba(229, 229, 229, 1);
+}
+
+.child-list .bottom-box .zhanshi {
+  text-align: center;
+  flex: 1;
+  width: 50%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(0, 100, 40, 1);
+}
+
+.tag-class {
+  padding: 20rpx 30rpx 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-class .tag-text {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  padding: 20rpx;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  margin-right: 30rpx;
+  background:rgba(245,248,250,1);
+  margin-bottom: 30rpx;
+}
+
+.tag-class .tag-text.on {
+  color: rgba(0, 100, 40, 1);
+  background: rgba(228, 245, 235, 1);
+}
+
+.textarea-box {
+  padding: 30rpx;
+  padding-top: 0;
+}
+
+.textarea {
+  width: 100%;
+  height: 360rpx;
+  background: rgba(245, 248, 250, 1);
+  border-radius: 10px;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(55, 55, 55, 1);
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+/* 星星样式 */
+
+.star-box {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.starLen {
+  margin-right: 50rpx;
+  display: inline-block;
+}
+
+.star {
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+
+.scoreContent {
+  margin-left: 100px;
+  display: inline-block;
+}
+
+/* 星星样式结束 */

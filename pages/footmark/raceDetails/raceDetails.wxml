@@ -78,7 +78,7 @@
 <view wx:if="{{kDetails.get_child_assess.length == 0}}">
   <view class='plan-1'>
     <text>还没有写总结，</text>
-    <text class='green'>马上去总结>></text>
+    <text class='green' bindtap='zongjie' >马上去总结>></text>
   </view>
 </view>
 <view wx:else>

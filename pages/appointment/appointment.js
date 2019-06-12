@@ -33,7 +33,7 @@ Page({
       method: 'post',
       success: res => {
         console.log('提交体验课接口返回', res)
-        if (res.statusCode == 200) {
+        if (res.data.error_code == 0) {
           wx.showToast({
             title: '预定成功',
             icon: 'success',
@@ -46,6 +46,12 @@ Page({
               },2000)
 
             }
+          })
+        }else{
+          wx.showToast({
+            title: res.data.error_msg,
+            icon: 'none',
+            duration: 2000, 
           })
         }
       }

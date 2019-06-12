@@ -1,0 +1,29 @@
+<form bindsubmit="formSubmit" class='child-list'>
+  <view>
+    <view class='img-box'>
+      <image src='{{haiziDetails.avatar}}'></image>
+    </view>
+    <text class='img-box-title'>{{haiziDetails.name}}</text>
+  </view>
+  <view class='star-box'>
+
+    <block wx:for='{{scoreArray}}' wx:key='item'>
+      <view class='starLen' bindtouchmove='changeScore' bindtap='changeScore' id="{{index+1}}">
+        <image class='star' src="{{score>index?'/assets/image/red-star.png':'/assets/image/star.png'}}" />
+      </view>
+    </block>
+  </view>
+  <view class='tag-class'>
+    <text wx:for="{{tagList}}" id='{{item.type}}' class="tag-text {{item.type == true ? 'on':''}}" data-id="{{index}}" bindtap='selectOn'>{{item.value}}</text>
+  </view>
+  <view class='textarea-box'>
+  <textarea  class='textarea' placeholder="输入您对这位学员的评价（选填）" name="textarea"/>
+  </view>
+  <!-- 显示当前评分 -->
+  <button form-type="submit">
+    <view class='submit'>
+      <text>提交</text>
+      <image src='/assets/image/submit-btn.png'></image>
+    </view>
+  </button>
+</form>

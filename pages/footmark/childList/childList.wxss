@@ -1,0 +1,164 @@
+/* pages/appointment/appointment.wxss */
+
+picker {
+  flex: 2;
+}
+
+.appointment {
+  padding: 31rpx;
+  position: relative;
+}
+
+.input-box {
+  display: flex;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+
+.input-box text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  margin-right: 30rpx;
+}
+
+.input-box input {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #333;
+  flex: 3;
+}
+
+.picker {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #333;
+}
+
+.radio {
+  font-size: 32rpx;
+}
+
+.submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 31rpx;
+  width: 100%;
+  height: 94rpx;
+  display: flex;
+  color: #fff;
+  background: #fff;
+  align-items: center;
+  text-align: center;
+  z-index: 123;
+}
+
+.submit text {
+  z-index: 999;
+  width: 100%;
+  line-height: 94rpx;
+}
+
+.submit image {
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  width: 690rpx;
+  height: 94rpx;
+}
+
+.child-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.child-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30rpx;
+  padding-bottom:130rpx;
+
+}
+
+.child-list .child-box {
+  flex: 1;
+  width: 336rpx;
+  height: 371rpx;
+  box-sizing: border-box;
+  background:rgba(245,247,250,1);
+border-radius:10rpx;
+  position: relative;
+  margin-bottom: 18rpx;
+  float:left;
+
+}
+
+.child-box:nth-of-type(odd) {
+  margin-right: 18rpx;
+}
+
+.child-list .right-title {
+  position: absolute;
+  height: 50rpx;
+  width: 122rpx;
+  top: 0;
+  right: 0;
+}
+
+.child-list .img-box {
+  padding-top:60rpx;
+  text-align: center;
+}
+
+.child-list .img-box image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.child-list  .img-box-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  display:block;
+
+}
+
+.child-list .bottom-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+}
+
+.child-list .bottom-box .bianji {
+  flex: 1;
+  text-align: center;
+  width: 50%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  box-sizing: border-box;
+  border-right: 1px solid rgba(229, 229, 229, 1);
+}
+
+.child-list .bottom-box .zhanshi {
+  text-align: center;
+  flex: 1;
+  width: 50%;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(0, 100, 40, 1);
+}

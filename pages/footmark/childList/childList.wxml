@@ -1,0 +1,25 @@
+<form bindsubmit="formSubmit" class='child-list'>
+  <view class='child-box' wx:for="{{childList}}">
+    <image class='right-title' src='/assets/image/show-this.png' wx:if="{{item.id ==  childId}}"></image>
+    <view class='img-box'>
+      <image src='{{item.avatar}}'> </image>
+    </view>
+      <text class='img-box-title'>{{item.name}}</text>
+    <view class='bottom-box'>
+      <view class='bianji' bindtap='xiugai' id="{{item.id}}">
+        编辑资料
+      </view>
+      <view class='zhanshi'>
+        展示足迹
+      </view>
+    </view>
+  </view>
+  <view>
+    <button form-type="submit">
+      <view class='submit'>
+        <text>添加孩子</text>
+        <image src='/assets/image/submit-btn.png'></image>
+      </view>
+    </button>
+  </view>
+</form>
