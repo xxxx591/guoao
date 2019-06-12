@@ -74,17 +74,10 @@
   margin-top: 29rpx;
 }
 .game-button{
-  position: absolute;
-  right: 0;
-  bottom: 20rpx;
-  width: 140rpx;
-  height: 68rpx;
-  font-size:26rpx;
-  font-weight:500;
-  color:rgba(255,255,255,1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAABECAYAAABTe93nAAACg0lEQVR4Xu2dMW4TYRhE37dB7A2QYlJQWPIewJdIF4Rd0WE6wh1yAkuQK1DBkUCigAsABVQsWlDkIhbOjlPtTEpnZ6N587RepfmLfT/n85bZg2cUT+lZUpwC7d5r86EVgbrVdrNYU2yhzqxIpOydCOyEuaLhS/eG4vJOyVxkSWAnzKa7jiyWDowq/U+Yv19D9X5UMhdbEihez1t+nnzKO4vl/qNLFy8Wz2nq3ehkApYEipfdB2Bl2T6lRxMoNt1niiejkwlYEhieML/yTznL7aXSgzC9lEzIkkCEsZxdLx1hdHaWyQhjObteOsLo7CyTEcZydr10hNHZWSYjjOXseukIo7OzTEYYy9n10hFGZ2eZjDCWs+ulI4zOzjIZYSxn10tHGJ2dZTLCWM6ul44wOjvLZISxnF0vHWF0dpbJCGM5u146wujsLJMRxnJ2vXSE0dlZJiOM5ex66Qijs7NMRhjL2fXSEUZnZ5mMMJaz66UjjM7OMhlhLGfXS0cYnZ1lMsJYzq6XjjA6O8tkhLGcXS8dYXR2lskIYzm7XjrC6OwskxHGcna9dITR2VkmI4zl7HrpCKOzs0xGGMvZ9dIRRmdnmYwwlrPrpQdhcjiFzs8umeNv7CY/rvDwhMkBW8cxtErnCD+ruY8vW5zPWx7nkNDjUXrcIccQe+x8by1z0Pm9ofS40U6YKxq+dm+BVx7V01IhsBPmJr1ZrCm2OfhcwTn9zG1hhs7Di/DpyYqmLuhZAjOKh9PHkYaHCOwX5j+p/hvXwOWhG+f30yQwXpiehu/kXWeaPhxsNVqYmzv2P1jTs6Xn7OBfyQWTISALMxDoP9LyiBXFBb9ZUswg7zqTsWNPkT/VjnfBKgXkSQAAAABJRU5ErkJggg==") no-repeat ;
-  background-size:100% 100%;
+ position: absolute;
+width: 107rpx;
+height: 100rpx;
+right: 18rpx;
+top: 18rpx;
+
 }

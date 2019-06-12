@@ -7,7 +7,7 @@
     </view>
     <view class='input-box'>
       <text>孩子姓名：</text>
-      <input placeholder='请输入...' type='number' name="name" value='{{haiziDetails.name}}'> </input>
+      <input placeholder='请输入...' type='text' name="name" value='{{haiziDetails.name}}'> </input>
     </view>
     <view class='input-box'>
       <text>孩子性别：</text>

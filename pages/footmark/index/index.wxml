@@ -68,7 +68,7 @@
         <text class='title-red'>{{item.epilog == ''?'待总结':'总结：'+item.epilog}}</text>
       </view>
       <view class='right-tight'>
-        <image class='img' src=''></image>
+        <image class='img' src='{{item.get_child_assess[0].get_child_assess_label[0].get_label.pic}}'></image>
       </view>
 
     </view>

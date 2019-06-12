@@ -14,6 +14,7 @@ Page({
    */
   onLoad: function(options) {
     this.getHaiziDetails()
+    
   },
   // 跳转到比赛列表
   raceMore(e){
@@ -67,7 +68,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getHaiziDetails()
   },
 
   /**

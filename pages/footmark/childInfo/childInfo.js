@@ -36,14 +36,14 @@ Page({
   onLoad: function(options) {
     console.log(options)
     this.setData({
-      child_id:options.id
+      child_id: options.id
     })
     this.getChildDetails(options.id)
 
   },
   // 修改图片
   changerPhoto() {
-    let that =this
+    let that = this
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -52,11 +52,11 @@ Page({
         console.log('图片地址', res)
         // tempFilePath可以作为img标签的src属性显示图片
         let tempFilePaths = res.tempFilePaths[0]
-        let childImg = 
-        that.setData({
-          imgUrl: tempFilePaths,
-          'haiziDetails.avatar': tempFilePaths
-        })
+        let childImg =
+          that.setData({
+            imgUrl: tempFilePaths,
+            'haiziDetails.avatar': tempFilePaths
+          })
       }
     })
   },
@@ -99,7 +99,7 @@ Page({
   // 改变家庭地址
   bindRegionChange1(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    let arrlist = e.detail.value 
+    let arrlist = e.detail.value
     this.setData({
       region1: arrlist,
       'haiziDetails.prov': arrlist[0],
@@ -123,14 +123,16 @@ Page({
   formSubmit(e) {
     console.log(e)
     this.setData({
-      'haiziDetails.address':e.detail.value.addressdetails,
-      'haiziDetails.school':e.detail.value.school,
+      'haiziDetails.address': e.detail.value.addressdetails,
+      'haiziDetails.school': e.detail.value.school,
     })
     let params = JSON.parse(JSON.stringify(this.data.haiziDetails));
     console.log(params)
     params.sex = parseInt(params.sex);
     params.token = app.globalData.token;
     params.child_id = this.data.child_id
+    params.name = e.detail.value.name
+    params.id_card = e.detail.value.id_card
     wx.request({
       url: app.globalData.url + 'api/user/child/update',
       data: params,

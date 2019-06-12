@@ -22,8 +22,9 @@ Page({
   },
   // 获取比赛详情
   handleGoOrder(e){
+    console.log(e)
     wx.navigateTo({
-      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id +'&cid='+this.data.id
+      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id +'&cid='+this.data.id +"&type="+this.data.type
     })
   },
   // 获取列表

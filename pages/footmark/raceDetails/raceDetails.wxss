@@ -29,8 +29,7 @@
 .list-box {
   padding: 30rpx;
   margin: 0 30rpx 0;
-  position: relative;
-  height: 240rpx;
+  position: relative; 
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -86,7 +85,12 @@
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
 }
-
+.list-box  .title-black-01{
+  font-size:28rpx;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+}
 .list-box .green {
   font-size: 24rpx;
   font-family: PingFangSC-Medium;
