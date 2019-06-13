@@ -11,37 +11,7 @@ Page({
     scoreArray: [1, 2, 3, 4, 5], //分为1-5个评分层次
     scoreText: ['1星', '2星', '3星', '4星', '5星'], //评分列表
     scoreContent: '', //文字显示评分情况
-    tagList: [{
-        value: '耐心负责',
-        id: '0',
-        type: true
-      },
-      {
-        value: '专业',
-        id: '1',
-        type: false
-      },
-      {
-        value: '认真',
-        id: '2',
-        type: false
-      },
-      {
-        value: '耐心负责',
-        id: '0',
-        type: false
-      },
-      {
-        value: '专业',
-        id: '1',
-        type: false
-      },
-      {
-        value: '认真',
-        id: '2',
-        type: false
-      },
-    ],
+    tagList: [],
     type: '',
     kid: '',
     cid: '',
@@ -53,18 +23,49 @@ Page({
    */
   onLoad: function(options) {
     this.getChildDetails(options.cid)
+    this.getTagList()
     this.setData({
-      kid:options.kid,
-      cid:options.cid,
+      kid: options.kid,
+      cid: options.cid,
     })
+  },
+  // 获取tag列表
+  getTagList() {
+    let that = this
+    wx.getStorage({
+      key: 'storeId',
+      success(res) {
+        console.log()
+        wx.request({
+          url: app.globalData.url + 'common/getLabel',
+          data: {
+            belong: 2,
+            store_id: res.data,
+            type: 2
+          },
+          method: 'post',
+          success: res => {
+            console.log('获取tag列表接口返回', res)
+            let arr = res.data.data;
+            arr.forEach(item => {
+              item.type = false
+            })
+            that.setData({
+              tagList: arr
+            })
+          }
+        })
+      }
+    })
+
   },
   // 评价接口
   formSubmit(e) {
     console.log(e)
     let label_id = [];
-    (this.data.tagList ).forEach(item=>{
-      if(item.type == true){
-        label_id.push(item.value)
+    (this.data.tagList).forEach(item => {
+      if (item.type == true) {
+        label_id.push(item.id)
       }
     })
     let params = {};
@@ -85,7 +86,7 @@ Page({
             title: '评价成功',
             icon: 'success',
             duration: 2000,
-            success: function () {
+            success: function() {
               setTimeout(_ => {
                 wx.navigateBack({
                   delta: 2
@@ -94,13 +95,12 @@ Page({
 
             }
           })
-        }else{
+        } else {
           wx.showToast({
             title: res.data.error_msg,
             icon: 'none',
             duration: 2000,
-            success: function () { 
-            }
+            success: function() {}
           })
         }
       }

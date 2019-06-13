@@ -14,7 +14,7 @@
     </block>
   </view>
   <view class='tag-class'>
-    <text wx:for="{{tagList}}" id='{{item.type}}' class="tag-text {{item.type == true ? 'on':''}}" data-id="{{index}}" bindtap='selectOn'>{{item.value}}</text>
+    <text wx:for="{{tagList}}" id='{{item.type}}' class="tag-text {{item.type == true ? 'on':''}}" data-id="{{index}}" bindtap='selectOn'>{{item.name}}</text>
   </view>
   <view class='textarea-box'>
   <textarea  class='textarea' placeholder="输入您对这位学员的评价（选填）" name="textarea"/>

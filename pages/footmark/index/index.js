@@ -16,6 +16,12 @@ Page({
     this.getHaiziDetails()
     
   },
+  // 跳转至echarts
+  reportDetails(e){
+    wx.navigateTo({
+      url: '/pages/footmark/echarts/echarts?cid=' + this.data.haiziDetails.id
+    })
+  },
   // 跳转到比赛列表
   raceMore(e){
     wx.navigateTo({

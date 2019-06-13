@@ -28,7 +28,8 @@
     "pages/footmark/rongyuDetails/rongyuDetails",
     "pages/footmark/raceList/racelist",
     "pages/footmark/raceDetails/raceDetails",
-    "pages/footmark/assess/assess"
+    "pages/footmark/assess/assess",
+    "pages/footmark/echarts/echarts"
   ],
   "window": {
     "backgroundTextStyle": "light",
