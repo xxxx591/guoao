@@ -45,20 +45,20 @@ Page({
   },
   handlePay(){
     // console.log('appid>>', app.globalData.appId)
-    this.getOpenId(app.globalData.code)
+    // this.getOpenId(app.globalData.code)
   },
-  getOpenId: function (code) {
-         var that = this;
-         wx.request({
-           url: "https://api.weixin.qq.com/sns/jscode2session?appid=wx5d7de4e63591f144&secret=&js_code=289f9b31a09d93db9420df18d60ba9bc" + code + "&grant_type=authorization_code",
-           data: {},
-           method: 'GET',
-           success: function (res) {
-             console.log("get open id",res)
-          //  that.generateOrder(res.data.openid)
-      }
-    })
-   },
+  // getOpenId: function (code) {
+  //        var that = this;
+  //        wx.request({
+  //          url: "https://api.weixin.qq.com/sns/jscode2session?appid=wx5d7de4e63591f144&secret=&js_code=289f9b31a09d93db9420df18d60ba9bc" + code + "&grant_type=authorization_code",
+  //          data: {},
+  //          method: 'GET',
+  //          success: function (res) {
+  //            console.log("get open id",res)
+  //         //  that.generateOrder(res.data.openid)
+  //     }
+  //   })
+  //  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

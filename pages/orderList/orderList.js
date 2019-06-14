@@ -12,29 +12,29 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  // onLoad: function (options) {
-  //   wx.request({
-  //     url: app.globalData.url + 'api/game/join/list',
-  //     data: {
-  //       token: app.globalData.token,
-  //       page: "1",
-  //       pagesize: "30"
-  //     },
-  //     method: 'post',
-  //     success: res => {
-  //       console.log('比赛名称列表', res)
-  //       let arrayList = res.data.data.data
-  //       arrayList.map((item) => {
-  //         item.started_at = item.started_at.split(' ')[0]
-  //         item.ended_at = item.ended_at.split(' ')[0]
-  //       })
-  //       this.setData({
-  //         dataList: arrayList
-  //       })
-  //       console.log(this.data.dataList)
-  //     }
-  //   })
-  // },
+  onLoad: function (options) {
+    wx.request({
+      url: app.globalData.url + 'api/game/join/list',
+      data: {
+        token: app.globalData.token,
+        page: "1",
+        pagesize: "30"
+      },
+      method: 'post',
+      success: res => {
+        console.log('比赛名称列表', res)
+        let arrayList = res.data.data.data
+        arrayList.map((item) => {
+          item.started_at = item.started_at.split(' ')[0]
+          item.ended_at = item.ended_at.split(' ')[0]
+        })
+        this.setData({
+          dataList: arrayList
+        })
+        console.log(this.data.dataList)
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

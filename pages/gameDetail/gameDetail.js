@@ -59,21 +59,31 @@ Page({
    * @author:llc
    */
   handleSubmit(){
+    console.log(this.data.stuHeight)
+    let ids = []
+    this.data.dataList.get_game_element.map((item)=>{
+      ids.push(item.id)
+    })
+
     const query = {
       token: app.globalData.token,
       game_id:this.data.gameId,
-      game_element_id: this.data.dataList.get_game_element[0].game_id,
-      content:'23333'
+      game_element_id: ids,
+      content: {
+        name: this.data.stuName,
+        height: this.data.stuHeight,
+        weight: this.data.stuWeight
+      }
     }
     console.log(query)
-    // wx.request({
-    //   url: app.globalData.url + 'api/game/join/add',
-    //   data: query,
-    //   method: 'post',
-    //   success: res => {
-    //     console.log('提交表单返回>>', res.data.data)
-    //   }
-    // })
+    wx.request({
+      url: app.globalData.url + 'api/game/join/add',
+      data: query,
+      method: 'post',
+      success: res => {
+        console.log('提交表单返回>>', res.data.data)
+      }
+    })
 
   },
   /**
