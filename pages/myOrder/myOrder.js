@@ -16,9 +16,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.request({
-      url: app.globalData.url + 'api/game/list',
+      url: app.globalData.url + 'api/game/join/list',
       data: {
         token: app.globalData.token,
         page: "1",
@@ -38,73 +38,97 @@ Page({
       }
     })
   },
-  handleGoOrder(e){
+  handleGoOrder(e) {
     wx.navigateTo({
       url: '/pages/orderList/orderList?courseId=' + e.currentTarget.id
     })
   },
-  handlePay(){
+  handlePay(e) {
     // console.log('appid>>', app.globalData.appId)
-    this.getOpenId(app.globalData.code)
-  },
-  getOpenId: function (code) {
-         var that = this;
-         wx.request({
-           url: "https://api.weixin.qq.com/sns/jscode2session?appid=wx5d7de4e63591f144&secret=&js_code=289f9b31a09d93db9420df18d60ba9bc" + code + "&grant_type=authorization_code",
-           data: {},
-           method: 'GET',
-           success: function (res) {
-             console.log("get open id",res)
-          //  that.generateOrder(res.data.openid)
+    wx.request({
+      url: app.globalData.url + 'api/pay/game',
+      data: {
+        token: app.globalData.token,
+        game_join_id: e.currentTarget.id
+      },
+      method: 'post',
+      success: res => {
+        console.log('支付返回参数', res)
+        if (res.data.error_code != 0){
+          wx.showToast({
+            title: res.data.error_msg,
+            icon: 'none',
+            duration: 2000,
+            success: function () {
+               
+            }
+          })
+        }else{
+        this.getOpenId(res.data.data)
+        }
       }
     })
-   },
+    
+  },
+  getOpenId: function(res) {
+    wx.requestPayment({
+      timeStamp: res.timestamp,
+      nonceStr: res.nonceStr,
+      package: res.package,
+      signType: 'MD5',
+      paySign: res.paySign,
+      success(res) {
+        console.log(res)
+      },
+      fail(res) {}
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

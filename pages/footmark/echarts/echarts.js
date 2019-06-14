@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: ''
+    time: '',
+    echarts:{}
   },
 
   /**
@@ -30,7 +31,9 @@ Page({
       method: 'post',
       success: res => {
         console.log('获取echarts数据接口返回', res)
-
+        this.setData({
+          echarts:res.data.data
+        })
       }
     })
   },

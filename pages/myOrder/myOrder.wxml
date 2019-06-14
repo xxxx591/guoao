@@ -22,5 +22,5 @@
     <text>比赛地点</text>
   </view>
   <view class='game-content'>{{item.address}}</view>
-  <view class='game-button' catchtap='handlePay'>立即支付</view>
+  <view class='game-button' catchtap='handlePay' id="{{item.get_game_join.id}}">立即支付</view>
 </view>

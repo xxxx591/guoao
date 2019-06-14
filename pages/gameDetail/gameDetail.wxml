@@ -47,7 +47,7 @@
       <image class='desc-icon'  src='/assets/image/a10-title.png'></image>
       <text class='race-desc'>比赛介绍</text>
       <view class='txt-box'>
-        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
       </view>
     </view>
     <image class='desc-pic' src='/assets/image/a10-free.png'></image>

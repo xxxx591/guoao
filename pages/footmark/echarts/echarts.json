@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#006428",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "测评报告",
+  "backgroundColor": "#006428",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": false
 }
