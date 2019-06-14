@@ -56,7 +56,7 @@ App({
                   wx.switchTab({
                     // url: '/pages/index/index',
                     // url: '/pages/user/user',
-                    url: '/pages/footmark/index/index',
+                    // url: '/pages/footmark/index/index',
                   })
                 },
                 fail: function(err) {
