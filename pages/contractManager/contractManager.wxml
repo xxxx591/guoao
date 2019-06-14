@@ -1,8 +1,8 @@
 
 <!--index/contract-ment/index.wxml-->
-<view class='management'>
-  <view wx:for="{{dataList}}" wx:key="index" bindtap='goConDetail'>
-    <view class='management-title'>{{item.name}}-刘天宇</view>
+<view class='management' wx:for="{{dataList}}" wx:key="index">
+  <view bindtap='goConDetail' id="{{item.status}}">
+    <view class='management-title'>{{item.name}}-刘天宇 </view>
     <view class='management-time'>{{item.started_at}} 至  {{item.ended_at}}</view>
     <view class='management-price'>￥{{item.price}}</view>
     <view class='management-hint hint-button'>

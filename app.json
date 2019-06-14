@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/user/user",
     "pages/init/init",
     "pages/footmark/index/index",
+    "pages/footmark/childList/childList",
+    "pages/user/user",
     "pages/gameDetail/gameDetail",
     "pages/contractDetail/contractDetail",
     "pages/contractManager/contractManager",
@@ -26,7 +27,9 @@
     "pages/footmark/childInfo/childInfo",
     "pages/footmark/rongyuDetails/rongyuDetails",
     "pages/footmark/raceList/racelist",
-    "pages/footmark/raceDetails/raceDetails"
+    "pages/footmark/raceDetails/raceDetails",
+    "pages/footmark/assess/assess",
+    "pages/footmark/echarts/echarts"
   ],
   "window": {
     "backgroundTextStyle": "light",

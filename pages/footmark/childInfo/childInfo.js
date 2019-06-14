@@ -9,8 +9,8 @@ Page({
     storeId: '',
     courseId: '',
     haiziDetails: {},
-    region1: '',
-    region2: '',
+    region1: '点击选择',
+    region2: '点击选择',
     customItem: '全部',
     sexItems: [{
         sex: 1,
@@ -38,7 +38,9 @@ Page({
     this.setData({
       child_id: options.id
     })
-    this.getChildDetails(options.id)
+    if (!(options.id == 'null')) {
+      this.getChildDetails(options.id)
+    }
 
   },
   // 修改图片
@@ -130,33 +132,12 @@ Page({
     console.log(params)
     params.sex = parseInt(params.sex);
     params.token = app.globalData.token;
-    params.child_id = this.data.child_id
+    if (!(this.data.child_id == 'null')) {
+      params.child_id = this.data.child_id
+    }
     params.name = e.detail.value.name
     params.id_card = e.detail.value.id_card
-    wx.request({
-      url: app.globalData.url + 'api/user/child/update',
-      data: params,
-      method: 'post',
-      success: res => {
-        console.log('修改孩子信息接口返回', res)
-
-        if (res.statusCode == 200) {
-          wx.showToast({
-            title: '修改成功',
-            icon: 'success',
-            duration: 2000,
-            success: function() {
-              setTimeout(_ => {
-                wx.navigateBack({
-                  delta: 2
-                })
-              }, 2000)
-
-            }
-          })
-        }
-      }
-    })
+    
   },
 
   /**

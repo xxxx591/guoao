@@ -16,6 +16,12 @@ Page({
     this.getHaiziDetails()
     
   },
+  // 跳转至echarts
+  reportDetails(e){
+    wx.navigateTo({
+      url: '/pages/footmark/echarts/echarts?cid=' + this.data.haiziDetails.id
+    })
+  },
   // 跳转到比赛列表
   raceMore(e){
     wx.navigateTo({
@@ -37,7 +43,7 @@ Page({
   // 跳转到孩子详情
   haiziDetails(e) {
     wx.navigateTo({
-      url: '/pages/footmark/childInfo/childInfo?id=' + e.currentTarget.id
+      url: '/pages/footmark/childList/childList?id=' + e.currentTarget.id
     })
   },
   // 获取足迹孩子详情

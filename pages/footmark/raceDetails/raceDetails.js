@@ -13,7 +13,9 @@ Page({
     scoreArray2: [1, 2, 3, 4, 5], //分为1-5个评分层次
     scoreText: ['1星', '2星', '3星', '4星', '5星'], //评分列表
     scoreContent: '', //文字显示评分情况
-    type:''
+    type: '',
+    kid: '',
+    cid: '',
   },
 
   /**
@@ -21,10 +23,19 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      type:options.type
+      type: options.type,
+      kid: options.kid,
+      cid: options.cid,
     })
     this.getDetails(options.kid, options.cid)
   },
+  // 前往总结页面
+  zongjie() {
+    wx.navigateTo({
+      url: '/pages/footmark/assess/assess?kid=' + this.data.kid + "&cid=" + this.data.cid
+    })
+  },
+  // 查看教练详情
   jiaolianDetails(e) {
     console.log(e)
     wx.navigateTo({

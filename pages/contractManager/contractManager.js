@@ -32,9 +32,9 @@ Page({
     })
     
   },
-  goConDetail() {
+  goConDetail(e) {
     wx.navigateTo({
-      url: "/pages/contractDetail/contractDetail"
+      url: "/pages/contractDetail/contractDetail?status_id="+e.target.id
     })
   },
   /**

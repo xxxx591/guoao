@@ -38,6 +38,12 @@ Page({
                   // 转存token
                   // app.globalData.token = res.data.data.token
                   app.globalData.token = '111'
+                  // 打开校验
+                  wx.switchTab({
+                    // url: '/pages/index/index',
+                    // url: '/pages/user/user',
+                    url: '/pages/footmark/index/index',
+                  })
                 },
                 fail: function(err) {
                   console.log(err);
