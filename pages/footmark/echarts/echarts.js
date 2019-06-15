@@ -1,107 +1,24 @@
 // pages/footmark/echarts/echarts.js
 const app = getApp()
 import * as echarts from '../../../ec-canvas/echarts.js';
-let chart = null;
-function initChart(canvas, width, height) {
-  chart = echarts.init(canvas, null, {
-    width: width,
-    height: height
-  });
-  canvas.setChart(chart);
-
-  var option = {
-    grid: {
-      left: "15%",
-      right: "7%",
-      top: '10%',
-      bottom: "10%"
-    },
-    tooltip: {
-      trigger: 'axis'
-    },
-    xAxis: [{
-      type: 'category',
-      data: ['颠球', '拉球', '绕八字', '停球', '脚法']
-    }],
-    yAxis: [
-
-      {
-        axisLabel: {
-          show: false
-        },
-        splitLine: { //网格线
-          show: false
-        },
-
-        axisTick: { //y轴刻度线
-          show: false
-        },
-        name: "峰值",
-        nameTextStyle: {
-          padding: [0, 40, -10, 0]
-        },
-        type: 'value',
-      }
-    ],
-    series: [{
-        name: '平均分',
-        color: ["#E5E5E5"],
-        type: 'bar',
-        data: [2.6, 5.9, 9.0, 26.4, 28.7],
-        itemStyle: {
-          normal: {
-            label: {
-              show: true, //开启显示
-              position: "top", //在上方显示
-              formatter: '{c}%'　,
-              textStyle: {
-                //数值样式
-                color: "#333",
-                fontSize: 10
-              }
-            }
-          }
-        },
-      },
-      {
-        name: '个人得分',
-        color: ["#006428"],
-        type: 'bar',
-        data: [2.0, 4.9, 7.0, 23.2, 25.6],
-        itemStyle: {
-          normal: {
-            label: {
-              show: true, //开启显示
-              position: "top", //在上方显示
-              textStyle: {
-                //数值样式
-                color: "#333",
-                fontSize: 10
-              }
-            }
-          }
-        },
-      },
-    ]
-  };
-
-  chart.setOption(option);
-  return chart;
-}
+import option from "./bar.js"
 
 Page({
-   
+
   /**
    * 页面的初始数据
    */
   data: {
     time: '',
-    cid:'',
+    cid: 3,
     echarts: {},
     ecBar: {
       lazyLoad: true // 延迟加载
     },
-     
+    ecBar2: {
+      lazyLoad: true // 延迟加载
+    }
+
   },
 
   /**
@@ -109,119 +26,157 @@ Page({
    */
   onLoad: function(options) {
     this.barComponent = this.selectComponent('#mychart-dom-bar');
+    this.barComponent2 = this.selectComponent('#mychart-dom-bar2');
+
     this.init_bar();
+    this.init_bar2();
+
     this.setData({
       time: this.getNowFormatDate(),
-      cid:options.cid
+      cid: options.cid
     })
-    this.getDetails(options.cid)
   },
-  init_bar: function () {
+  init_bar: function() {
     this.barComponent.init((canvas, width, height) => {
       // 初始化图表
       const barChart = echarts.init(canvas, null, {
         width: width,
         height: height
       });
-      barChart.setOption(this.getDetails(this.data.cid));
+      let options = JSON.parse(JSON.stringify(option))
+      let params = {
+        token: app.globalData.token,
+        child_id: this.data.cid,
+        created_at: this.data.time
+      }
+      app.post(app.globalData.url + 'api/user/child/report/detail', params).then(res => {
+        console.log('res', res)
+        let details = res.data.data
+        // arr1 是均值 arr2 是个人
+        let arr1 = [];
+        let arr2 = []
+        details.forEach(item => {
+          if (item.status == 1 && item.type > 5) {
+            arr1.push({
+              value: item.score
+            })
+          } else if (item.status == 2 && item.type > 5) {
+
+            arr2.push({
+              value: item.score
+            })
+          }
+        })
+        if (arr1.length != 5) {
+          for (let i = 0; i < 6; i++) {
+            arr1.push({
+              value: 0
+            })
+          }
+        }
+        if (arr2.length != 5) {
+          for (let i = arr2.length; i < 5; i++) {
+            arr2.push({
+              value: 0
+            })
+          }
+        }
+        for (var k = 0; k < 5; k++) {
+          let num = parseInt((arr2[k].value - arr1[k].value) / arr1[k].value * 100)
+          if (num >= 0) {
+            num = `↑ ${num}`
+            arr2[k].name = num
+          } else {
+            num = `↓ ${Math.abs(num)}`
+            arr2[k].label = {
+              color: "#F45342"
+            }
+            arr2[k].name = num
+          }
+        }
+        options.series[0].data = arr1
+        options.series[1].data = arr2
+        console.log(options)
+        console.log('arr1', arr1)
+        console.log('arr2', arr2)
+        barChart.setOption(options);
+      })
       // 注意这里一定要返回 chart 实例，否则会影响事件处理等
       return barChart;
     });
   },
-  // 获取echarts数据
-  getDetails(cid) {
-    // wx.request({
-    //   url: app.globalData.url + 'api/user/child/report/detail',
-    //   data: {
-    //     token: app.globalData.token,
-    //     child_id: parseInt(cid),
-    //     created_at: this.data.time
-    //   },
-    //   method: 'post',
-    //   success: res => {
-    //     console.log('获取echarts数据接口返回', res)
-    //     this.setData({
-    //       echarts: res.data.data
-    //     })
-    //   }
-    // })
-    var option = {
-      grid: {
-        left: "15%",
-        right: "7%",
-        top: '10%',
-        bottom: "10%"
-      },
-      tooltip: {
-        trigger: 'axis'
-      },
-      xAxis: [{
-        type: 'category',
-        data: ['颠球', '拉球', '绕八字', '停球', '脚法']
-      }],
-      yAxis: [
+  init_bar2: function() {
+    this.barComponent2.init((canvas, width, height) => {
+      // 初始化图表
+      const barChart = echarts.init(canvas, null, {
+        width: width,
+        height: height
+      });
+      let options = JSON.parse(JSON.stringify(option))
+      options.xAxis['0'].data = ['速度', '力量', '速度耐力', '柔韧', '灵敏']
+      let params = {
+        token: app.globalData.token,
+        child_id: this.data.cid,
+        created_at: this.data.time
+      }
+      app.post(app.globalData.url + 'api/user/child/report/detail', params).then(res => {
+        console.log('res', res)
+        let details = res.data.data
+        // arr1 是均值 arr2 是个人
+        let arr1 = [];
+        let arr2 = []
+        details.forEach(item => {
+          if (item.status == 1 && item.type <= 5) {
+            arr1.push({
+              value: item.score
+            })
+          } else if (item.status == 2 && item.type <= 5) {
 
-        {
-          axisLabel: {
-            show: false
-          },
-          splitLine: { //网格线
-            show: false
-          },
-
-          axisTick: { //y轴刻度线
-            show: false
-          },
-          name: "峰值",
-          nameTextStyle: {
-            padding: [0, 40, -10, 0]
-          },
-          type: 'value',
+            arr2.push({
+              value: item.score
+            })
+          }
+        })
+        if (arr1.length != 5) {
+          for (let i = 0; i < 6; i++) {
+            arr1.push({
+              value: 0
+            })
+          }
         }
-      ],
-      series: [{
-        name: '平均分',
-        color: ["#E5E5E5"],
-        type: 'bar',
-        data: [2.6, 5.9, 9.0, 26.4, 28.7],
-        itemStyle: {
-          normal: {
-            label: {
-              show: true, //开启显示
-              position: "top", //在上方显示
-              formatter: '{c}%'　,
-              textStyle: {
-                //数值样式
-                color: "#333",
-                fontSize: 10
-              }
-            }
+        if (arr2.length != 5) {
+          for (let i = arr2.length; i < 5; i++) {
+            arr2.push({
+              value: 0
+            })
           }
-        },
-      },
-      {
-        name: '个人得分',
-        color: ["#006428"],
-        type: 'bar',
-        data: [2.0, 4.9, 7.0, 23.2, 25.6],
-        itemStyle: {
-          normal: {
-            label: {
-              show: true, //开启显示
-              position: "top", //在上方显示
-              textStyle: {
-                //数值样式
-                color: "#333",
-                fontSize: 10
-              }
+        }
+        for (var k = 0; k < 5; k++) { 
+          let num = parseInt((arr2[k].value - arr1[k].value) / arr1[k].value * 100)
+          if (num >= 0) {
+            num = `↑ ${num}`
+            arr2[k].name = num
+          } else {
+            num = `↓ ${Math.abs(num)}`
+            arr2[k].label = {
+              color: "#F45342"
             }
+            arr2[k].name = num
           }
-        },
-      },
-      ]
-    };
-    return option
+        }
+        options.series[0].data = arr1
+        options.series[1].data = arr2
+        console.log(options)
+        console.log('arr1', arr1)
+        console.log('arr2', arr2)
+        barChart.setOption(options);
+      })
+      // 注意这里一定要返回 chart 实例，否则会影响事件处理等
+      return barChart;
+    });
   },
+
+
   // 获取当前时间
   getNowFormatDate() {
     var date = new Date();
@@ -238,10 +193,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    setTimeout(function() {
-      // 获取 chart 实例的方式
-      console.log(chart)
-    }, 2000);
+
   },
 
   /**

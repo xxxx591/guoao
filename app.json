@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/init/init",
-    "pages/footmark/echarts/echarts",
     "pages/footmark/index/index",
+    "pages/footmark/echarts/echarts",
+    "pages/login/login",
+    "pages/init/init",
     "pages/footmark/childList/childList",
     "pages/user/user",
     "pages/gameDetail/gameDetail",
@@ -12,7 +13,6 @@
     "pages/myOrder/myOrder",
     "pages/gameList/gameList",
     "pages/index/index",
-    "pages/login/login",
     "pages/details/details",
     "pages/detailsNews/detailsNews",
     "pages/course-details/courseDetails",

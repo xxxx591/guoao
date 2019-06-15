@@ -28,7 +28,7 @@
   <view class='new-1'>
     <view class='box1'>
       <image src='/assets/image/a10-title.png'></image>
-      <text>学员介绍</text>
+      <text>所获荣誉</text>
     </view>
 
   </view>

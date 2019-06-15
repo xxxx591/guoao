@@ -60,6 +60,16 @@ Page({
 
   onLoad: function(options) {
     console.log(options)
+    if(options.name==null){
+      console.log('123')
+      wx.setNavigationBarTitle({
+        title:'预约体验课',
+      })
+    }else{
+      wx.setNavigationBarTitle({
+        title:options.name,
+      })
+    }
     this.setData({
       courseId: options.courseId
     })

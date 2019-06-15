@@ -1,3 +1,36 @@
+<view class='top-box'>
+  <view class='left-box'>
+    <text>本月</text>
+    <image src='/assets/image/bottom.png'></image>
+  </view>
+  <view class='right-box'>
+  <button open-type='share' class='kefu-log'>
+    <image src='/assets/image/fenxiang.png'></image>
+    <text>分享当前报告</text>
+    </button>
+  </view>
+</view>
+<view class='new-1' style='padding:0 30rpx 40rpx;'>
+  <view class='box1'>
+    <image src='/assets/image/a10-title.png'></image>
+    <text>足球技术</text>
+  </view>
+  <view class='box2'>
+    <text>注：灰色为均值，绿色为个人值</text>
+  </view>
+</view>
 <view class="container">
   <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ecBar }}" style='height:400rpx;'></ec-canvas>
+</view>
+<view class='new-1' style='padding:0 30rpx 40rpx;'>
+  <view class='box1'>
+    <image src='/assets/image/a10-title.png'></image>
+    <text>身体素质</text>
+  </view>
+  <view class='box2'>
+    <text>注：灰色为均值，绿色为个人值</text>
+  </view>
+</view>
+<view class="container">
+  <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar" ec="{{ ecBar2 }}" style='height:400rpx;'></ec-canvas>
 </view>

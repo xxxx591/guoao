@@ -1,5 +1,32 @@
 //app.js
 App({
+  post: function(url, data) {
+    var promise = new Promise((resolve, reject) => {
+      //init
+      var that = this;
+      var postData = data;
+      /*
+      //自动添加签名字段到postData，makeSign(obj)是一个自定义的生成签名字符串的函数
+      postData.signature = that.makeSign(postData);
+      */
+      //网络请求
+      wx.request({
+        url: url,
+        data: postData,
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function(res) { //服务器返回数据
+          resolve(res)
+        },
+        error: function(e) {
+          reject('网络出错');
+        }
+      })
+    });
+    return promise;
+  },
   onLaunch: function() {
     // 全局数据
     wx.getSystemInfo({
@@ -8,11 +35,7 @@ App({
         this.globalData.height = res.statusBarHeight
       }
     })
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-  
+
     // 登录
     wx.login({
       success: res => {
@@ -47,17 +70,24 @@ App({
                   'code': this.globalData.code
                 },
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                success: (res)=> {
-                  console.log('转存token',res)
-                  // 转存token
+                success: (res) => {
+                  console.log('转存token', res)
                   // this.globalData.token = res.data.data.token;
-                  this.globalData.token = '111';
-                  // 打开校验
-                  wx.switchTab({
-                    // url: '/pages/index/index',
-                    // url: '/pages/user/user',
-                    // url: '/pages/footmark/index/index',
-                  })
+                  if (res.data.data.mobile === "") {
+                    wx.navigateTo({
+                      url: '/pages/login/login',
+                    })
+                  }
+                  if (res.data.data.mobile !== "") {
+                    // 转存token
+                    // this.globalData.token = '111';
+                    // 打开校验
+                    // wx.switchTab({
+                      // url: '/pages/index/index',
+                      // url: '/pages/user/user',
+                      // url: '/pages/footmark/index/index',
+                    // })
+                  }
                 },
                 fail: function(err) {
                   console.log(err);
@@ -98,4 +128,3 @@ App({
     lnt: ''
   }
 })
-

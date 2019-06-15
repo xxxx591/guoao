@@ -1,4 +1,69 @@
 /* pages/footmark/echarts/echarts.wxss */
+
+.top-box {
+  display: flex;
+  justify-content: space-between;
+  height: 64rpx;
+  padding: 30rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 100, 40, 1);
+}
+
+.top-box .left-box {
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+  width: 150rpx;
+  box-sizing: border-box;
+  background: rgba(228, 245, 235, 1);
+  border-radius: 4px;
+}
+
+.top-box .left-box image {
+  margin-left: 14rpx;
+  width: 21rpx;
+  height: 13rpx;
+}
+
+.top-box .right-box {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 280rpx;
+}
+
+.top-box .right-box image {
+  margin-right: 14rpx;
+  width: 25rpx;
+  height: 28rpx;
+}
+
+.top-box .right-box .kefu-log {
+  background: rgba(0, 0, 0, 0);
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 100, 40, 1);
+}
+
+.kefu-log::after {
+  border-radius: 0;
+  border: none;
+}
+
+.box2 text {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.container {
+  padding: 0;
+}
+
 ec-canvas {
   width: 100%;
   height: 100%;

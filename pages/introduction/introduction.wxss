@@ -3,6 +3,9 @@
   align-items: center;
   text-align: center;
   background: #006428;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .tab-box text {

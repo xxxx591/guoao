@@ -22,6 +22,8 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function(res) {
+              console.log('res,', res)
+
               wx.request({
                 url: app.globalData.url + 'api/wechat/miniLogin',
                 header: {
@@ -34,16 +36,22 @@ Page({
                 },
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: function(res) {
-                  console.log('转存token',res)
-                  // 转存token
-                  // app.globalData.token = res.data.data.token
-                  app.globalData.token = '111'
-                  // 打开校验
-                  wx.switchTab({
-                    // url: '/pages/index/index',
-                    // url: '/pages/user/user',
-                    url: '/pages/footmark/index/index',
-                  })
+                  console.log('转存token', res)
+                    // app.globalData.token = res.data.data.token
+                  if (res.data.data.mobile == '') {
+                    wx.navigateTo({
+                      url: '/pages/login/login',
+                    })
+                  } else {
+                    // 转存token
+                    // app.globalData.token = '111'
+                    // 打开校验
+                    wx.switchTab({
+                      url: '/pages/index/index',
+                      // url: '/pages/user/user',
+                      // url: '/pages/footmark/index/index',
+                    })
+                  }
                 },
                 fail: function(err) {
                   console.log(err);
@@ -62,6 +70,7 @@ Page({
         console.log(res.code);
         wx.getUserInfo({
           success: function(data) {
+
             console.log('点击登陆获取的数据', res)
             wx.request({
               url: app.globalData.url + 'api/wechat/miniLogin',
@@ -75,13 +84,19 @@ Page({
               },
               method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
               success: function(res) {
-                console.log(res)
-                // 转存token
-                // app.globalData.token = res.data.data.token;
-                app.globalData.token = '111';
-                wx.switchTab({
-                  url: '/pages/index/index',
-                })
+                console.log('登陆的res', res)
+                  // app.globalData.token = res.data.data.token;
+                if (res.data.data.mobile == '') {
+                  wx.navigateTo({
+                    url: '/pages/login/login',
+                  })
+                } else {
+                  // 转存token
+                  // app.globalData.token = '111';
+                  wx.switchTab({
+                    url: '/pages/index/index',
+                  })
+                }
               },
               fail: function(err) {
                 console.log(err);

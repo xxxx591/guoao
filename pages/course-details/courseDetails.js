@@ -44,7 +44,7 @@ Page({
   },
   goBuy(e){
     wx.navigateTo({
-      url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id,
+      url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id + "&name=" + this.data.courseDetails.name,
     })
   },
   /**

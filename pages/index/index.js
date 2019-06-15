@@ -14,7 +14,7 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
     page: 1,
     pageNum: 3,
-    shopName: '123',
+    shopName: '',
     newsList: [],
     coachList: [],
     curriculumList: []

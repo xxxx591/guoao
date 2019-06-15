@@ -1,10 +1,10 @@
 <!--index/contract/index.wxml-->
-<view class='contract-head'>
-  <image lazy-load src='/index/images/pdf-icon.png' mode='aspectFit'></image>
-  <view>2019年第二季度初级练习-刘天宇</view>
-  <view><image lazy-load src='/index/images/arrows-right.png' mode='aspectFit'></image></view>
+<view class='contract-head' wx:if="{{details.annex != ''}}" bindtap='openFile'>
+  <image lazy-load src='/assets/image/pdf-icon.png' mode='aspectFit'></image>
+  <view>{{details.name}}</view>
+  <view><image lazy-load src='/assets/image/arrows-right.png' mode='aspectFit'></image></view>
 </view>
-<view class='contract-timer'>合同时间：{{dataList.started_at}} 至  {{dataList.ended_at}}</view>
+<view class='contract-timer'>合同时间：{{details.started_at}} 至  {{details.ended_at}}</view>
 <view class='contract-item-wrap'>
   <view wx:for="{{dataList}}" wx:key="index">
     <view class='contract-item-title'>课程名称：{{item.name}}</view>
@@ -12,15 +12,15 @@
       <view>课程时长：{{item.length}}</view>
     </view>
     <view class='contract-item-msg'>
-      <view>优惠信息：无</view>
-      <text>￥{{item.total}}</text>
+      <view>原价￥{{item.total}}</view>
+      <text>￥{{item.price}}</text>
     </view>
   </view>
 </view>
 
-<view class='shop-wrap' wx:if="{{contract_id === '2'}}">
+<view class='shop-wrap' wx:if="{{details.status == '2'}}">
   <view class='shop-prices'>
-    合计:<text>￥599</text>
+    合计:<text>￥{{pic}}</text>
   </view>
-  <view class='shop-button'>立即支付</view>
+  <view class='shop-button' bindtap='handlePay'>立即支付</view>
 </view>

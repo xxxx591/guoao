@@ -24,7 +24,7 @@
     <text class='year-1'>执教年限</text>
   </view>
   <view class='level'>
-    <text class='num'>{{details.level}}级别</text>
+    <text class='num'>{{details.level}}级</text>
     <text class='year-1'>教练级别</text>
   </view>
 </view>

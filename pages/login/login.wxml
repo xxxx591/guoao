@@ -1,2 +1,27 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<form bindsubmit="formSubmit">
+  <view class='appointment'>
+
+    <view class='input-box'>
+      <text style='flex:1.1'>手机号：</text>
+      <input style='flex:3.9' placeholder='请输入...' type='number' name="mobile"  maxlength='11' bindinput="getMobile"> </input>
+    </view>
+    <view class='input-box'>
+      <text style='flex:1;'>验证码：</text>
+      <input style='flex:2;' placeholder='请输入...' type='text' name="code" maxlength='4' bindinput="getCode"> 
+      </input>
+      <text style='flex:1.1;padding-left: 33rpx;color:#006428;border-left:1rpx solid #E5E5E5;' bindtap='getVerificationCode'>{{codename}}</text>
+    </view>
+     
+    <view>
+    <button form-type="submit">
+      <view class='submit' >
+        <text>立即注册</text>
+        <image src='/assets/image/submit-btn.png'></image>
+      </view>
+    </button>
+    </view>
+  </view>
+</form>
+
+
+

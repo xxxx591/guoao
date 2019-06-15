@@ -7,7 +7,7 @@ Page({
    */
   data: {
     type: 1,
-    newsList:[]
+    newsList:[],sid:''
   },
 
   /**
@@ -15,6 +15,9 @@ Page({
    */
   onLoad: function(options) {
     this.getNewsList(options.id)
+    this.setData({
+      sid:options.id
+    })
   },
   // 获取新闻列表
   getNewsList(id){
@@ -50,10 +53,12 @@ Page({
     console.log(e)
     if (e.currentTarget.dataset.num  == 1) {
       console.log(123)
+      this.getNewsList(this.data.sid)
       this.setData({
         type: e.currentTarget.dataset.num 
       })
     } else {
+      this.getNewsList(this.data.sid)
       this.setData({
         type: e.currentTarget.dataset.num 
       })

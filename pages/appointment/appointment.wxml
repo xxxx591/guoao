@@ -7,7 +7,7 @@
     </view>
     <view class='input-box'>
       <text>手机号码：</text>
-      <input placeholder='请输入...' type='number' name="mobile"> </input>
+      <input placeholder='请输入...' type='number' name="mobile"  maxlength='11'> </input>
     </view>
     <view class='input-box'>
       <text>孩子年龄：</text>
@@ -27,3 +27,5 @@
     </view>
   </view>
 </form>
+<button open-type='share' class='kefu-log'>
+  <image src='/assets/image/kefu.png'></image></button>
