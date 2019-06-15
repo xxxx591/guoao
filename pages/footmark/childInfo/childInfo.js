@@ -137,7 +137,30 @@ Page({
     }
     params.name = e.detail.value.name
     params.id_card = e.detail.value.id_card
-    
+    wx.request({
+      url: app.globalData.url + 'api/user/child/update',
+      data: params,
+      method: 'post',
+      success: res => {
+        console.log('修改孩子信息接口返回', res)
+
+        if (res.statusCode == 200) {
+          wx.showToast({
+            title: '修改成功',
+            icon: 'success',
+            duration: 2000,
+            success: function() {
+              setTimeout(_ => {
+                wx.navigateBack({
+                  delta: 2
+                })
+              }, 2000)
+
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
