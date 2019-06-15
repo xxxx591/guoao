@@ -51,26 +51,16 @@ Page({
       success: res => {
         console.log('合同详情列表>>', res.data.data)
         let arrayList = res.data.data
-<<<<<<< Updated upstream
         arrayList.map((item)=>{
           arrayList.started_at = arrayList.started_at.split(' ')[0]
           arrayList.ended_at = arrayList.ended_at.split(' ')[0]
         })
         if (res.error_code === 0){
-=======
-        let arr = res.data.data.get_contract_course
-        let allpic = 0;
-        arr.forEach(item => {
-          allpic = allpic+ parseFloat(item.price) 
-        })
-        if (res.error_code !== 0) {
->>>>>>> Stashed changes
           this.setData({
             details: arrayList,
             dataList: arrayList.get_contract_course,
             pic: parseFloat(allpic).toFixed(2)
           })
-<<<<<<< Updated upstream
         }else{
           wx.showToast({
             title: res.data.error_msg,
@@ -78,11 +68,6 @@ Page({
             duration: 2000,
             success: function () {
             }
-=======
-        } else {
-          this.setData({
-            dataList: {}
->>>>>>> Stashed changes
           })
           setTimeout(()=>{
             wx.navigateBack({
@@ -90,12 +75,6 @@ Page({
             })
           },1000)
         }
-<<<<<<< Updated upstream
-=======
-        // arrayList.started_at = arrayList.started_at.split(' ')[0]
-        // arrayList.ended_at = arrayList.ended_at.split(' ')[0]
-
->>>>>>> Stashed changes
       }
     })
   },

@@ -34,11 +34,7 @@ Page({
   },
   goConDetail(e) {
     wx.navigateTo({
-<<<<<<< Updated upstream
       url: "/pages/contractDetail/contractDetail?status_id="+e.currentTarget.id
-=======
-      url: "/pages/contractDetail/contractDetail?status_id=" + e.currentTarget.id
->>>>>>> Stashed changes
     })
   },
   /**
