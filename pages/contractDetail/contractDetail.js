@@ -31,18 +31,28 @@ Page({
       success: res => {
         console.log('合同详情列表>>', res.data.data)
         let arrayList = res.data.data
-        if (res.error_code !== 0){
+        arrayList.map((item)=>{
+          arrayList.started_at = arrayList.started_at.split(' ')[0]
+          arrayList.ended_at = arrayList.ended_at.split(' ')[0]
+        })
+        if (res.error_code === 0){
           this.setData({
             dataList: arrayList
           })
         }else{
-          this.setData({
-            dataList: {}
+          wx.showToast({
+            title: res.data.error_msg,
+            icon: 'none',
+            duration: 2000,
+            success: function () {
+            }
           })
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: 2
+            })
+          },1000)
         }
-        // arrayList.started_at = arrayList.started_at.split(' ')[0]
-        // arrayList.ended_at = arrayList.ended_at.split(' ')[0]
-       
       }
     })
   },

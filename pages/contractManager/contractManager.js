@@ -34,7 +34,7 @@ Page({
   },
   goConDetail(e) {
     wx.navigateTo({
-      url: "/pages/contractDetail/contractDetail?status_id="+e.target.id
+      url: "/pages/contractDetail/contractDetail?status_id="+e.currentTarget.id
     })
   },
   /**
