@@ -1,4 +1,7 @@
 {
+  "usingComponents": {
+    "ec-canvas": "../../../ec-canvas/ec-canvas"
+  },
   "navigationBarBackgroundColor": "#006428",
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "测评报告",
