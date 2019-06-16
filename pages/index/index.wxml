@@ -20,7 +20,7 @@
     </block>
   </swiper>
   <view class='free'>
-    <image src='/assets/image/a10-free.png' bindtap="appointment"></image>
+    <image src='/assets/image/a10-free.png' bindtap="appointment" id="{{experience.id}}" data-name='{{experience.name}}' ></image>
   </view>
   <view class='new'>
     <view class='new-1'>

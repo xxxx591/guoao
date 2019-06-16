@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getHaiziDetails()
+   
     
   },
   // 跳转至echarts
@@ -48,6 +48,7 @@ Page({
   },
   // 获取足迹孩子详情
   getHaiziDetails() {
+    console.log(app.globalData.token)
     wx.request({
       url: app.globalData.url + 'api/footprint/homepage/child',
       data: {

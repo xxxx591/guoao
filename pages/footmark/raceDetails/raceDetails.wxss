@@ -29,7 +29,7 @@
 .list-box {
   padding: 30rpx;
   margin: 0 30rpx 0;
-  position: relative; 
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -85,12 +85,14 @@
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
 }
-.list-box  .title-black-01{
-  font-size:28rpx;
-font-family:PingFangSC-Medium;
-font-weight:500;
-color:rgba(51,51,51,1);
+
+.list-box  .title-black-01 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
 }
+
 .list-box .green {
   font-size: 24rpx;
   font-family: PingFangSC-Medium;
@@ -135,7 +137,8 @@ color:rgba(51,51,51,1);
 }
 
 .plan-2 .user {
-  display: flex;align-items: center;
+  display: flex;
+  align-items: center;
   flex: 1.5;
   font-size: 28rpx;
   font-family: PingFangSC-Regular;
@@ -154,7 +157,8 @@ color:rgba(51,51,51,1);
   border-radius: 50%;
   margin-right: 20rpx;
 }
-.jiaoliantitle{
+
+.jiaoliantitle {
   background: rgba(228, 245, 235, 1);
   margin-left: 20rpx;
   padding: 10rpx 20rpx;
@@ -163,18 +167,20 @@ color:rgba(51,51,51,1);
   font-family: PingFangSC-Regular;
   font-weight: 400;
   color: rgba(0, 100, 40, 1);
-  margin: 20rpx 10rpx 28rpx 0; 
+  margin: 20rpx 10rpx 28rpx 0;
 }
-.plan-2 .contetnt-box{
+
+.plan-2 .contetnt-box {
   padding: 20rpx 0rpx 28rpx 0;
   border-bottom: 1px solid rgba(229, 229, 229, 1);
 }
-.plan-2 .contetnt{
-  font-size:28rpx;
-font-family:PingFangSC-Regular;
-font-weight:400;
-color:rgba(77,77,77,1);
-line-height:48rpx;
+
+.plan-2 .contetnt {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(77, 77, 77, 1);
+  line-height: 48rpx;
 }
 
 /* 星星样式 */

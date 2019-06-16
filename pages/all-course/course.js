@@ -40,12 +40,12 @@ Page({
   goCourseDetails(e) {
     console.log(e)
     wx.navigateTo({
-      url: '/pages/course-details/courseDetails?id=' + e.currentTarget.id,
+      url: '/pages/course-details/courseDetails?id=' + e.currentTarget.id + '&name=' + e.currentTarget.dataset.name
     })
   },
   buy(e) {
     wx.navigateTo({
-      url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id,
+      url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id+"&name="+e.currentTarget.dataset.name,
     })
   },
   /**

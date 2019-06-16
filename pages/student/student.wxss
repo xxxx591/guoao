@@ -1,13 +1,19 @@
 /* pages/nnews/nnews.wxss */
 
-
 .tab-box {
   display: flex;
   align-items: center;
   text-align: center;
   background: #006428;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
-
+.nnews{
+  padding-top: 90rpx;
+}
 .tab-box text {
   height: 90rpx;
   line-height: 90rpx;

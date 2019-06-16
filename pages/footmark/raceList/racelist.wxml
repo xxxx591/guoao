@@ -3,21 +3,62 @@
   <text class="{{type==1?'active':''}}" bindtap='gostudent' data-num="1">已上课</text>
   <text bindtap='gostudent' class="{{type==2?'active':''}}" data-num="2">课程计划</text>
 </view>
-<view class='game-wrap' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:for="{{dataList}}" wx:key="index">
-  <view class='game-title'>比赛名称：{{item.name}}</view>
-  <view class='game-msg'>
-    <view class='game-msg-l'>
-      <view class='game-msg-space'>
-        <image lazy-load src='/assets/image/time.png' mode='aspectFit'></image>
-        <text>比赛时间:{{item.started_at+"-"+item.ended_at}}</text>
+<view wx:if="{{type==1}}" class='list-boxxx'>
+  <view class='game-wrap' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:for="{{dataList}}" wx:key="index">
+    <view class='game-title'>比赛名称：{{item.name}}</view>
+    <view class='game-title' wx:if="{{type==2}}">课程名称：{{item.name}}</view>
+    <view class='game-msg'>
+      <view class='game-msg-l'>
+        <view class='game-msg-space'>
+          <image lazy-load src='/assets/image/time.png' mode='aspectFit'></image>
+          <text>比赛时间:{{item.started_at+"-"+item.ended_at}}</text>
+        </view>
       </view>
+
     </view>
-   
+    <view class='game-msg-space martop'>
+      <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
+      <text style='color:rgba(244,83,66,1);' wx:if="{{item.epilog==''}}">待评价</text>
+      <text wx:else>评价： <text class='green' wx:for="{{dataList.get_child_assess}}">123</text> </text>
+    </view>
+    <image class='game-button' src=''></image>
   </view>
-  <view class='game-msg-space martop'>
-    <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
-    <text style='color:rgba(244,83,66,1);' wx:if="{{item.epilog==''}}">待评价</text>
-    <text wx:else>评价： <text class='green' wx:for="{{dataList.get_child_assess}}">123</text> </text>
+</view>
+<view wx:if="{{type==2}}" class='list-boxxx'>
+  <view class='game-wrap' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:for="{{dataList}}" wx:key="index">
+     
+      
+
+
+<view class='list-box'  >  
+  <view class='icon'></view>
+  <view class='title'>
+    <text class='title01'>课程名称：{{item.name}}</text> 
   </view>
-  <image class='game-button' src=''></image> 
+  <view class='left'>
+    <view>
+      <image src='/assets/image/jiaolian.png'></image>
+      <text class='title-ccc'>教练</text>
+    </view>
+    <view>
+      <!-- <text class='green' wx:for="{{kDetails.team_coach}}" id="{{item.get_coach.id}}" bindtap='jiaolianDetails'>[{{item.type=='1'?'主':'助'}}]{{item.get_coach.name}}</text> -->
+      <text class='green'  bindtap='jiaolianDetails'>[主]测试</text>
+    </view>
+  </view>
+  <view class='right'>
+    <view>
+      <image src='/assets/image/time.png'></image>
+      <text class='title-ccc'>上课时间</text>
+    </view>
+    <view>
+      <text class='title-black'>{{item.started_at+"-"+item.ended_at}}</text>
+    </view>
+  </view>
+</view>
+
+
+
+
+  
+  </view>
 </view>

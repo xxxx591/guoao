@@ -18,7 +18,6 @@
   width: 117rpx;
   height: 117rpx;
   border-radius: 50%;
-  background: yellow;
   position: absolute;
   top: 33rpx;
   left: 30rpx;

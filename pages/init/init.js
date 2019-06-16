@@ -37,7 +37,7 @@ Page({
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: function(res) {
                   console.log('转存token', res)
-                    // app.globalData.token = res.data.data.token
+                    app.globalData.token = res.data.data.token;
                   if (res.data.data.mobile == '') {
                     wx.navigateTo({
                       url: '/pages/login/login',
@@ -85,7 +85,7 @@ Page({
               method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
               success: function(res) {
                 console.log('登陆的res', res)
-                  // app.globalData.token = res.data.data.token;
+                  app.globalData.token = res.data.data.token;
                 if (res.data.data.mobile == '') {
                   wx.navigateTo({
                     url: '/pages/login/login',

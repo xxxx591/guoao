@@ -2,6 +2,7 @@
 const app = getApp()
 import * as echarts from '../../../ec-canvas/echarts.js';
 import option from "./bar.js"
+import option2 from "./bar2.js"
 
 Page({
 
@@ -10,6 +11,7 @@ Page({
    */
   data: {
     time: '',
+    timeValue: '本月',
     cid: 3,
     echarts: {},
     ecBar: {
@@ -112,8 +114,8 @@ Page({
         width: width,
         height: height
       });
-      let options = JSON.parse(JSON.stringify(option))
-      options.xAxis['0'].data = ['速度', '力量', '速度耐力', '柔韧', '灵敏']
+      let options = JSON.parse(JSON.stringify(option2))
+
       let params = {
         token: app.globalData.token,
         child_id: this.data.cid,
@@ -151,7 +153,7 @@ Page({
             })
           }
         }
-        for (var k = 0; k < 5; k++) { 
+        for (var k = 0; k < 5; k++) {
           let num = parseInt((arr2[k].value - arr1[k].value) / arr1[k].value * 100)
           if (num >= 0) {
             num = `↑ ${num}`
@@ -166,7 +168,7 @@ Page({
         }
         options.series[0].data = arr1
         options.series[1].data = arr2
-        console.log(options)
+        console.log('options', options)
         console.log('arr1', arr1)
         console.log('arr2', arr2)
         barChart.setOption(options);
@@ -176,6 +178,24 @@ Page({
     });
   },
 
+  // 切换时间改变图表
+  getDateTime(e) {
+    console.log('picker发送选择改变，携带值为', e)
+    let times = e.detail.value
+    if (this.getNowFormatDate() == e.detail.value) {
+      this.setData({
+        time: times,
+        timeValue: '本月'
+      })
+    } else {
+      this.setData({
+        time: times,
+        timeValue: parseInt(times.split('-')[1])+'月'
+      })
+    }
+    this.init_bar();
+    this.init_bar2();
+  },
 
   // 获取当前时间
   getNowFormatDate() {

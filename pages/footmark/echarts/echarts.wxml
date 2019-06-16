@@ -1,12 +1,14 @@
 <view class='top-box'>
   <view class='left-box'>
-    <text>本月</text>
-    <image src='/assets/image/bottom.png'></image>
+    <picker mode="date" fields="month" value="{{date}}" start="2019-01-01" bindchange="getDateTime">
+      <text>{{timeValue}}</text>
+      <image src='/assets/image/bottom.png'></image>
+    </picker>
   </view>
   <view class='right-box'>
-  <button open-type='share' class='kefu-log'>
-    <image src='/assets/image/fenxiang.png'></image>
-    <text>分享当前报告</text>
+    <button open-type='share' class='kefu-log'>
+      <image src='/assets/image/fenxiang.png'></image>
+      <text>分享当前报告</text>
     </button>
   </view>
 </view>

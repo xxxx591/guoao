@@ -10,14 +10,15 @@ var option = {
   },
   xAxis: [{
     type: 'category',
-    data: ['颠球', '拉球', '绕八字', '停球', '脚法'],
-    nameTextStyle: {
-      fontSize: 10
+    data: ['速度', '力量', '耐力', '柔韧', '灵敏'],
+    nameTextStyle:{
+      fontSize:10
     }
   }],
   yAxis: [
 
     {
+      
       axisLabel: {
         show: false
       },

@@ -34,5 +34,5 @@
 </view>
 <view class='buy-box'>
   <text>￥{{courseDetails.price}}</text>
-  <button bindtap='goBuy' id='{{courseDetails.id}}'>立即购买</button>
+  <button bindtap='goBuy' id='{{courseDetails.id}}' data-name='{{courseDetails.name}}'>立即购买</button>
 </view>

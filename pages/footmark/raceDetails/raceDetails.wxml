@@ -7,7 +7,7 @@
 </view>
 
 
-<view class='list-box' wx:if="{{type==1}}">
+<view class='list-box' wx:if="{{type==2}}"> 
   <view class='icon'></view>
   <view class='title'>
     <text class='title01'>课程名称：{{kDetails.name}}</text>
@@ -32,7 +32,7 @@
     </view>
   </view>
 </view>
-<view class='list-box' wx:else>
+<view class='list-box' wx:if="{{type==1}}">
   <view class='icon'></view>
   <view class='title'>
     <text class='title01'>比赛名称：{{kDetails.name}}</text>

@@ -17,7 +17,8 @@ Page({
     shopName: '',
     newsList: [],
     coachList: [],
-    curriculumList: []
+    curriculumList: [],
+    experience:{}
   },
   //事件处理函数  
   onLoad: function(options) {
@@ -44,7 +45,9 @@ Page({
       method: 'post',
       success: res => {
         console.log('是否显示体验课返回', res)
-
+        this.setData({
+          experience:res.data.data
+        })
       }
     })
   },
@@ -172,9 +175,9 @@ Page({
     })
   },
   // 跳转至预约
-  appointment() {
+  appointment(e) {
     wx.navigateTo({
-      url: '/pages/appointment/appointment?courseId=null'
+      url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id + "&name=" + e.currentTarget.dataset.name,
     })
   },
   goShopList() {
@@ -202,6 +205,7 @@ Page({
   },
   // 跳转至课程详情
   storeDetails(e) {
+    console.log(e)
     wx.navigateTo({
       url: '/pages/course-details/courseDetails?id=' + e.currentTarget.id
     })

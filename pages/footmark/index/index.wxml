@@ -5,8 +5,8 @@
       <image src='{{haiziDetails.avatar}}'></image>
     </view>
   </view>
-  <view class='photo-2'>
-    <view class='photo-1-name' bindtap='haiziDetails' id="{{haiziDetails.id}}">
+  <view class='photo-2' bindtap='haiziDetails' id="{{haiziDetails.id}}">
+    <view class='photo-1-name'>
       <text>{{haiziDetails.name}}</text>
       <image src='/assets/image/man.png' wx:if="{{haiziDetails.sex ==1}}"></image>
       <image src='/assets/image/woman.png' wx:if="{{haiziDetails.sex ==2}}"></image>
