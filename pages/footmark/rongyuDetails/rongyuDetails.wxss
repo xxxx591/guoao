@@ -154,6 +154,11 @@ height: 140rpx;
 bottom: 200rpx; 
 z-index: 999;
 }
+.kefu-log::after {
+  border-radius: 0;
+  border: none;
+}
+
 .kefu-log image{
   width: 100%;
   height: 100%;

@@ -22,5 +22,7 @@
     <text>比赛地点</text>
   </view>
   <view class='game-content'>{{item.address}}</view>
-  <view class='game-button' catchtap='handlePay' id="{{item.get_game_join.id}}">立即支付</view>
+  <view class='game-button' catchtap='handlePay' id="{{item.get_game_join.id}}" wx:if="{{item.get_game_join.type==1}}">未支付</view>
+  <view class='game-button'  id="{{item.get_game_join.id}}" wx:if="{{item.get_game_join.type==2}}">已支付</view>
+  <view class='game-button'  id="{{item.get_game_join.id}}" wx:if="{{item.get_game_join.type==3}}">已取消</view>
 </view>

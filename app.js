@@ -72,7 +72,7 @@ App({
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: (res) => {
                   console.log('转存token', res)
-                  this.globalData.token = res.data.data.token;
+                  // this.globalData.token = res.data.data.token;
                   if (res.data.data.mobile === "") {
                     wx.navigateTo({
                       url: '/pages/login/login',

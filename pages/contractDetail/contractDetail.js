@@ -8,7 +8,8 @@ Page({
   data: {
     dataList: '',
     contract_id: '',
-    pic:0
+    pic: 0,
+    details: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -21,21 +22,21 @@ Page({
     this.getDetails(this.data.contract_id)
   },
   // 打开文件
-  openFile(){
+  openFile() {
     wx.downloadFile({
       // 示例 url，并非真实存在
       url: this.data.details.annex,
-      success: function (res) {
-        
+      success: function(res) {
+
         const filePath = res.tempFilePath
         wx.openDocument({
           filePath: filePath,
-          success: function (res) {
+          success: function(res) {
             console.log('打开文档成功')
           }
         })
       },
-      fail:function(res){
+      fail: function(res) {
         console.log(res)
       }
     })
@@ -50,31 +51,17 @@ Page({
       method: 'post',
       success: res => {
         console.log('合同详情列表>>', res.data.data)
-        let arrayList = res.data.data
-        arrayList.map((item)=>{
-          arrayList.started_at = arrayList.started_at.split(' ')[0]
-          arrayList.ended_at = arrayList.ended_at.split(' ')[0]
+        let arrays = res.data.data.get_contract_course
+        let pics = 0
+        arrays.forEach(item => {
+          pics = parseFloat(pics) + parseFloat(item.price)
         })
-        if (res.error_code === 0){
-          this.setData({
-            details: arrayList,
-            dataList: arrayList.get_contract_course,
-            pic: parseFloat(allpic).toFixed(2)
-          })
-        }else{
-          wx.showToast({
-            title: res.data.error_msg,
-            icon: 'none',
-            duration: 2000,
-            success: function () {
-            }
-          })
-          setTimeout(()=>{
-            wx.navigateBack({
-              delta: 2
-            })
-          },1000)
-        }
+        this.setData({
+          details: res.data.data,
+          dataList: res.data.data.get_contract_course,
+          pic: pics
+        })
+
       }
     })
   },
@@ -95,7 +82,7 @@ Page({
             title: res.data.error_msg,
             icon: 'none',
             duration: 2000,
-            success: function () {
+            success: function() {
 
             }
           })
@@ -106,7 +93,7 @@ Page({
     })
 
   },
-  getOpenId: function (res) {
+  getOpenId: function(res) {
     wx.requestPayment({
       timeStamp: res.timestamp,
       nonceStr: res.nonceStr,
@@ -116,7 +103,7 @@ Page({
       success(res) {
         console.log(res)
       },
-      fail(res) { }
+      fail(res) {}
     })
   },
   /**
