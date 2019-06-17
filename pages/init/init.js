@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    flag: true
   },
 
   /**
@@ -37,13 +38,13 @@ Page({
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: function(res) {
                   console.log('转存token', res)
-                    app.globalData.token = res.data.data.token;
+                  app.globalData.token = res.data.data.token;
                   if (res.data.data.mobile == '') {
                     wx.navigateTo({
                       url: '/pages/login/login',
                     })
                   } else {
-                     
+
                     wx.switchTab({
                       url: '/pages/index/index',
                       // url: '/pages/user/user',
@@ -62,48 +63,61 @@ Page({
     })
   },
   bindGetUserInfo: function(e) {
+    let that = this
+    if (that.data.flag) {
+      that.setData({
+        flag: false
+      })
+      wx.login({
+        success: res => {
+          console.log(res.code);
+          wx.getUserInfo({
+            success: function(data) {
 
-    wx.login({
-      success: res => {
-        console.log(res.code);
-        wx.getUserInfo({
-          success: function(data) {
-
-            console.log('点击登陆获取的数据', res)
-            wx.request({
-              url: app.globalData.url + 'api/wechat/miniLogin',
-              header: {
-                "content-type": "application/x-www-form-urlencoded"
-              }, // 设置请求的 header
-              data: {
-                'encryptedData': data.encryptedData,
-                'iv': data.iv,
-                'code': res.code
-              },
-              method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-              success: function(res) {
-                console.log('登陆的res', res)
+              console.log('点击登陆获取的数据', res)
+              wx.request({
+                url: app.globalData.url + 'api/wechat/miniLogin',
+                header: {
+                  "content-type": "application/x-www-form-urlencoded"
+                }, // 设置请求的 header
+                data: {
+                  'encryptedData': data.encryptedData,
+                  'iv': data.iv,
+                  'code': res.code
+                },
+                method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                success: function(res) {
+                  console.log('登陆的res', res)
                   app.globalData.token = res.data.data.token;
-                if (res.data.data.mobile == '') {
-                  wx.navigateTo({
-                    url: '/pages/login/login',
-                  })
-                } else {
-                  // 转存token
-                  // app.globalData.token = '111';
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                  })
+                  if (res.data.data.mobile == '') {
+                    wx.navigateTo({
+                      url: '/pages/login/login',
+                    })
+
+                  } else {
+                    // 转存token
+                    // app.globalData.token = '111';
+                    wx.switchTab({
+                      url: '/pages/index/index',
+                    })
+
+                  }
+                },
+                fail: function(err) {
+                  console.log(err);
                 }
-              },
-              fail: function(err) {
-                console.log(err);
-              }
-            })
-          }
+              })
+            }
+          })
+        }
+      })
+    } else {
+      setTimeout(_ => {
+        that.setData({
+          flag: true
         })
-      }
-    })
+      }, 2000)
+    }
 
   },
 

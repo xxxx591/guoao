@@ -9,7 +9,8 @@ Page({
     dataList: '',
     contract_id: '',
     pic: 0,
-    details: ''
+    details: '',
+    flag: true
   },
   /**
    * 生命周期函数--监听页面加载
@@ -67,30 +68,42 @@ Page({
   },
   // 支付
   handlePay(e) {
-    // console.log('appid>>', app.globalData.appId)
-    wx.request({
-      url: app.globalData.url + 'api/pay/contract',
-      data: {
-        token: app.globalData.token,
-        contract_id: this.data.contract_id
-      },
-      method: 'post',
-      success: res => {
-        console.log('支付返回参数', res)
-        if (res.data.error_code != 0) {
-          wx.showToast({
-            title: res.data.error_msg,
-            icon: 'none',
-            duration: 2000,
-            success: function() {
+    if (this.data.flag) {
+      that.setData({
+        flag: false
+      })
+      // console.log('appid>>', app.globalData.appId)
+      wx.request({
+        url: app.globalData.url + 'api/pay/contract',
+        data: {
+          token: app.globalData.token,
+          contract_id: this.data.contract_id
+        },
+        method: 'post',
+        success: res => {
+          console.log('支付返回参数', res)
+          if (res.data.error_code != 0) {
+            wx.showToast({
+              title: res.data.error_msg,
+              icon: 'none',
+              duration: 2000,
+              success: function() {
 
-            }
-          })
-        } else {
-          this.getOpenId(res.data.data)
+              }
+            })
+          } else {
+            this.getOpenId(res.data.data)
+          }
         }
-      }
-    })
+      })
+    } else {
+      setTimeout(_ => {
+        that.setData({
+          flag: true
+        })
+      }, 2000)
+    }
+
 
   },
   getOpenId: function(res) {

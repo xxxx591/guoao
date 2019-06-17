@@ -1,4 +1,3 @@
-
 const app = getApp()
 // const appId = app.globalData.appId
 // const key = app.globalData.key
@@ -10,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList: {}
+    dataList: {},
+    flag: true
   },
 
   /**
@@ -44,31 +44,44 @@ Page({
     })
   },
   handlePay(e) {
-    // console.log('appid>>', app.globalData.appId)
-    wx.request({
-      url: app.globalData.url + 'api/pay/game',
-      data: {
-        token: app.globalData.token,
-        game_join_id: e.currentTarget.id
-      },
-      method: 'post',
-      success: res => {
-        console.log('支付返回参数', res)
-        if (res.data.error_code != 0){
-          wx.showToast({
-            title: res.data.error_msg,
-            icon: 'none',
-            duration: 2000,
-            success: function () {
-               
-            }
-          })
-        }else{
-        this.getOpenId(res.data.data)
+    let that = this;
+    if (that.data.flag) {
+      that.setData({
+        flag: false
+      })
+      // console.log('appid>>', app.globalData.appId)
+      wx.request({
+        url: app.globalData.url + 'api/pay/game',
+        data: {
+          token: app.globalData.token,
+          game_join_id: e.currentTarget.id
+        },
+        method: 'post',
+        success: res => {
+          console.log('支付返回参数', res)
+          if (res.data.error_code != 0) {
+            wx.showToast({
+              title: res.data.error_msg,
+              icon: 'none',
+              duration: 2000,
+              success: function() {
+
+              }
+            })
+          } else {
+            this.getOpenId(res.data.data)
+          }
         }
-      }
-    })
-    
+      })
+    } else {
+      setTimeout(_ => {
+        that.setData({
+          flag: true
+        })
+      }, 2000)
+    }
+
+
   },
   getOpenId: function(res) {
     wx.requestPayment({
