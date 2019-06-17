@@ -18,8 +18,10 @@
     </view>
     <view class='game-msg-space martop'>
       <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
-      <text style='color:rgba(244,83,66,1);' wx:if="{{item.epilog==''}}">待评价</text>
-      <text wx:else>评价： <text class='green' wx:for="{{dataList.get_child_assess}}">123</text> </text>
+      <text  wx:if="{{item.epilog==''}}">评价：</text>
+      <text wx:else>评价： 
+       </text>
+      <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.get_label.name}}</text>
     </view>
     <image class='game-button' src=''></image>
   </view>

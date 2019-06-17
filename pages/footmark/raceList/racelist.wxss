@@ -162,12 +162,14 @@
   font-weight: 500;
   color: rgba(51, 51, 51, 1);
 }
-
-.list-box .green {
+.green {
   font-size: 24rpx;
   font-family: PingFangSC-Medium;
   font-weight: 500;
-  color: rgba(0, 100, 40, 1);
+  color: rgba(0, 100, 40, 1)!important;
+  background:rgba(228,245,235,1);
+border-radius:4px;
+padding: 10rpx 20rpx;
 }
 
 .list-box .title-black {

@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/init/init",
+    "pages/login/login",
     "pages/footmark/index/index",
     "pages/footmark/echarts/echarts",
-    "pages/login/login",
     "pages/footmark/childList/childList",
     "pages/user/user",
     "pages/gameDetail/gameDetail",

@@ -18,7 +18,8 @@ Page({
     newsList: [],
     coachList: [],
     curriculumList: [],
-    experience:{}
+    experience: {},
+    showExperience: true
   },
   //事件处理函数  
   onLoad: function(options) {
@@ -45,8 +46,13 @@ Page({
       method: 'post',
       success: res => {
         console.log('是否显示体验课返回', res)
+        if (JSON.stringify(res.data.data) == "{}") {
+          this.setData({
+            showExperience: false
+          })
+        }
         this.setData({
-          experience:res.data.data
+          experience: res.data.data
         })
       }
     })
@@ -87,9 +93,9 @@ Page({
       success: res => {
         console.log('附近门店接口返回', res)
         let arr = res.data.data
-        arr.forEach(item=>{
+        arr.forEach(item => {
           console.log(item.id)
-          if(item.id == id ){
+          if (item.id == id) {
             this.setData({
               shopName: item.name,
               shopId: item.id

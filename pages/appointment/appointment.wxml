@@ -27,5 +27,5 @@
     </view>
   </view>
 </form>
-<button open-type='share' class='kefu-log'>
-  <image src='/assets/image/kefu.png'></image></button>
+<button open-type="contact" class='kefu-log'>
+  <image src='/assets/image/kefu-on.png'></image></button>

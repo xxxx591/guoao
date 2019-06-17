@@ -43,9 +43,7 @@ Page({
                       url: '/pages/login/login',
                     })
                   } else {
-                    // 转存token
-                    // app.globalData.token = '111'
-                    // 打开校验
+                     
                     wx.switchTab({
                       url: '/pages/index/index',
                       // url: '/pages/user/user',

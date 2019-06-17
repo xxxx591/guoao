@@ -3,9 +3,11 @@
   align-items: center;
   text-align: center;
   background: #006428;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 999;
 }
 
 .tab-box text {
@@ -27,6 +29,7 @@
 
 .introduction {
   padding: 30rpx;
+  padding-top: 90rpx;
 }
 
 .new {

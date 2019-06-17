@@ -50,7 +50,36 @@ Page({
       }
     })
   },
-   
+  //  展示足迹
+  goback(e){
+    wx.request({
+      url: app.globalData.url + 'api/footprint/homepage/child',
+      data: {
+        token: app.globalData.token,
+        child_id:e.currentTarget.id
+      },
+      method: 'post',
+      success: res => {
+        console.log('展示足迹接口', res.data)
+        if(res.data.error_code==0){
+          wx.showToast({
+            title: '修改成功',
+            icon: 'success',
+            duration: 1000,
+            success: function () {
+              setTimeout(_ => {
+                wx.navigateBack({
+                  delta: 2
+                })
+              }, 1000)
+
+            }
+          })
+        }
+      }
+    })
+  },
+  // 修改孩子资料
   xiugai(e){
     wx.navigateTo({
       url: '/pages/footmark/childInfo/childInfo?id=' + e.currentTarget.id

@@ -102,7 +102,7 @@
       <text wx:for="{{item.get_coach_assess_label}}" class='jiaoliantitle'>{{item.get_label.name}}</text>
     </view>
     <view class='contetnt-box'>
-      <text class='contetnt'>{{item.content}}</text>
+      <text class='contetnt'>{{kDetails.epilog}}</text>
     </view>
   </view>
 </view>

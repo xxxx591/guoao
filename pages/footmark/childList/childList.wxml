@@ -9,7 +9,7 @@
       <view class='bianji' bindtap='xiugai' id="{{item.id}}">
         编辑资料
       </view>
-      <view class='zhanshi'>
+      <view class='zhanshi' bindtap='goback' id="{{item.id}}" >
         展示足迹
       </view>
     </view>

@@ -31,7 +31,7 @@ Page({
   // 跳转到比赛详情
   bisaiDetails(e){
     wx.navigateTo({
-      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id +'&cid='+this.data.haiziDetails.id
+      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id +'&cid='+this.data.haiziDetails.id+'&type=2'
     })
   },
   // 跳转到荣誉详情
