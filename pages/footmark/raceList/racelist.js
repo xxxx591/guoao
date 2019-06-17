@@ -33,8 +33,8 @@ Page({
       url: app.globalData.url + 'api/footprint/course/list',
       data: {
         token: app.globalData.token,
-        // child_id:parseInt(id),
-        child_id:2,
+        child_id:parseInt(id),
+        // child_id:2,
         type:type,
         page: "1",
         pagesize: "30"
