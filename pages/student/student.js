@@ -7,7 +7,8 @@ Page({
    */
   data: {
     coachList: [],
-    storeId: ''
+    storeId: '',
+    flag: true
   },
 
   /**
@@ -48,9 +49,20 @@ Page({
     })
   },
   goTeach() {
-    wx.redirectTo({
-      url: '/pages/nnews/nnews?id=' + this.data.storeId
-    })
+    if (this.data.flag) {
+      this.setData({
+        flag: false
+      })
+      wx.redirectTo({
+        url: '/pages/nnews/nnews?id=' + this.data.storeId
+      })
+    } else {
+      setTimeout(item => {
+        this.setData({
+          flag: true
+        })
+      }, 2000)
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

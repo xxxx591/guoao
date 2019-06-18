@@ -68,7 +68,8 @@ Page({
   },
   // 支付
   handlePay(e) {
-    if (this.data.flag) {
+    let that = this
+    if (that.data.flag) {
       that.setData({
         flag: false
       })
@@ -77,7 +78,7 @@ Page({
         url: app.globalData.url + 'api/pay/contract',
         data: {
           token: app.globalData.token,
-          contract_id: this.data.contract_id
+          contract_id: that.data.contract_id
         },
         method: 'post',
         success: res => {
@@ -92,7 +93,7 @@ Page({
               }
             })
           } else {
-            this.getOpenId(res.data.data)
+            that.getOpenId(res.data.data)
           }
         }
       })

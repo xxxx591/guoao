@@ -12,7 +12,7 @@ Page({
     stuName: null,
     stuHeight: null,
     stuWeight: null,
-
+    flag: true
   },
 
   /**
@@ -63,57 +63,70 @@ Page({
    * @author:llc
    */
   handleSubmit() {
-    let item = this.data.dataList.get_game_element
-    const query = {
-      token: app.globalData.token,
-      game_id: this.data.gameId, 
-      content: []
+    if (this.data.flag) {
+      this.setData({
+        flag: false
+      })
 
-    }
-    query.content.push({
-      'game_element_id': item[0].id,
-      'content': this.data.stuName
-    })
-    query.content.push({
-      'game_element_id': item[1].id,
-      'content': this.data.stuHeight
-    })
-    query.content.push({
-      'game_element_id': item[2].id,
-      'content': this.data.stuWeight
-    })
-    console.log(query)
-    wx.request({
-      url: app.globalData.url + 'api/game/join/add',
-      data: query,
-      method: 'post',
-      success: res => {
-        console.log('提交表单返回>>', res.data.data)
-        if (res.data.error_code == 0) {
-          wx.showToast({
-            title: '报名成功',
-            icon: 'success',
-            duration: 2000,
-            success: function () {
-              setTimeout(_ => {
-                wx.navigateBack({
-                  delta: 2
-                })
-              }, 2000)
+      let item = this.data.dataList.get_game_element
+      console.log(item)
+      const query = {
+        token: app.globalData.token,
+        game_id: this.data.gameId,
+        content: []
 
-            }
-          })
-        } else {
-          wx.showToast({
-            title: res.data.error_msg,
-            icon: 'none',
-            duration: 2000,
-            success: function () { }
-          })
-        }
       }
-    })
+      query.content.push({
+        'game_element_id': item[0].id,
+        'content': this.data.stuName
+      })
+      query.content.push({
+        'game_element_id': item[1].id,
+        'content': this.data.stuHeight
+      })
+      query.content.push({
+        'game_element_id': item[2].id,
+        'content': this.data.stuWeight
+      })
+      console.log(query)
+      wx.request({
+        url: app.globalData.url + 'api/game/join/add',
+        data: query,
+        method: 'post',
+        success: res => {
+          console.log('提交表单返回>>', res.data.data)
+          if (res.data.error_code == 0) {
+            wx.showToast({
+              title: '报名成功',
+              icon: 'success',
+              duration: 2000,
+              success: function() {
+                setTimeout(_ => {
+                  wx.navigateBack({
+                    delta: 2
+                  })
+                }, 2000)
 
+              }
+            })
+          } else {
+            wx.showToast({
+              title: res.data.error_msg,
+              icon: 'none',
+              duration: 2000,
+              success: function() {}
+            })
+          }
+        }
+      })
+    } else {
+      setTimeout(() => {
+
+        this.setData({
+          flag: true
+        })
+      }, 2000)
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,6 +1,6 @@
 <view class='top-box'>
   <view class='left-box'>
-    <picker mode="date" fields="month" value="{{date}}" start="2019-01-01" bindchange="getDateTime">
+    <picker mode="date" fields="month" value="{{date}}" start="2018-01-01" bindchange="getDateTime">
       <text>{{timeValue}}</text>
       <image src='/assets/image/bottom.png'></image>
     </picker>

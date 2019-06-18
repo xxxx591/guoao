@@ -7,7 +7,7 @@
     </view>
     <view class='input-box'>
       <text style='flex:1;'>验证码：</text>
-      <input style='flex:2;' placeholder='请输入...' type='text' name="code" maxlength='4' bindinput="getCode"> 
+      <input style='flex:2;' placeholder='请输入...' type='number' name="code" maxlength='4' bindinput="getCode"> 
       </input>
       <text style='flex:1.1;padding-left: 33rpx;color:#006428;border-left:1rpx solid #E5E5E5;' bindtap='getVerificationCode'>{{codename}}</text>
     </view>

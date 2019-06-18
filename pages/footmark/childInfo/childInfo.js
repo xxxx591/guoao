@@ -25,8 +25,10 @@ Page({
     ],
     params: {
       childImg: '',
-      sex: ''
+      sex: '',
     },
+    disAbled: true,
+    flag: true
   },
 
   /**
@@ -54,11 +56,23 @@ Page({
         console.log('图片地址', res)
         // tempFilePath可以作为img标签的src属性显示图片
         let tempFilePaths = res.tempFilePaths[0]
-        let childImg =
-          that.setData({
-            imgUrl: tempFilePaths,
-            'haiziDetails.avatar': tempFilePaths
-          })
+        wx.uploadFile({
+          url: app.globalData.url + 'common/uploadOnce',
+          filePath: tempFilePaths,
+          name: 'file',
+          formData: {
+            model: 'user'
+          },
+          success(res) {
+            console.log(res.data)
+            let data = JSON.parse(res.data)
+            that.setData({
+              imgUrl: tempFilePaths,
+              'haiziDetails.avatar': tempFilePaths
+            })
+            //do something
+          }
+        })
       }
     })
   },
@@ -123,44 +137,70 @@ Page({
   },
   // 修改孩子信息
   formSubmit(e) {
-    console.log(e)
-    this.setData({
-      'haiziDetails.address': e.detail.value.addressdetails,
-      'haiziDetails.school': e.detail.value.school,
-    })
-    let params = JSON.parse(JSON.stringify(this.data.haiziDetails));
-    console.log(params)
-    params.sex = parseInt(params.sex);
-    params.token = app.globalData.token;
-    if (!(this.data.child_id == 'null')) {
-      params.child_id = this.data.child_id
-    }
-    params.name = e.detail.value.name
-    params.id_card = e.detail.value.id_card
-    wx.request({
-      url: app.globalData.url + 'api/user/child/update',
-      data: params,
-      method: 'post',
-      success: res => {
-        console.log('修改孩子信息接口返回', res)
-
-        if (res.statusCode == 200) {
-          wx.showToast({
-            title: '修改成功',
-            icon: 'success',
-            duration: 2000,
-            success: function() {
-              setTimeout(_ => {
-                wx.navigateBack({
-                  delta: 2
-                })
-              }, 2000)
-
-            }
-          })
-        }
+    if (this.data.flag) {
+      this.setData({
+        flag: false
+      })
+      console.log(e)
+      this.setData({
+        'haiziDetails.address': e.detail.value.addressdetails,
+        'haiziDetails.school': e.detail.value.school,
+      })
+      let params = JSON.parse(JSON.stringify(this.data.haiziDetails));
+      console.log(params)
+      params.sex = parseInt(params.sex);
+      params.token = app.globalData.token;
+      if (!(this.data.child_id == 'null')) {
+        params.child_id = this.data.child_id
       }
-    })
+      params.name = e.detail.value.name
+      params.id_card = e.detail.value.id_card
+      if (params.name == '') {
+        wx.showToast({
+          title: '请输入孩子姓名',
+          icon: 'none',
+          duration: 1000,
+        })
+        return
+      }
+      wx.request({
+        url: app.globalData.url + 'api/user/child/update',
+        data: params,
+        method: 'post',
+        success: res => {
+          console.log('修改孩子信息接口返回', res)
+          if (res.statusCode == 200) {
+
+            wx.showToast({
+              title: '修改成功',
+              icon: 'success',
+              duration: 2000,
+              success: function() {
+                setTimeout(_ => {
+                  wx.navigateBack({
+                    delta: 2
+                  })
+                }, 2000)
+              }
+            })
+          } else {
+            wx.showToast({
+              title: res.data.error_msg,
+              icon: 'none',
+              duration: 1000,
+
+            })
+          }
+        }
+      })
+    } else {
+      setTimeout(item => {
+        this.setData({
+          flag: true
+        })
+      }, 5000)
+    }
+
   },
 
   /**

@@ -46,7 +46,7 @@
       </picker>
     </view>
     <view>
-      <button form-type="submit">
+      <button form-type="submit" >
         <view class='submit'>
           <text>提交</text>
           <image src='/assets/image/submit-btn.png'></image>

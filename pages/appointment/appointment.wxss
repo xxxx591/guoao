@@ -59,7 +59,7 @@ height:94rpx;
   border: 0;
   background: rgba(0, 0, 0, 0);
   right: 30rpx;
-  width: 180rpx;
+  width: 190rpx;
   height: 190rpx;
   bottom: 187rpx;
   border-radius: 0;

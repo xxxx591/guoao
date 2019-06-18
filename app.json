@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/init/init",
+    "pages/index/index",
+    "pages/appointment/appointment",
     "pages/login/login",
     "pages/footmark/index/index",
     "pages/footmark/echarts/echarts",
@@ -12,7 +14,6 @@
     "pages/orderList/orderList",
     "pages/myOrder/myOrder",
     "pages/gameList/gameList",
-    "pages/index/index",
     "pages/details/details",
     "pages/detailsNews/detailsNews",
     "pages/course-details/courseDetails",
@@ -21,7 +22,6 @@
     "pages/storeList/storeList",
     "pages/introduction/introduction",
     "pages/nnews/nnews",
-    "pages/appointment/appointment",
     "pages/logs/logs",
     "pages/student/student",
     "pages/studentDetails/details",

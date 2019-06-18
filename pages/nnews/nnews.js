@@ -7,7 +7,8 @@ Page({
    */
   data: {
     coachList:[],
-    id:''
+    id:'',
+    flag:true
   },
   
   /**
@@ -44,10 +45,21 @@ Page({
     })
   },
   checkDetails(e) {
+    if(this.data.flag){
+      this.setData({
+        flag:false
+      })
     console.log(e)
     wx.navigateTo({
       url: '/pages/details/details?id=' + e.currentTarget.id
     })
+    }else{
+      setTimeout(item=>{
+        this.setData({
+          flag:true
+        })
+      },2000)
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

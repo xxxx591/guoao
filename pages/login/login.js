@@ -11,18 +11,19 @@ Page({
     codename: '获取验证码',
     mobile: '',
     code: '',
+    flag: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  // 提交体验课
+
   formSubmit(e) {
     let mobile = e.detail.value.mobile
     let code = e.detail.value.code
     var _this = this;
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
-    if (this.data.phone == "") {
+    if (_this.data.phone == "") {
       wx.showToast({
         title: '手机号不能为空',
         icon: 'none',
@@ -37,32 +38,53 @@ Page({
       })
       return false;
     } else {
-      wx.request({
-        url: app.globalData.url + 'api/mobile/codeLogin',
-        data: {
-          mobile: this.data.mobile,
-          code: this.data.code,
-          token: app.globalData.token
-        },
-        method: 'post',
-        success(res) {
-          console.log('立即注册接口', res.data)
-          if (res.data.error_code == 0) {
-            wx.showToast({
-              title: '注册成功',
-              icon: 'success',
-              duration: 1000,
-              success: res => {
-                setTimeout(_ => {
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                  })
-                }, 1000)
-              }
-            })
+      if (_this.data.flag) {
+        _this.setData({
+          flag: false
+        })
+        wx.request({
+          url: app.globalData.url + 'api/mobile/codeLogin',
+          data: {
+            mobile: _this.data.mobile,
+            code: _this.data.code,
+            token: app.globalData.token
+          },
+          method: 'post',
+          success(res) {
+            console.log('立即注册接口', res.data)
+            setTimeout(_ => {
+              _this.setData({
+                flag: true
+              })
+            }, 2000)
+            if (res.data.error_code == 0) {
+              wx.showToast({
+                title: '注册成功',
+                icon: 'success',
+                duration: 1000,
+                success: res => {
+                  setTimeout(_ => {
+                    wx.switchTab({
+                      url: '/pages/index/index',
+                    })
+                  }, 1000)
+                }
+              })
+            }else{
+              wx.showToast({
+                title: res.data.error_msg,
+                icon: 'none',
+                duration: 2000,
+                success: res => {
+                  
+                }
+              })
+            }
           }
-        }
-      })
+        })
+      } else {
+        
+      }
     }
   },
   getMobile(e) {

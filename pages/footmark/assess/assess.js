@@ -15,7 +15,8 @@ Page({
     type: '',
     kid: '',
     cid: '',
-    haiziDetails: {}
+    haiziDetails: {},
+    flag: true
   },
 
   /**
@@ -61,50 +62,62 @@ Page({
   },
   // 评价接口
   formSubmit(e) {
-    console.log(e)
-    let label_id = [];
-    (this.data.tagList).forEach(item => {
-      if (item.type == true) {
-        label_id.push(item.id)
-      }
-    })
-    let params = {};
-    params.token = app.globalData.token;
-    params.team_library_id = parseInt(this.data.kid),
-      params.child_id = parseInt(this.data.cid);
-    params.score = parseInt(this.data.score);
-    params.content = e.detail.value.textarea;
-    params.label_id = label_id;
-    wx.request({
-      url: app.globalData.url + 'api/footprint/course/assess',
-      data: params,
-      method: 'post',
-      success: res => {
-        console.log('评价接口返回', res)
-        if (res.data.error_code == 0) {
-          wx.showToast({
-            title: '评价成功',
-            icon: 'success',
-            duration: 2000,
-            success: function() {
-              setTimeout(_ => {
-                wx.navigateBack({
-                  delta: 2
-                })
-              }, 2000)
-
-            }
-          })
-        } else {
-          wx.showToast({
-            title: res.data.error_msg,
-            icon: 'none',
-            duration: 2000,
-            success: function() {}
-          })
+    let _this = this
+    if (_this.data.flag) {
+      _this.setData({
+        flag: false
+      })
+      console.log(e)
+      let label_id = [];
+      (_this.data.tagList).forEach(item => {
+        if (item.type == true) {
+          label_id.push(item.id)
         }
-      }
-    })
+      })
+      let params = {};
+      params.token = app.globalData.token;
+      params.team_library_id = parseInt(_this.data.kid),
+        params.child_id = parseInt(_this.data.cid);
+      params.score = parseInt(_this.data.score);
+      params.content = e.detail.value.textarea;
+      params.label_id = label_id;
+      // wx.request({
+      //   url: app.globalData.url + 'api/footprint/course/assess',
+      //   data: params,
+      //   method: 'post',
+      //   success: res => {
+      //     console.log('评价接口返回', res)
+      //     if (res.data.error_code == 0) {
+      //       wx.showToast({
+      //         title: '评价成功',
+      //         icon: 'success',
+      //         duration: 2000,
+      //         success: function() {
+      //           setTimeout(_ => {
+      //             wx.navigateBack({
+      //               delta: 2
+      //             })
+      //           }, 2000)
+
+      //         }
+      //       })
+      //     } else {
+      //       wx.showToast({
+      //         title: res.data.error_msg,
+      //         icon: 'none',
+      //         duration: 2000,
+      //         success: function() {}
+      //       })
+      //     }
+      //   }
+      // })
+    } else {
+      setTimeout(item => {
+        _this.setData({
+          flag: true
+        })
+      }, 2000)
+    }
   },
   // 点击切换class
   selectOn(e) {

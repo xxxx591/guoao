@@ -7,29 +7,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    courseDetails:{},
-    storeId:'1'
+    courseDetails: {},
+    storeId: '1',
+    flag: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(options.id)
     this.getDetails(options.id)
     wx.getStorage({
       key: 'storeId',
-      success:res=> {
+      success: res => {
         this.data.storeId = res.data
       }
     })
   },
   // 获取课程详情
-  getDetails(id){
+  getDetails(id) {
     wx.request({
       url: app.globalData.url + 'api/course/detail',
       data: {
-        course_id: id, 
+        course_id: id,
       },
       method: 'post',
       success: res => {
@@ -42,57 +43,68 @@ Page({
       }
     })
   },
-  goBuy(e){
-    wx.navigateTo({
-      url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id + "&name=" + this.data.courseDetails.name,
-    })
+  goBuy(e) {
+    if (this.data.flag) {
+      this.setData({
+        flag: false
+      })
+      wx.navigateTo({
+        url: '/pages/appointment/appointment?courseId=' + e.currentTarget.id + "&name=" + this.data.courseDetails.name,
+      })
+    } else {
+      setTimeout(item => {
+        this.setData({
+          flag: true
+        })
+      }, 2000)
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

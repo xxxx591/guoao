@@ -74,11 +74,13 @@ App({
                   console.log('转存token', res)
                   this.globalData.token = res.data.data.token;
                   if (res.data.data.mobile === "") {
+                    console.log('跳转到登陆页面')
                     wx.navigateTo({
                       url: '/pages/login/login',
                     })
                   }
                   if (res.data.data.mobile !== "") {
+                    console.log('首页')
                     wx.switchTab({
                       url: '/pages/index/index',
                       // url: '/pages/user/user',
