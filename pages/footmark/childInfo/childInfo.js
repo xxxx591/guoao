@@ -67,8 +67,8 @@ Page({
             console.log(res.data)
             let data = JSON.parse(res.data)
             that.setData({
-              imgUrl: tempFilePaths,
-              'haiziDetails.avatar': tempFilePaths
+              imgUrl: data.data.url,
+              'haiziDetails.avatar': data.data.url
             })
             //do something
           }
@@ -178,7 +178,7 @@ Page({
               success: function() {
                 setTimeout(_ => {
                   wx.navigateBack({
-                    delta: 2
+                    delta: 1
                   })
                 }, 2000)
               }

@@ -28,7 +28,7 @@ Page({
     this.setData({
       childId:options.id
     })
-    this.getChildDetails()
+    
 
   },
   
@@ -104,7 +104,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getChildDetails()
   },
 
   /**

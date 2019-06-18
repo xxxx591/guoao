@@ -37,8 +37,8 @@ Page({
                 },
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: function(res) {
-                  console.log('转存token', res)
-                  app.globalData.token = res.data.data.token;
+                  // console.log('转存token', res)
+                  // app.globalData.token = res.data.data.token;
                   if (res.data.data.mobile == '') {
                     wx.navigateTo({
                       url: '/pages/login/login',
