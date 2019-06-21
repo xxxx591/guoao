@@ -6,7 +6,7 @@
 
     <!-- <rich-text class='txt' nodes="{{content}}"></rich-text> -->
     <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-    <image src='{{details.logo}}' class='txt-img'></image>
+    <!-- <image src='{{details.logo}}' class='txt-img'></image> -->
   </view>
   <view>
     <view class='submit' bindtap='selectIt'>

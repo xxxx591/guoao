@@ -103,14 +103,17 @@
 .submit-btn{
   width: 690rpx;
   height: 94rpx;
+  padding: 0;
+  position: absolute;
 }
 .btn-img{
   width: 100%;
   height: 100%;
 }
 .save-txt{
-  color: white;
-  position: relative;
-  left: 310rpx;
-  top: -85rpx;
+color: white;
+position: absolute;
+left: 310rpx;
+top: 0;
+
 }

@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/footmark/index/index",
+    "pages/user/user",
     "pages/init/init",
     "pages/index/index",
     "pages/appointment/appointment",
     "pages/login/login",
-    "pages/footmark/index/index",
     "pages/footmark/echarts/echarts",
     "pages/footmark/childList/childList",
-    "pages/user/user",
     "pages/gameDetail/gameDetail",
     "pages/contractDetail/contractDetail",
     "pages/contractManager/contractManager",

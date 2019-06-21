@@ -20,7 +20,7 @@
     </block>
   </swiper>
   <view class='free' wx:if="{{showExperience}}">
-    <image src='/assets/image/a10-free.png' bindtap="appointment" id="{{experience.id}}" data-name='{{experience.name}}' ></image>
+    <image src='/assets/image/a10-free.png' bindtap="appointment" id="{{experience.id}}" data-name='{{experience.course_name}}' ></image>
   </view>
   <view class='new'>
     <view class='new-1'>

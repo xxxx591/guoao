@@ -6,10 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList:{
-      startTime:'',
-      endTime:''
-    }
+    dataList:{},
+      showFlag:false
   },
 
   /**
@@ -32,8 +30,10 @@ Page({
           item.ended_at = item.ended_at.split(' ')[0]
         })
         this.setData({
-          dataList: arrayList
-        })
+          dataList: arrayList,
+          // showFlag:true
+        }) 
+        
       }
     })
   },
@@ -44,7 +44,7 @@ Page({
    */
   handleJoin(e){
     wx.navigateTo({
-      url: '/pages/gameDetail/gameDetail?game_id='+e.target.id
+      url: '/pages/gameDetail/gameDetail?game_id=' + e.currentTarget.id
     })
   },
   /**

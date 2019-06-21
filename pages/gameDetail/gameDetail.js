@@ -62,70 +62,85 @@ Page({
    * @desc:调教表单
    * @author:llc
    */
-  handleSubmit() {
+  handleSubmit(e) {
+    console.log(e)
     if (this.data.flag) {
       this.setData({
         flag: false
       })
 
-      let item = this.data.dataList.get_game_element
+      let item = e.value
       console.log(item)
-      const query = {
-        token: app.globalData.token,
-        game_id: this.data.gameId,
-        content: []
+      if (JSON.stringify(item) == '[]') {
+        wx.showToast({
+          title: '缺少学生参数，请联系客服',
+          icon: 'none',
+          duration: 2000
+        })
+      } else {
+        const query = {
+          token: app.globalData.token,
+          game_id: this.data.gameId,
+          content: []
+        }
+        let contentArr = []
+        for (let val in e.detail.value) {
+          contentArr.push(e.detail.value[val])
+        }
+        for (let k = 0; k < this.data.dataList.get_game_element.length; k++) {
+          query.content.push({
+            'game_element_id': this.data.dataList.get_game_element[k].id,
+            'content': contentArr[k]
+          })
+        }
+        console.log(query)
+        if (contentArr.indexOf('') != -1) {
+          wx.showToast({
+            title: '请填写报名内容',
+            icon: 'none'
+          })
+        } else {
+          wx.request({
+            url: app.globalData.url + 'api/game/join/add',
+            data: query,
+            method: 'post',
+            success: res => {
+              console.log('提交表单返回>>', res.data.data)
+              if (res.data.error_code == 0) {
+                wx.showToast({
+                  title: '报名成功',
+                  icon: 'success',
+                  duration: 2000,
+                  success: function() {
+                    setTimeout(_ => {
+                      wx.navigateBack({
+                        delta: 1
+                      })
+                    }, 1000)
+
+                  }
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.error_msg,
+                  icon: 'none',
+                  duration: 2000,
+                  success: function() {}
+                })
+              }
+            }
+          })
+        }
+
 
       }
-      query.content.push({
-        'game_element_id': item[0].id,
-        'content': this.data.stuName
-      })
-      query.content.push({
-        'game_element_id': item[1].id,
-        'content': this.data.stuHeight
-      })
-      query.content.push({
-        'game_element_id': item[2].id,
-        'content': this.data.stuWeight
-      })
-      console.log(query)
-      wx.request({
-        url: app.globalData.url + 'api/game/join/add',
-        data: query,
-        method: 'post',
-        success: res => {
-          console.log('提交表单返回>>', res.data.data)
-          if (res.data.error_code == 0) {
-            wx.showToast({
-              title: '报名成功',
-              icon: 'success',
-              duration: 2000,
-              success: function() {
-                setTimeout(_ => {
-                  wx.navigateBack({
-                    delta: 2
-                  })
-                }, 2000)
-
-              }
-            })
-          } else {
-            wx.showToast({
-              title: res.data.error_msg,
-              icon: 'none',
-              duration: 2000,
-              success: function() {}
-            })
-          }
-        }
-      })
     } else {
       setTimeout(() => {
 
         this.setData({
           flag: true
         })
-      }, 2000)
+      }, 1000)
     }
   },
   /**

@@ -23,6 +23,8 @@ Page({
    */
   onLoad: function(options) {
     console.log(options)
+    let str = ''
+    options.type==1?str ='比赛名称':str='课程名称';
     this.setData({
       type: options.type,
       kid: options.kid,
@@ -73,6 +75,16 @@ Page({
         let item = res.data.data
         item.ended_at = (item.ended_at.split(' ')[1]).substring(0, 5)
         item.started_at = (item.started_at).substring(5, 16)
+        let jiaolianobj = {}
+        item.team_coach.forEach(i=>{
+          if(i.type==1){
+            jiaolianobj = i.get_coach
+          }
+        })
+        wx.setStorage({
+          key: "jiaolian",
+          data: jiaolianobj
+        })
         this.setData({
           kDetails: res.data.data,
         })

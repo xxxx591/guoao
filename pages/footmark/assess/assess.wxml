@@ -1,9 +1,9 @@
 <form bindsubmit="formSubmit" class='child-list'>
   <view>
     <view class='img-box'>
-      <image src='{{haiziDetails.avatar}}'></image>
+      <image src='{{jiaolianDetails.avatar}}'></image>
     </view>
-    <text class='img-box-title'>{{haiziDetails.name}}</text>
+    <text class='img-box-title'>{{jiaolianDetails.name}}</text>
   </view>
   <view class='star-box'>
 
@@ -17,7 +17,7 @@
     <text wx:for="{{tagList}}" id='{{item.type}}' class="tag-text {{item.type == true ? 'on':''}}" data-id="{{index}}" bindtap='selectOn'>{{item.name}}</text>
   </view>
   <view class='textarea-box'>
-  <textarea  class='textarea' placeholder="输入您对这位学员的评价（选填）" name="textarea"/>
+  <textarea  class='textarea' placeholder="输入您对本次课程的评价（选填）" name="textarea"/>
   </view>
   <!-- 显示当前评分 -->
   <button form-type="submit">

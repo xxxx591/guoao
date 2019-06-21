@@ -24,7 +24,7 @@ Page({
   handleGoOrder(e){
     console.log(e)
     wx.navigateTo({
-      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id +'&cid='+this.data.id +"&type="+this.data.type
+      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id + '&cid=' + this.data.id + "&type=" + e.currentTarget.dataset.type
     })
   },
   // 获取列表
@@ -56,6 +56,9 @@ Page({
   // 切换至学生列表
   gostudent(e) {
     console.log(e)
+    this.setData({
+      dataList:[]
+    })
     if (e.currentTarget.dataset.num == 1) {
       this.getRaceList(this.data.id,1)
       this.setData({

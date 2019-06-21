@@ -49,7 +49,7 @@ Page({
                   wx.navigateBack({
                     delta: 2
                   })
-                }, 2000)
+                }, 1000)
 
               }
             })
@@ -67,7 +67,7 @@ Page({
         _this.setData({
           flag: true
         })
-      }, 2000)
+      }, 1000)
     }
   },
 

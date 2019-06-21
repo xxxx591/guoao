@@ -9,9 +9,11 @@
   background: #006428;
   z-index: 999;
 }
-.list-boxxx{
+
+.list-boxxx {
   padding-top: 90rpx;
 }
+
 
 .tab-box text {
   height: 90rpx;
@@ -105,6 +107,9 @@
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+  background: rgba(245, 247, 250, 1);
+  margin: 30rpx 30rpx 0;
+  padding: 40rpx 10rpx 39rpx 30rpx;
 }
 
 .list-box image {
@@ -162,14 +167,15 @@
   font-weight: 500;
   color: rgba(51, 51, 51, 1);
 }
+
 .green {
   font-size: 24rpx;
   font-family: PingFangSC-Medium;
   font-weight: 500;
-  color: rgba(0, 100, 40, 1)!important;
-  background:rgba(228,245,235,1);
-border-radius:4px;
-padding: 10rpx 20rpx;
+  color: rgba(0, 100, 40, 1) !important;
+  background: rgba(228, 245, 235, 1);
+  border-radius: 4px;
+  padding: 10rpx 20rpx;
 }
 
 .list-box .title-black {
@@ -177,4 +183,28 @@ padding: 10rpx 20rpx;
   font-family: PingFangSC-Medium;
   font-weight: 500;
   color: rgba(77, 77, 77, 1);
+}
+.box-test{
+  box-sizing: border-box;
+background: rgba(245, 247, 250, 1);
+margin: 30rpx 30rpx 0;
+padding: 40rpx 10rpx 39rpx 30rpx;
+
+}
+.green-text{
+  background: rgba(0, 100, 40, 1);
+color: #fff100;
+
+}
+.red{
+  color: #F45342!important;
+}
+.onlypingyu{
+  padding-top: 20rpx;
+  text-align: center;
+  font-size:28rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(77,77,77,1);
+
 }

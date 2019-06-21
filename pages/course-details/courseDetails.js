@@ -56,7 +56,7 @@ Page({
         this.setData({
           flag: true
         })
-      }, 2000)
+      }, 1000)
     }
   },
   /**

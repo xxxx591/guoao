@@ -1,5 +1,5 @@
 <!--pages/gameList/gameList.wxml-->
-<view class='game-wrap' wx:for="{{dataList}}" wx:key="index">
+<view class='game-wrap' wx:for="{{dataList}}" wx:key="index"  bindtap='handleJoin' id="{{item.id}}" >
   <view class='game-title'>比赛名称：{{item.name}}</view>
   <view class='game-msg'>
     <view class='game-msg-l'>
@@ -7,7 +7,8 @@
         <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
         <text>付费形式</text>
       </view>
-      <view>免费/￥{{item.price}}</view>
+      <view wx:if="{{item.price=='0.00'}}">免费</view>
+      <view wx:else>￥{{item.price}}</view>
     </view>
     <view class='game-msg-r'>
       <view class='game-msg-space'>
@@ -22,5 +23,5 @@
     <text>比赛地点</text>
   </view>
   <view class='game-content'>{{item.address}}</view>
-  <view class='game-button' bindtap='handleJoin' id="{{item.id}}">立即报名</view>
+  <view class='game-button'>立即报名</view>
 </view>

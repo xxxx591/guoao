@@ -16,7 +16,8 @@
           <text class='txt'>付费形式</text>
         </view>
         <view class='pay-wrapper-bottom'>
-          <text class='bottom-txt'>免费/￥{{dataList.price}}</text>
+          <text class='bottom-txt' wx:if="{{dataList.price=='0.00'}}">免费/￥</text>
+          <text class='bottom-txt'> {{dataList.price}}</text>
         </view>
       </view>
       <view class='item-right'>
@@ -50,33 +51,35 @@
         <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
       </view>
     </view>
-    <image class='desc-pic' src='/assets/image/a10-free.png'></image>
+    <!-- <image class='desc-pic' src='/assets/image/a10-free.png'></image> -->
     <!-- 表单信息 -->
+    <form bindsubmit="handleSubmit" bindreset="formReset">
     <view class='form-wrapper'>
       <view class='form-top'>
         <image class='desc-icon'src='/assets/image/a10-title.png'></image>
         <text class='race-desc'>报名信息</text>
       </view>
-      <view>
-       <view class='ipt-wrapper'>
-          <text class='ipt-txt'>学生姓名：</text>
-          <input class='ipt' type='text' bindinput='stuName' placeholder='请输入...'></input>
+      <view >
+       <view class='ipt-wrapper' wx:for="{{dataList.get_game_element}}">
+          <text class='ipt-txt'>{{item.name}}：</text>
+          <input class='ipt' type='text' name="{{'submit'+index}}" id="{{item.id}}" placeholder='请输入...'></input>
         </view>
-        <view class='ipt-wrapper'>
-          <text class='ipt-txt'>学生身高：</text>
+        <!-- <view class='ipt-wrapper'>
+          <text class='ipt-txt'>{{item.name}}：</text>
           <input class='ipt' type='number' bindinput='stuHeight' placeholder='请输入...'></input>
         </view>
         <view class='ipt-wrapper' style='padding-bottom:30rpx;'>
-          <text class='ipt-txt'>学生体重：</text>
+          <text class='ipt-txt'>{{item.name}}：</text>
           <input class='ipt' type='number' bindinput='stuWeight' placeholder='请输入...'></input>
-        </view>
+        </view> -->
 
         <!-- 按钮 -->
-        <view class='submit-btn' bindtap='handleSubmit'>
+        <button class='submit-btn'  form-type="submit">
          <image class='btn-img' src='/assets/image/submit-btn.png'></image>
          <text class='save-txt'>保存</text>
-        </view>
+        </button>
       </view>
     </view>
+    </form>
   </view>
 </view>

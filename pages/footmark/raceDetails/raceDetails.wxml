@@ -7,7 +7,7 @@
 </view>
 
 
-<view class='list-box' wx:if="{{type==2}}"> 
+<view class='list-box' wx:if="{{type==1}}"> 
   <view class='icon'></view>
   <view class='title'>
     <text class='title01'>课程名称：{{kDetails.name}}</text>
@@ -32,7 +32,7 @@
     </view>
   </view>
 </view>
-<view class='list-box' wx:if="{{type==1}}">
+<view class='list-box' wx:if="{{type==2}}">
   <view class='icon'></view>
   <view class='title'>
     <text class='title01'>比赛名称：{{kDetails.name}}</text>
@@ -40,8 +40,8 @@
   </view>
   <view class='left'>
     <view>
-      <image src='/assets/image/jiaolian.png'></image>
-      <text class='title-ccc'>比赛队伍</text>
+      <image src='/assets/image/bisai.png'></image>
+      <text class='title-ccc'>对战队伍</text>
     </view>
     <view>
      <text class='title-ccc title-black-01'>{{kDetails.rival}}</text>
@@ -57,7 +57,7 @@
   <view class='right'>
     <view>
       <image src='/assets/image/time.png'></image>
-      <text class='title-ccc'>上课时间</text>
+      <text class='title-ccc'>比赛时间</text>
     </view>
     <view>
       <text class='title-black'>{{kDetails.started_at+'-'+kDetails.ended_at}}</text>

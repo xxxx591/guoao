@@ -15,12 +15,10 @@ Page({
     sexItems: [{
         sex: 1,
         value: '男',
-        checked: 'false'
       },
       {
         sex: 2,
         value: '女',
-        checked: 'false'
       },
     ],
     params: {
@@ -91,11 +89,16 @@ Page({
         wx.setNavigationBarTitle({
           title: res.data.data.name,
         })
-        this.data.sexItems.forEach(item => {
-          if (item.sex == details.sex) {
-            item.checked = 'true'
-          }
-        })
+        if (details.sex == 1) {
+          this.setData({
+            'sexItems[0].checked': 'true'
+          })
+        }else{
+          this.setData({
+            'sexItems[1].checked': 'true'
+          })
+
+        }
         this.setData({
           haiziDetails: res.data.data,
           region1: details.prov + details.city + details.area,
@@ -180,7 +183,7 @@ Page({
                   wx.navigateBack({
                     delta: 1
                   })
-                }, 2000)
+                }, 1000)
               }
             })
           } else {

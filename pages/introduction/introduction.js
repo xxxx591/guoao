@@ -7,7 +7,8 @@ Page({
    */
   data: {
     type: 1,
-    newsList:[],sid:''
+    newsList:[],
+    sid:''
   },
 
   /**

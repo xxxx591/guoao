@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList:{}
+    details:{},
+    endTime:'',
+    startTime:''
   },
 
   /**
@@ -14,22 +16,23 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: app.globalData.url + 'api/game/join/list',
+      url: app.globalData.url + 'api/game/join/detail',
       data: {
         token: app.globalData.token,
-        page: "1",
-        pagesize: "30"
+        game_join_id: options.courseId,
+        
       },
       method: 'post',
       success: res => {
         console.log('比赛名称列表', res)
-        let arrayList = res.data.data.data
-        arrayList.map((item) => {
-          item.started_at = item.started_at.split(' ')[0]
-          item.ended_at = item.ended_at.split(' ')[0]
-        })
+        let arrayList = res.data.data
+        let arr = res.data.data.get_game_and_store[0]
+        let start = arr.started_at.slice(5, 16)
+        let end = arr.ended_at.slice(5, 16)
         this.setData({
-          dataList: arrayList
+          details: arrayList,
+          endTime: end,
+          startTime: start,
         })
         console.log(this.data.dataList)
       }

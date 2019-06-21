@@ -56,7 +56,7 @@ Page({
               _this.setData({
                 flag: true
               })
-            }, 2000)
+            }, 1000)
             if (res.data.error_code == 0) {
               wx.showToast({
                 title: '注册成功',
