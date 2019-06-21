@@ -31,46 +31,14 @@
     </view>
     <!-- end type==2 -->
     <!-- start type==1 -->
-    <view class='list-box' wx:if="{{item.type==1}}" bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}">
-      <view class='icon'></view>
-      <view class='title'>
-        <text class='title01'>课程名称：{{item.name}}</text>
-      </view>
-      <view class='left'>
-        <view>
-          <image src='/assets/image/jiaolian.png'></image>
-          <text class='title-ccc'>教练</text>
-        </view>
-        <view>
-          <text class='green' bindtap='jiaolianDetails'>[主]测试</text>
-        </view>
-      </view>
-      <view class='right'>
-        <view>
-          <image src='/assets/image/time.png'></image>
-          <text class='title-ccc'>上课时间</text>
-        </view>
-        <view>
-          <text class='title-black'>{{item.started_at+"-"+item.ended_at}}</text>
-        </view>
-      </view>
-    </view>
-    <!-- end type ==1 -->
-  </view>
-
-</view>
-<view wx:if="{{type==2}}" class='list-boxxx'>
-  <view class='' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:for="{{dataList}}" wx:key="index">
-
-   <!-- type==2 -->
-    <view class='box-test' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:key="index" wx:if="{{item.type==2}}">
-      <view class='game-title' wx:if="{{item.type==2}}" >比赛名称：{{item.name}}</view>
-      <view class='game-title' wx:if="{{item.type==1}}">课程名称：{{item.name}}</view>
+    <view class='game-wrap' wx:if="{{item.type==1}}" bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}">
+      <view class='game-title'>课程名称：{{item.name}}</view>
+      <view class='game-title' wx:if="{{type==2}}">课程名称：{{item.name}}</view>
       <view class='game-msg'>
         <view class='game-msg-l'>
           <view class='game-msg-space'>
             <image lazy-load src='/assets/image/time.png' mode='aspectFit'></image>
-            <text>比赛时间：<text class='green-text'>{{item.started_at+"-"+item.ended_at}}</text></text>
+            <text>上课时间：<text class='green-text'>{{item.started_at+"-"+item.ended_at}}</text></text>
           </view>
         </view>
 
@@ -81,17 +49,47 @@
         <text wx:if="{{item.get_child_assess.length>0 &&item.epilog==''}}">评价： 
        </text>
         <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.get_label.name}}</text>
-        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog!=''}}">评价： 
-        
-        </text>
+        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog!=''}}">评价：</text>
       </view>
       <view class='onlypingyu'><text>{{item.epilog}}</text></view>
       <image class='game-button' src=''></image>
     </view>
+    <!-- end type ==1 -->
+  </view>
+
+</view>
+<view wx:if="{{type==2}}" class='list-boxxx'>
+  <view class='' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:for="{{dataList}}" wx:key="index">
+
+   <!-- type==2 -->
+<view class='list-box' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:if="{{item.type==2}}">
+      <view class='icon'></view>
+      <view class='title'>
+        <text class='title01'>比赛名称：{{item.name}}</text>
+      </view>
+      <view class='left'>
+        <view>
+          <image src='/assets/image/zuqiu.png'></image>
+          <text class='title-ccc'>对战队伍</text>
+        </view>
+        <view>
+          <text class='title-black'>写死的数据</text>
+        </view>
+      </view>
+      <view class='right'>
+        <view>
+          <image src='/assets/image/time.png'></image>
+          <text class='title-ccc'>比赛时间</text>
+        </view>
+        <view>
+          <text class='title-black'>{{item.started_at+"-"+item.ended_at}}</text>
+        </view>
+      </view>
+    </view>
     <!-- end type==2 -->
 
     <!-- start type ==1 -->
-    <view class='list-box' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}">
+    <view class='list-box' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:if="{{item.type==1}}">
       <view class='icon'></view>
       <view class='title'>
         <text class='title01'>课程名称：{{item.name}}</text>
@@ -102,7 +100,8 @@
           <text class='title-ccc'>教练</text>
         </view>
         <view>
-          <text class='green' bindtap='jiaolianDetails'>[主]测试</text>
+          <text class='green-jiaolian' bindtap='jiaolianDetails' style='margin-right:10rpx;'>[主]测试 ▶</text>
+          <text class='green-jiaolian' bindtap='jiaolianDetails'>[助]测试助教 ▶</text>
         </view>
       </view>
       <view class='right'>

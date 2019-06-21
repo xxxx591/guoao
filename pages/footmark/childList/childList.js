@@ -24,6 +24,9 @@ Page({
    */
 
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     console.log(options)
     this.setData({
       childId:options.id
@@ -43,6 +46,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('获取孩子列表信息接口返回', res)
         this.setData({
           childList: res.data.data.data, 

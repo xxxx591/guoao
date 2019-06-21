@@ -15,6 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     console.log(options)
     this.setData({
       id: options.id
@@ -32,6 +35,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('获取教练团队接口返回', res)
         this.setData({
           coachList: res.data.data.data

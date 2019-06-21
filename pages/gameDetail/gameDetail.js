@@ -19,6 +19,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     this.setData({
       gameId: options.game_id
     })
@@ -30,6 +33,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('比赛详情列表>>', res.data.data)
         let arrayList = res.data.data
         let article = res.data.data.desc

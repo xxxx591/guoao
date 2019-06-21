@@ -15,6 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: app.globalData.url + 'api/game/join/detail',
       data: {
@@ -24,6 +27,23 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
+        if(JSON.stringify(res.data.data)=="{}"){
+          wx.showToast({
+            title: res.data.error_msg,
+            icon:'none',
+            duration:1000,
+            success: function () {
+              setTimeout(_ => {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000)
+
+            }
+          })
+        }else{
+          wx.hideLoading()
         console.log('比赛名称列表', res)
         let arrayList = res.data.data
         let arr = res.data.data.get_game_and_store[0]
@@ -35,6 +55,7 @@ Page({
           startTime: start,
         })
         console.log(this.data.dataList)
+        }
       }
     })
   },

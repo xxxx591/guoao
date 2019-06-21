@@ -15,6 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     console.log(options.id)
     this.getCoachList(options.id)
     wx.getStorage({
@@ -35,6 +38,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('获取学生列表接口返回', res)
         this.setData({
           coachList: res.data.data.data

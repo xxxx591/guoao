@@ -39,6 +39,9 @@ Page({
       child_id: options.id
     })
     if (!(options.id == 'null')) {
+      wx.showLoading({
+        title: '加载中...',
+      })
       this.getChildDetails(options.id)
     }
 
@@ -84,6 +87,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('获取孩子详情接口返回', res)
         let details = res.data.data;
         wx.setNavigationBarTitle({

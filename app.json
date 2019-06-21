@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/footmark/index/index",
-    "pages/user/user",
     "pages/init/init",
     "pages/index/index",
+    "pages/footmark/index/index",
+    "pages/user/user",
     "pages/appointment/appointment",
     "pages/login/login",
     "pages/footmark/echarts/echarts",

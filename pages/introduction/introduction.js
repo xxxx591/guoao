@@ -15,6 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     this.getNewsList(options.id)
     this.setData({
       sid:options.id
@@ -31,6 +34,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('获取新闻列表接口返回', res)
         let list = res.data.data.data
         let reg = /<\/?.+?\/?>/g; 

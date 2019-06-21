@@ -13,6 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: app.globalData.url + 'api/contract/list',
       data: {
@@ -22,6 +25,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('合同列表', res)
         let arrayList = res.data.data.data
         this.setData({

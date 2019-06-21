@@ -13,6 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     this.getNearbyShop()
   },
   // 获取门店列表
@@ -26,6 +29,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('获取门店列表接口返回', res)
         this.setData({
           shopList: res.data.data.data,

@@ -27,6 +27,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     this.barComponent = this.selectComponent('#mychart-dom-bar');
     this.barComponent2 = this.selectComponent('#mychart-dom-bar2');
 
@@ -52,6 +55,7 @@ Page({
         created_at: this.data.time
       }
       app.post(app.globalData.url + 'api/user/child/report/detail', params).then(res => {
+        wx.hideLoading()
         console.log('res', res)
         let details = res.data.data
         // arr1 是均值 arr2 是个人

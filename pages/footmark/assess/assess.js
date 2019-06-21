@@ -24,6 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     let _this = this
     this.getChildDetails(options.cid)
     this.getTagList()
@@ -57,6 +60,7 @@ Page({
           },
           method: 'post',
           success: res => {
+            wx.hideLoading()
             console.log('获取tag列表接口返回', res)
             let arr = res.data.data;
             arr.forEach(item => {
@@ -99,36 +103,36 @@ Page({
           duration: 2000
         })
       } else {
-        // wx.request({
-        //   url: app.globalData.url + 'api/footprint/course/assess',
-        //   data: params,
-        //   method: 'post',
-        //   success: res => {
-        //     console.log('评价接口返回', res)
-        //     if (res.data.error_code == 0) {
-        //       wx.showToast({
-        //         title: '评价成功',
-        //         icon: 'success',
-        //         duration: 2000,
-        //         success: function() {
-        //           setTimeout(_ => {
-        //             wx.navigateBack({
-        //               delta: 2
-        //             })
-        //           }, 1000)
+        wx.request({
+          url: app.globalData.url + 'api/footprint/course/assess',
+          data: params,
+          method: 'post',
+          success: res => {
+            console.log('评价接口返回', res)
+            if (res.data.error_code == 0) {
+              wx.showToast({
+                title: '评价成功',
+                icon: 'success',
+                duration: 2000,
+                success: function() {
+                  setTimeout(_ => {
+                    wx.navigateBack({
+                      delta: 2
+                    })
+                  }, 1000)
 
-        //         }
-        //       })
-        //     } else {
-        //       wx.showToast({
-        //         title: res.data.error_msg,
-        //         icon: 'none',
-        //         duration: 2000,
-        //         success: function() {}
-        //       })
-        //     }
-        //   }
-        // })
+                }
+              })
+            } else {
+              wx.showToast({
+                title: res.data.error_msg,
+                icon: 'none',
+                duration: 2000,
+                success: function() {}
+              })
+            }
+          }
+        })
       }
     } else {
       setTimeout(item => {

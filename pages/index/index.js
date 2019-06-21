@@ -19,9 +19,9 @@ Page({
   },
   //事件处理函数  
   onLoad: function(options) {
-    wx.showLoading({
-      title: '加载中',
-    })
+   wx.showLoading({
+     title: '加载中...',
+   })
     console.log(options)
     if (options.id) {
       this.isShowExperience()
@@ -119,6 +119,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('获取教练团队接口返回', res)
         this.setData({
           coachList: res.data.data.data

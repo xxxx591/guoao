@@ -16,6 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     this.setData({
       contract_id: options.status_id
     })
@@ -28,7 +31,7 @@ Page({
       // 示例 url，并非真实存在
       url: this.data.details.annex,
       success: function(res) {
-
+        wx.hideLoading()
         const filePath = res.tempFilePath
         wx.openDocument({
           filePath: filePath,
@@ -51,6 +54,7 @@ Page({
       },
       method: 'post',
       success: res => {
+        wx.hideLoading()
         console.log('合同详情列表>>', res.data.data)
         let arrays = res.data.data.get_contract_course
         let pics = 0
