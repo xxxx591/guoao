@@ -120,7 +120,7 @@ App({
     })
   },
   globalData: {
-    token: '1113',
+    token: '111',
     url: "https://api.yueyefc.com/",
     height: wx.getSystemInfoSync()['statusBarHeight'],
     lat: '',

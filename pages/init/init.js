@@ -23,43 +23,7 @@ Page({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function(res) {
-              console.log('res,', res)
-
-              wx.request({
-                url: app.globalData.url + 'api/wechat/miniLogin',
-                header: {
-                  "content-type": "application/x-www-form-urlencoded"
-                }, // 设置请求的 header
-                data: {
-                  'encryptedData': app.globalData.encryptedData,
-                  'iv': app.globalData.iv,
-                  'code': app.globalData.code
-                },
-                method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                success: function(res) {
-                  // console.log('转存token', res)
-                  app.globalData.token = res.data.data.token;
-                  if (res.data.data.mobile == '') {
-                    wx.navigateTo({
-                      url: '/pages/login/login',
-                    })
-                  } else {
-
-                    wx.switchTab({
-                      url: '/pages/index/index',
-                      // url: '/pages/user/user',
-                      // url: '/pages/footmark/index/index',
-                    })
-                  }
-                },
-                fail: function(err) {
-                  console.log(err);
-                }
-              })
-            }
-          })
+          
         }else{
           _this.setData({
             accShow:true

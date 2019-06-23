@@ -44,7 +44,7 @@
 
       </view>
       <view class='game-msg-space martop'>
-        <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
+        <!-- <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image> -->
         <text wx:if="{{item.get_child_assess.length==0 &&item.epilog==''}}" class='red'>待评价</text>
         <text wx:if="{{item.get_child_assess.length>0 &&item.epilog==''}}">评价： 
        </text>
