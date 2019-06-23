@@ -73,7 +73,7 @@ Page({
 
   onLoad: function(options) {
     console.log(options)
-    if (options.name == null) {
+    if (options.name == '' || options.courseId == '') {
       console.log('123')
       wx.setNavigationBarTitle({
         title: '预约体验课',

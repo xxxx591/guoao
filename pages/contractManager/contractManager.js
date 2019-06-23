@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     wx.request({
       url: app.globalData.url + 'api/contract/list',

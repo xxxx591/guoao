@@ -1,3 +1,4 @@
+<view wx:if="{{accShow}}">
 <view class='details'>
   <view class='photo-1'>
     <image src='/assets/image/top-banner-02.png' class='banner-02'></image>
@@ -143,4 +144,5 @@
       <text class='contetnt'>{{item.content}}</text>
     </view>
   </view>
+</view>
 </view>

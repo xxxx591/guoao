@@ -1,3 +1,4 @@
+<view wx:if="{{accShow}}">
 <!--index/contract/index.wxml-->
 <view class='contract-head' wx:if="{{details.annex != ''}}" bindtap='openFile'>
   <image lazy-load src='/assets/image/pdf-icon.png' mode='aspectFit'></image>
@@ -23,4 +24,5 @@
     合计:<text>￥{{pic}}</text>
   </view>
   <view class='shop-button' bindtap='handlePay'>立即支付</view>
+</view>
 </view>

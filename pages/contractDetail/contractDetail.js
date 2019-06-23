@@ -10,14 +10,15 @@ Page({
     contract_id: '',
     pic: 0,
     details: '',
-    flag: true
+    flag: true,
+    accShow:false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     this.setData({
       contract_id: options.status_id
@@ -64,7 +65,8 @@ Page({
         this.setData({
           details: res.data.data,
           dataList: res.data.data.get_contract_course,
-          pic: pics
+          pic: pics,
+          accShow:true
         })
 
       }

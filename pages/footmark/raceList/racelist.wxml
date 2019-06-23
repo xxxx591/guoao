@@ -19,8 +19,8 @@
 
       </view>
       <view class='game-msg-space martop'>
-        <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
-        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog==''}}" class='red'>待评价</text>
+        <!-- <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image> -->
+        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog==''}}" class='red'>待总结</text>
         <text wx:if="{{item.get_child_assess.length>0 &&item.epilog==''}}">评价： 
        </text>
         <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.get_label.name}}</text>
@@ -68,12 +68,12 @@
         <text class='title01'>比赛名称：{{item.name}}</text>
       </view>
       <view class='left'>
-        <view>
-          <image src='/assets/image/zuqiu.png'></image>
+        <view class='left-view'>
+          <image src='/assets/image/zuqiu.png' class='zuqiu'></image>
           <text class='title-ccc'>对战队伍</text>
         </view>
         <view>
-          <text class='title-black'>写死的数据</text>
+          <text class='title-black'>{{item.rival}}</text>
         </view>
       </view>
       <view class='right'>
@@ -95,13 +95,13 @@
         <text class='title01'>课程名称：{{item.name}}</text>
       </view>
       <view class='left'>
-        <view>
+        <view class='left-view'>
           <image src='/assets/image/jiaolian.png'></image>
           <text class='title-ccc'>教练</text>
         </view>
         <view>
-          <text class='green-jiaolian' bindtap='jiaolianDetails' style='margin-right:10rpx;'>[主]测试 ▶</text>
-          <text class='green-jiaolian' bindtap='jiaolianDetails'>[助]测试助教 ▶</text>
+          <text class='green-jiaolian' catchtap='jiaolianDetails' id="{{item.team_coach[0].get_coach.id}}" style='margin-right:10rpx;'>[主]{{item.team_coach[0].get_coach.name}} ▶</text>
+          <text class='green-jiaolian' catchtap='jiaolianDetails' id="{{item.team_coach[1].get_coach.id}}" >[助]{{item.team_coach[1].get_coach.name}} ▶</text>
         </view>
       </view>
       <view class='right'>

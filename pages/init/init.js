@@ -9,7 +9,8 @@ Page({
    */
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    flag: true
+    flag: true,
+    accShow:false
   },
 
   /**
@@ -17,6 +18,7 @@ Page({
    */
   onLoad: function() {
     // 查看是否授权
+    let _this = this
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
@@ -38,7 +40,7 @@ Page({
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: function(res) {
                   // console.log('转存token', res)
-                  // app.globalData.token = res.data.data.token;
+                  app.globalData.token = res.data.data.token;
                   if (res.data.data.mobile == '') {
                     wx.navigateTo({
                       url: '/pages/login/login',
@@ -57,6 +59,10 @@ Page({
                 }
               })
             }
+          })
+        }else{
+          _this.setData({
+            accShow:true
           })
         }
       }

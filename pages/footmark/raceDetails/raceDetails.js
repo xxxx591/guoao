@@ -16,6 +16,7 @@ Page({
     type: '',
     kid: '',
     cid: '',
+    accShow:false
   },
 
   /**
@@ -23,7 +24,7 @@ Page({
    */
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     console.log(options)
     let str = ''
@@ -91,6 +92,7 @@ Page({
         })
         this.setData({
           kDetails: res.data.data,
+          accShow:true
         })
         if (res.data.data.get_coach_assess[0].score) {
           this.setData({

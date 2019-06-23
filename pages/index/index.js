@@ -15,12 +15,13 @@ Page({
     coachList: [],
     curriculumList: [],
     experience: {},
-    showExperience: true
+    showExperience: true,
+    accShow:false
   },
   //事件处理函数  
   onLoad: function(options) {
    wx.showLoading({
-     title: '加载中...',
+     
    })
     console.log(options)
     if (options.id) {
@@ -45,7 +46,7 @@ Page({
       method: 'post',
       success: res => {
         console.log('是否显示体验课返回', res)
-        if (JSON.stringify(res.data.data) == "{}") {
+        if (!(JSON.stringify(res.data.data) == "{}")) {
           this.setData({
             showExperience: false
           })
@@ -120,9 +121,11 @@ Page({
       method: 'post',
       success: res => {
         wx.hideLoading()
+
         console.log('获取教练团队接口返回', res)
         this.setData({
-          coachList: res.data.data.data
+          coachList: res.data.data.data,
+          accShow:true
         })
       }
     })

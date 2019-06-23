@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     this.setData({
       id:options.id
@@ -28,6 +28,13 @@ Page({
     console.log(e)
     wx.navigateTo({
       url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id + '&cid=' + this.data.id + "&type=" + e.currentTarget.dataset.type
+    })
+  },
+  // 查看教练详情
+  jiaolianDetails(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/details/details?id=' + e.currentTarget.id
     })
   },
   // 获取列表

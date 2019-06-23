@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    haiziDetails: {}
+    haiziDetails: {},
+    accShow:false
   },
 
   /**
@@ -14,7 +15,7 @@ Page({
    */
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     
   },
@@ -61,7 +62,7 @@ Page({
         wx.hideLoading()
         console.log('获取足迹孩子详情接口返回', res)
         this.setData({
-
+          accShow:true,
           haiziDetails: res.data.data,
         })
       }

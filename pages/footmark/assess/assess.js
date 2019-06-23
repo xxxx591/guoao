@@ -25,7 +25,7 @@ Page({
    */
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     let _this = this
     this.getChildDetails(options.cid)
@@ -54,7 +54,7 @@ Page({
         wx.request({
           url: app.globalData.url + 'common/getLabel',
           data: {
-            belong: 2,
+            belong: 1,
             store_id: res.data,
             type: 2
           },

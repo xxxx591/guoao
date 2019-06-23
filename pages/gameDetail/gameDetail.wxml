@@ -1,3 +1,4 @@
+<view wx:if="{{accShow}}">
 <!--pages/gameDetail/gameDetail.wxml-->
 <import src="../wxParse/wxParse.wxml"/>
 
@@ -82,4 +83,6 @@
     </view>
     </form>
   </view>
+</view>
+
 </view>

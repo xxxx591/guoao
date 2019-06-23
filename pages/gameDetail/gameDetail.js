@@ -12,7 +12,8 @@ Page({
     stuName: null,
     stuHeight: null,
     stuWeight: null,
-    flag: true
+    flag: true,
+    accShow:false
   },
 
   /**
@@ -20,7 +21,7 @@ Page({
    */
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     this.setData({
       gameId: options.game_id
@@ -41,7 +42,8 @@ Page({
         arrayList.started_at = arrayList.started_at.split(' ')[0]
         arrayList.ended_at = arrayList.ended_at.split(' ')[0]
         this.setData({
-          dataList: arrayList
+          dataList: arrayList,
+          accShow:true
         })
       }
     })

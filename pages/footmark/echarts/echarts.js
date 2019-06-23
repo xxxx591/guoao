@@ -28,7 +28,7 @@ Page({
    */
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     this.barComponent = this.selectComponent('#mychart-dom-bar');
     this.barComponent2 = this.selectComponent('#mychart-dom-bar2');

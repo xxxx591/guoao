@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <nav-bar></nav-bar>
+<view wx:if="{{accShow}}">
 <view class="container">
 
   <view class='img-box'>
@@ -97,4 +98,5 @@
       </view>
     </scroll-view>
   </view>
+</view>
 </view>

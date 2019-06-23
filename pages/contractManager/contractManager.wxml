@@ -7,7 +7,7 @@
     <view class='management-price'>￥{{item.price}}</view>
     <view class='management-hint hint-button'>
       <view wx:if="{{item.status === 1}}">已取消</view>
-      <view wx:elif="{{item.status === 2}}">待支付</view>
+      <view wx:elif="{{item.status === 2}}">立即支付</view>
       <view wx:elif="{{item.status === 3}}">未开始</view>
       <view wx:elif="{{item.status === 4}}">履行中</view>
       <view wx:elif="{{item.status === 5}}">已过期</view>

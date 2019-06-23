@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/init/init",
     "pages/index/index",
+    "pages/init/init",
     "pages/footmark/index/index",
     "pages/user/user",
     "pages/appointment/appointment",

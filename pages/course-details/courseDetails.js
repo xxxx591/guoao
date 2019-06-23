@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function(options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     console.log(options.id)
     this.getDetails(options.id)

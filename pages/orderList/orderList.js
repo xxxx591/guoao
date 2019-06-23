@@ -8,7 +8,8 @@ Page({
   data: {
     details:{},
     endTime:'',
-    startTime:''
+    startTime:'',
+    accShow:false
   },
 
   /**
@@ -16,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     wx.showLoading({
-      title: '加载中...',
+      
     })
     wx.request({
       url: app.globalData.url + 'api/game/join/detail',
@@ -53,6 +54,7 @@ Page({
           details: arrayList,
           endTime: end,
           startTime: start,
+          accShow:true
         })
         console.log(this.data.dataList)
         }

@@ -72,7 +72,7 @@ App({
                 method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                 success: (res) => {
                   console.log('转存token', res)
-                  this.globalData.token = res.data.data.token;
+                  // this.globalData.token = res.data.data.token;
                   if (res.data.data.mobile === "") {
                     console.log('跳转到登陆页面')
                     wx.navigateTo({
@@ -120,7 +120,7 @@ App({
     })
   },
   globalData: {
-    token: '111',
+    token: '1113',
     url: "https://api.yueyefc.com/",
     height: wx.getSystemInfoSync()['statusBarHeight'],
     lat: '',

@@ -1,3 +1,4 @@
+<view wx:if="{{accShow}}">
 <view class='order-title' wx:if="{{details.type == 1}}">
   订单状态：未支付
 </view>
@@ -43,4 +44,5 @@
         <view>门店地址：<text>{{details.get_game_and_store[0].prov+details.get_game_and_store[0].city+details.get_game_and_store[0].area+details.get_game_and_store[0].address}}</text></view>
       </view>
   </view>
+</view>
 </view>

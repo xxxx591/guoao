@@ -40,7 +40,7 @@ Page({
     })
     if (!(options.id == 'null')) {
       wx.showLoading({
-        title: '加载中...',
+        
       })
       this.getChildDetails(options.id)
     }
