@@ -58,11 +58,10 @@
   </view>
 
 </view>
+   <!-- type==2 -->
 <view wx:if="{{type==2}}" class='list-boxxx'>
   <view class='' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:for="{{dataList}}" wx:key="index">
-
-   <!-- type==2 -->
-<view class='list-box' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:if="{{item.type==2}}">
+    <view class='list-box' bindtap="handleGoOrder" id="{{item.id}}" data-type="{{item.type}}" wx:if="{{item.type==2}}">
       <view class='icon'></view>
       <view class='title'>
         <text class='title01'>比赛名称：{{item.name}}</text>
