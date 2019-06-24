@@ -18,6 +18,7 @@ Page({
   formSubmit(e) {
     let _this = this
     let params = {};
+    params.token = app.globalData.token;
     params.store_id = _this.data.storeId;
     params.name = e.detail.value.name;
     params.mobile = e.detail.value.mobile;

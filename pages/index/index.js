@@ -20,9 +20,7 @@ Page({
   },
   //事件处理函数  
   onLoad: function(options) {
-   wx.showLoading({
-     
-   })
+   wx.showLoading({})
     console.log(options)
     if (options.id) {
       this.isShowExperience()
@@ -33,8 +31,7 @@ Page({
     }
   },
   onShow: function() {
-    // this.getImage()
-    // this.getNew()
+    this.isShowExperience()
   },
   // 是否显示体验课
   isShowExperience() {

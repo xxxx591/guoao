@@ -23,7 +23,7 @@
         <text wx:if="{{item.get_child_assess.length==0 &&item.epilog==''}}" class='red'>待总结</text>
         <text wx:if="{{item.get_child_assess.length>0 &&item.epilog==''}}">评价： 
        </text>
-        <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.get_label.name}}</text>
+        <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.name}}</text>
         <text wx:if="{{item.get_child_assess.length==0 &&item.epilog!=''}}">评价：</text>
       </view>
       <view class='onlypingyu'><text>{{item.epilog}}</text></view>
@@ -48,7 +48,7 @@
         <text wx:if="{{item.get_child_assess.length==0 &&item.epilog==''}}" class='red'>待评价</text>
         <text wx:if="{{item.get_child_assess.length>0 &&item.epilog==''}}">评价： 
        </text>
-        <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.get_label.name}}</text>
+        <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.name}}</text>
         <text wx:if="{{item.get_child_assess.length==0 &&item.epilog!=''}}">评价：</text>
       </view>
       <view class='onlypingyu'><text>{{item.epilog}}</text></view>

@@ -100,7 +100,7 @@
     </view>
     <!-- 教练信息部分结束 -->
     <view>
-      <text wx:for="{{item.get_coach_assess_label}}" class='jiaoliantitle'>{{item.get_label.name}}</text>
+      <text wx:for="{{item.get_coach_assess_label}}" class='jiaoliantitle'>{{item.name}}</text>
     </view>
     <view class='contetnt-box'>
       <text class='contetnt'>{{kDetails.epilog}}</text>
