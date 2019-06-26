@@ -1,7 +1,7 @@
 {
     "navigationBarBackgroundColor": "#006428",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "预约体验课",
     "backgroundColor": "#006428",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false

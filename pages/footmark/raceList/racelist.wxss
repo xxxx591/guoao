@@ -68,6 +68,8 @@
 .game-msg-space {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+
 }
 
 .game-msg-space>image {
@@ -95,12 +97,26 @@
 }
 
 .game-button {
-  position: absolute;
-  width: 107rpx;
-  height: 100rpx;
-  right: 18rpx;
-  top: 18rpx;
+ position: absolute;
+width: 122rpx;
+height: 50rpx;
+right: 0;
+top: 0;
+font-size: 24rpx;
+text-align: center;
+line-height: 50rpx;
+
+display: flex;
+flex-wrap: wrap;
+overflow: hidden;
+
 }
+.game-button text{
+  background: #FFF100;
+color: #006428;
+border-bottom-left-radius:20rpx;
+  width: 100%;
+} 
 
 .list-box {
   position: relative;
@@ -186,7 +202,9 @@ height: 50rpx;
   background: rgba(228, 245, 235, 1);
   border-radius: 4px;
   padding: 10rpx 20rpx;
+  margin-bottom: 10rpx;
 }
+ 
 
 .list-box .title-black {
   font-size: 24rpx;
@@ -210,12 +228,16 @@ color: #fff100;
   color: #F45342!important;
 }
 .onlypingyu{
-  padding-top: 20rpx;
-  text-align: center;
-  font-size:28rpx;
-font-family:PingFangSC-Regular;
-font-weight:400;
-color:rgba(77,77,77,1);
+padding-top: 20rpx;
+text-align: left;
+font-size: 28rpx;
+font-family: PingFangSC-Regular;
+font-weight: 400;
+color: rgba(77,77,77,1);
+margin-left: 100rpx;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
 
 }
 .green-jiaolian{

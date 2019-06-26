@@ -33,36 +33,81 @@ Page({
       _this.setData({
         flag: false
       })
-      console.log(_this.data.flag)
-      wx.request({
-        url: app.globalData.url + 'api/course/signUp',
-        data: params,
-        method: 'post',
-        success: res => {
-          console.log('提交体验课接口返回', res)
-          if (res.data.error_code == 0) {
-            wx.showToast({
-              title: '预定成功',
-              icon: 'success',
-              duration: 2000,
-              success: function() {
-                setTimeout(_ => {
-                  wx.navigateBack({
-                    delta: 2
-                  })
-                }, 1000)
-
-              }
-            })
-          } else {
-            wx.showToast({
-              title: res.data.error_msg,
-              icon: 'none',
-              duration: 2000,
+      if (e.detail.value.name.length <= 0) {
+        wx.showToast({
+          title: '请输入家长姓名',
+          icon: "none",
+          duration: 2000,
+          success: res => {
+            _this.setData({
+              flag: true
             })
           }
-        }
-      })
+        })
+      } else if (!(/^1[3456789]\d{9}$/.test(e.detail.value.mobile))) {
+        wx.showToast({
+          title: '请输入正确的手机号',
+          icon: "none",
+          duration: 2000,
+          success: res => {
+            _this.setData({
+              flag: true
+            })
+          }
+        })
+      } else if (e.detail.value.age <= 0) {
+        wx.showToast({
+          title: '请输入孩子年龄',
+          icon: "none",
+          duration: 2000,
+          success: res => {
+            _this.setData({
+              flag: true
+            })
+          }
+        })
+      } else if (e.detail.value.school.length < 0) {
+        wx.showToast({
+          title: '请输入所在校区',
+          icon: "none",
+          duration: 2000,
+          success: res => {
+            _this.setData({
+              flag: true
+            })
+          }
+        })
+      } else {
+        // wx.request({
+        //   url: app.globalData.url + 'api/course/signUp',
+        //   data: params,
+        //   method: 'post',
+        //   success: res => {
+        //     console.log('提交体验课接口返回', res)
+        //     if (res.data.error_code == 0) {
+        //       wx.showToast({
+        //         title: '预定成功',
+        //         icon: 'success',
+        //         duration: 2000,
+        //         success: function() {
+        //           setTimeout(_ => {
+        //             wx.navigateBack({
+        //               delta: 2
+        //             })
+        //           }, 1000)
+
+        //         }
+        //       })
+        //     } else {
+        //       wx.showToast({
+        //         title: res.data.error_msg,
+        //         icon: 'none',
+        //         duration: 2000,
+        //       })
+        //     }
+        //   }
+        // })
+      }
     } else {
       setTimeout(() => {
         _this.setData({
@@ -74,6 +119,7 @@ Page({
 
   onLoad: function(options) {
     console.log(options)
+    
     if (options.name == '' || options.courseId == '') {
       console.log('123')
       wx.setNavigationBarTitle({
@@ -140,7 +186,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
+  backHome() {
+    wx.redirectTo({
+      url: '/pages/init/init?id=1',
+    })
+  },
   onShareAppMessage: function() {
-
+    return {
+      title: '预约体验课',
+      path: '/pages/appointment/appointment?courseId=&name=',
+    }
   }
 })

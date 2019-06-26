@@ -1,5 +1,5 @@
 <!--pages/gameList/gameList.wxml-->
-<view class='game-wrap' bindtap="handleGoOrder" id="{{item.game_id}}" wx:for="{{dataList}}" wx:key="index">
+<view class='game-wrap' bindtap="handleGoOrder" id="{{item.id}}" wx:for="{{dataList}}" wx:key="index">
   <view class='game-title'>比赛名称：{{item.name}}</view>
   <view class='game-msg'>
     <view class='game-msg-l'>

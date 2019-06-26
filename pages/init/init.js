@@ -10,27 +10,83 @@ Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     flag: true,
-    accShow:false
+    accShow: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {
+  onLoad: function(options) {
     // 查看是否授权
-    let _this = this
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          
-        }else{
-          _this.setData({
-            accShow:true
-          })
+      let _this = this
+    if (options.id == 1) {
+      wx.getSetting({
+        success(res) {
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+            wx.login({
+              success: res => {
+                console.log(res.code);
+                wx.getUserInfo({
+                  success: function(data) {
+
+                    console.log('点击登陆获取的数据', res)
+                    wx.request({
+                      url: app.globalData.url + 'api/wechat/miniLogin',
+                      header: {
+                        "content-type": "application/x-www-form-urlencoded"
+                      }, // 设置请求的 header
+                      data: {
+                        'encryptedData': data.encryptedData,
+                        'iv': data.iv,
+                        'code': res.code
+                      },
+                      method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                      success: function(res) {
+                        console.log('登陆的res', res)
+                        // app.globalData.token = res.data.data.token;
+                        if (res.data.data.mobile == '') {
+                          wx.navigateTo({
+                            url: '/pages/login/login',
+                          })
+
+                        } else {
+                          // 转存token
+                          // app.globalData.token = '111';
+                          wx.switchTab({
+                            url: '/pages/index/index',
+                          })
+
+                        }
+                      },
+                      fail: function(err) {
+                        console.log(err);
+                      }
+                    })
+                  }
+                })
+              }
+            })
+          } else {
+            _this.setData({
+              accShow: true
+            })
+          }
         }
-      }
-    })
+      })
+    } else {
+      wx.getSetting({
+        success(res) {
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          } else {
+            _this.setData({
+              accShow: true
+            })
+          }
+        }
+      })
+    }
   },
   bindGetUserInfo: function(e) {
     let that = this

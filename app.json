@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/init/init",
-    "pages/index/index",
     "pages/footmark/index/index",
-    "pages/user/user",
     "pages/appointment/appointment",
+    "pages/footmark/rongyuDetails/rongyuDetails",
+    "pages/index/index",
+    "pages/user/user",
     "pages/login/login",
     "pages/footmark/echarts/echarts",
     "pages/footmark/childList/childList",
@@ -26,7 +27,6 @@
     "pages/student/student",
     "pages/studentDetails/details",
     "pages/footmark/childInfo/childInfo",
-    "pages/footmark/rongyuDetails/rongyuDetails",
     "pages/footmark/raceList/racelist",
     "pages/footmark/raceDetails/raceDetails",
     "pages/footmark/assess/assess"

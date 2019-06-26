@@ -109,6 +109,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(e) {
-    console.log(e)
+    return {
+      title: '荣誉详情'
+    }
   }
 })

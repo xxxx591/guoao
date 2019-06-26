@@ -33,6 +33,8 @@ App({
       success: (res) => {
         console.log(res)
         this.globalData.height = res.statusBarHeight
+        this.globalData.windowHeight = res.windowHeight
+        this.globalData.windowWidth = res.windowWidth
       }
     })
 
