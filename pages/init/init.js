@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function(options) {
     // 查看是否授权
-      let _this = this
+    let _this = this
     if (options.id == 1) {
       wx.getSetting({
         success(res) {
@@ -115,19 +115,42 @@ Page({
                 success: function(res) {
                   console.log('登陆的res', res)
                   app.globalData.token = res.data.data.token;
-                  if (res.data.data.mobile == '') {
-                    wx.navigateTo({
-                      url: '/pages/login/login',
-                    })
+                  wx.getLocation({
+                    type: 'wgs84',
+                    success(res) {
+                      console.log('地理位置', res)
+                      const latitude = res.latitude
+                      const longitude = res.longitude
+                      wx.request({
+                        url: app.globalData.url + 'api/user/upsite',
+                        method: 'POST',
+                        data: {
+                          token: app.globalData.token,
+                          lng: longitude + '',
+                          lat: latitude + ''
+                        },
+                        success: res => {
+                          console.log('地理位置返回信息', res)
+                          if (res.data.error_code == 0) {
+                            if (res.data.data.mobile == '') {
+                              wx.navigateTo({
+                                url: '/pages/login/login',
+                              })
 
-                  } else {
-                    // 转存token
-                    // app.globalData.token = '111';
-                    wx.switchTab({
-                      url: '/pages/index/index',
-                    })
+                            } else {
+                              // 转存token
+                              // app.globalData.token = '111';
+                              wx.switchTab({
+                                url: '/pages/index/index',
+                              })
 
-                  }
+                            }
+                          }
+                        }
+                      })
+                    }
+                  })
+
                 },
                 fail: function(err) {
                   console.log(err);
@@ -137,6 +160,7 @@ Page({
           })
         }
       })
+
     } else {
       setTimeout(_ => {
         that.setData({

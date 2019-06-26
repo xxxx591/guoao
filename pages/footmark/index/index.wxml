@@ -70,11 +70,16 @@
               <text class='title'>上课时间：</text>
               <text class='title title-green'>{{item.started_at}} -{{item.ended_at}}</text>
             </view>
-            <text class='title-red'>{{item.get_coach_assess.length == 0 ?'待总结':(item.get_coach_assess[0].content==''?'待总结':'评价：'+ item.get_coach_assess[0].content)}}</text>
+            <view class='game-msg-space martop'>
+        <!-- <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image> -->
+        <text wx:if="{{item.get_coach_assess.length==0 &&item.get_coach_assess.length==0}}" class='red'>待总结</text>
+        <text class='green-box' wx:if="{{item.get_coach_assess.length>0 ||item.get_coach_assess.length>0}}">评价：</text>
+        <text class='green'  wx:for="{{item.get_coach_assess['0'].get_coach_assess_label}}">{{item.name}}</text> 
+      </view>
+       <view class='onlypingyu'><text>{{item.get_coach_assess[0].content}}</text></view>
           </view>
           <view class='right-tight' >
-            <image class='img' wx:for="{{item.get_child_assess[0].get_child_assess_label}}" wx:for-index="idx" wx:if="{{item.type==1}}" src='{{item.pic}}'></image>
-            <image class='img' wx:for="{{item.get_coach_assess[0].get_coach_assess_label}}" wx:for-index="idx" wx:if="{{item.type==2}}" src='{{item.pic}}'></image>
+            <image class='img' wx:for="{{item.get_child_assess[0].get_child_assess_label}}" wx:for-index="idx" wx:if="{{item.type==1}}" src='{{item.pic}}'></image> 
           </view>
 
         </view>

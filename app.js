@@ -28,6 +28,7 @@ App({
     return promise;
   },
   onLaunch: function() {
+    let _this = this 
     // 全局数据
     wx.getSystemInfo({
       success: (res) => {
@@ -75,20 +76,41 @@ App({
                 success: (res) => {
                   console.log('转存token', res)
                   this.globalData.token = res.data.data.token;
-                  if (res.data.data.mobile === "") {
-                    console.log('跳转到登陆页面')
-                    wx.navigateTo({
-                      url: '/pages/login/login',
-                    })
-                  }
-                  if (res.data.data.mobile !== "") {
-                    console.log('首页')
-                    wx.switchTab({
-                      url: '/pages/index/index',
-                      // url: '/pages/user/user',
-                      // url: '/pages/footmark/index/index',
-                    })
-                  }
+                  wx.getLocation({
+                    type: 'wgs84',
+                    success(data) {
+                      console.log('地理位置', data)
+                      const latitude = data.latitude
+                      const longitude = data.longitude
+                      wx.request({
+                        url: _this.globalData.url + 'api/user/upsite',
+                        method: 'POST',
+                        data: {
+                          token: _this.globalData.token,
+                          lng: longitude + '',
+                          lat: latitude + ''
+                        },
+                        success: request => {
+                          console.log('地理位置返回信息', request)
+                          if (request.data.error_code == 0) {
+                            if (res.data.data.mobile == '') {
+                              wx.navigateTo({
+                                url: '/pages/login/login',
+                              })
+
+                            } else {
+                              // 转存token
+                              // app.globalData.token = '111';
+                              wx.switchTab({
+                                url: '/pages/index/index',
+                              })
+
+                            }
+                          }
+                        }
+                      })
+                    }
+                  })
                 },
                 fail: function(err) {
                   console.log(err);

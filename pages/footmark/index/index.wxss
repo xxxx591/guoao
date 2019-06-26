@@ -351,3 +351,43 @@
   width: 10rpx;
   height: 16rpx;
 }
+
+.martop {
+  margin-top: 29rpx;
+}
+.game-msg-space {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.game-msg-space>text {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+.green {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 100, 40, 1) !important;
+  background: rgba(228, 245, 235, 1);
+  border-radius: 4px;
+  padding: 10rpx 20rpx;
+  margin-bottom: 10rpx;
+}
+ 
+ .onlypingyu{
+padding-top: 20rpx;
+text-align: left;
+font-size: 28rpx;
+font-family: PingFangSC-Regular;
+font-weight: 400;
+color: rgba(77,77,77,1);
+margin-left: 100rpx;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+
+}
