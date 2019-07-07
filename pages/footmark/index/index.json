@@ -4,5 +4,5 @@
   "navigationBarTitleText": "足迹",
   "backgroundColor": "#006428",
   "backgroundTextStyle": "light",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": true
 }

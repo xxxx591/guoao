@@ -10,6 +10,6 @@
   </view>
   <view class='txt-box'>
   <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-    <image wx:for="{{details.get_pic}}" src='{{item.content}}' class='txt-img'></image>
+    <!-- <image wx:for="{{details.get_pic}}" src='{{item.content}}' class='txt-img'></image> -->
   </view>
 </view>

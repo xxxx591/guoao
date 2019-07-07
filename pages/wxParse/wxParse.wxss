@@ -19,6 +19,8 @@
 }
 view{
     word-break:break-all; 
+    overflow:hidden;
+
 }
 .wxParse-inline{
     display: inline;

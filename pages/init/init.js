@@ -10,7 +10,8 @@ Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     flag: true,
-    accShow:false
+    accShow:false,
+    yaoqing:false
   },
 
   /**
@@ -23,10 +24,10 @@ Page({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          
-        }else{
+
+        } else {
           _this.setData({
-            accShow:true
+            accShow: true
           })
         }
       }
@@ -64,7 +65,11 @@ Page({
                       url: '/pages/login/login',
                     })
 
-                  } else {
+                  } else if(that.data.yaoqing){
+                    wx.navigateTo({
+                      url: '/pages/appointment/appointment'
+                    })
+                  }else {
                     // 转存token
                     // app.globalData.token = '111';
                     wx.switchTab({
@@ -140,7 +145,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    let _this = this
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
 
+        } else {
+          _this.setData({
+            accShow: true
+          })
+        }
+      }
+    })
   },
 
   /**

@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/init/init",
+    "pages/appointment/appointment",
     "pages/index/index",
     "pages/footmark/index/index",
     "pages/user/user",
-    "pages/appointment/appointment",
     "pages/login/login",
     "pages/footmark/echarts/echarts",
     "pages/footmark/childList/childList",

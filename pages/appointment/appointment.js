@@ -8,7 +8,8 @@ Page({
   data: {
     storeId: '',
     courseId: '',
-    flag: true
+    flag: true,
+    yaoqing: false
   },
 
   /**
@@ -23,11 +24,19 @@ Page({
     params.mobile = e.detail.value.mobile;
     params.age = e.detail.value.age;
     params.school = e.detail.value.school;
+    params.token = app.globalData.token;
+    console.log(params)
+    if (params.token == ''){
+      wx.navigateTo({
+        url: '/pages/init/init',
+      }) 
+    }
     if (_this.data.courseId == null) {
       console.log(_this.data)
     } else {
       params.course_id = parseInt(_this.data.courseId)
     }
+
     if (_this.data.flag) {
       _this.setData({
         flag: false
@@ -73,11 +82,16 @@ Page({
 
   onLoad: function(options) {
     console.log(options)
+
     if (options.name == '' || options.courseId == '') {
       console.log('123')
       wx.setNavigationBarTitle({
         title: '预约体验课',
       })
+    } else if (app.globalData.token == '') {
+        wx.navigateTo({
+          url: '/pages/init/init',
+        }) 
     } else {
       wx.setNavigationBarTitle({
         title: options.name,

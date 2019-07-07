@@ -16,17 +16,28 @@ Page({
     curriculumList: [],
     experience: {},
     showExperience: true,
-    accShow:false
+    accShow: false,
+    optID: ''
+  },
+  onPullDownRefresh() {
+    if (this.data.optID) {
+      this.isShowExperience()
+      this.getNearbyShop02(this.data.optID)
+    } else {
+      this.isShowExperience()
+      this.getNearbyShop()
+    }
   },
   //事件处理函数  
   onLoad: function(options) {
-   wx.showLoading({
-     
-   })
+    wx.showLoading({})
+    this.setData({
+      optID: options.id
+    })
     console.log(options)
-    if (options.id) {
+    if (this.data.optID) {
       this.isShowExperience()
-      this.getNearbyShop02(options.id)
+      this.getNearbyShop02(this.data.optID)
     } else {
       this.isShowExperience()
       this.getNearbyShop()
@@ -125,7 +136,7 @@ Page({
         console.log('获取教练团队接口返回', res)
         this.setData({
           coachList: res.data.data.data,
-          accShow:true
+          accShow: true
         })
       }
     })
@@ -145,6 +156,7 @@ Page({
         this.setData({
           curriculumList: res.data.data.data
         })
+        wx.stopPullDownRefresh()
       }
     })
   },
