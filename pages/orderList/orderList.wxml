@@ -19,7 +19,7 @@
         <text>付费形式</text>
       </view>
       <view wx:if="{{details.price=='0.00'}}">免费</view>
-      <view>{{details.price}}</view>
+      <view wx:else>{{details.price}}</view>
     </view>
     <view class='game-msg-r'>
       <view class='game-msg-space'>
@@ -33,15 +33,15 @@
     <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
     <text>比赛地点</text>
   </view>
-  <view class='game-content'>{{details.get_game_and_store[0].game_address}}</view>
+  <view class='game-content'>{{details.address}}</view>
 
   <view class='order-details'>
       <view class='order-details-title'>订单信息</view>
       <view class='order-details-item'>
         <view>报名时间：<text>{{details.created_at}}</text></view>
         <view wx:if="{{details.paid_at==true}}">支付时间：<text >{{details.paid_at}}</text></view>
-        <view>门店名称：<text>{{details.get_game_and_store[0].store_name}}</text></view>
-        <view>门店地址：<text>{{details.get_game_and_store[0].prov+details.get_game_and_store[0].city+details.get_game_and_store[0].area+details.get_game_and_store[0].address}}</text></view>
+        <view>门店名称：<text>{{details.get_store.name}}</text></view>
+        <view>门店地址：<text>{{details.get_store.prov+details.get_store.city+details.get_store.area+details.get_store.address}}</text></view>
       </view>
   </view>
 </view>

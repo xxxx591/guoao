@@ -47,9 +47,9 @@ Page({
           wx.hideLoading()
         console.log('比赛名称列表', res)
         let arrayList = res.data.data
-        let arr = res.data.data.get_game_and_store[0]
-        let start = arr.started_at.slice(5, 16)
-        let end = arr.ended_at.slice(5, 16)
+        let arr = res.data.data
+          let start = arr.created_at.slice(5, 16)
+          let end = arr.ended_at.slice(5, 16)
         this.setData({
           details: arrayList,
           endTime: end,

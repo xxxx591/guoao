@@ -214,6 +214,10 @@
 
 .view-item {
   margin-right: 60rpx;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 76px;
 }
 
 .view-item text {
@@ -255,6 +259,7 @@
   position: relative;
   padding: 30rpx;
   background: rgba(245, 247, 250, 1);
+  margin-bottom: 10rpx;
 }
 
 .title-header {
@@ -281,6 +286,12 @@
   font-family: PingFangSC-Regular;
   font-weight: 400;
   color: rgba(244, 83, 66, 1);
+  display: block;
+  padding-top: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .left-box image {
@@ -288,12 +299,18 @@
   height: 26rpx;
 }
 
-.right-tight .img {
+.right-tight {
   position: absolute;
   width: 107rpx;
   height: 100rpx;
   right: 18rpx;
   top: 18rpx;
+  overflow: hidden;
+}
+
+.right-tight .img {
+  width: 100%;
+  height: 100%;
 }
 
 .banner {
@@ -303,13 +320,10 @@
 }
 
 .kefu-log {
-  position: absolute;
   border: 0;
   background: rgba(0, 0, 0, 0);
-  right: 30rpx;
-  width: 140rpx;
-  height: 140rpx;
-  bottom: 50rpx;
+  width: 180rpx;
+  height: 180rpx;
   border-radius: 0;
 }
 
@@ -336,4 +350,44 @@
 .new-1 .box2 image {
   width: 10rpx;
   height: 16rpx;
+}
+
+.martop {
+  margin-top: 29rpx;
+}
+.game-msg-space {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.game-msg-space>text {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+.green {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 100, 40, 1) !important;
+  background: rgba(228, 245, 235, 1);
+  border-radius: 4px;
+  padding: 10rpx 20rpx;
+  margin-bottom: 10rpx;
+}
+ 
+ .onlypingyu{
+padding-top: 20rpx;
+text-align: left;
+font-size: 28rpx;
+font-family: PingFangSC-Regular;
+font-weight: 400;
+color: rgba(77,77,77,1);
+margin-left: 100rpx;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+
 }

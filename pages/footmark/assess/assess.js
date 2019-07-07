@@ -55,8 +55,8 @@ Page({
           url: app.globalData.url + 'common/getLabel',
           data: {
             belong: 1,
-            store_id: res.data,
-            type: 2
+            store_id: res.data, 
+            type:2
           },
           method: 'post',
           success: res => {

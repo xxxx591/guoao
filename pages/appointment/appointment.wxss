@@ -58,10 +58,8 @@ height:94rpx;
   position: fixed;
   border: 0;
   background: rgba(0, 0, 0, 0);
-  right: 30rpx;
-  width: 190rpx;
-  height: 190rpx;
-  bottom: 187rpx;
+  width: 180rpx;
+  height: 180rpx;
   border-radius: 0;
 }
 
@@ -76,4 +74,12 @@ height:94rpx;
   position: absolute;
   left: 0;
   top: 0;
+}
+.kefu-view-01{
+  right: 30rpx;
+  bottom: 187rpx;
+
+}
+.kefu-view-02{
+  bottom: 340rpx;
 }

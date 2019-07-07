@@ -85,6 +85,8 @@
   flex-wrap: wrap;
   background: rgba(245, 247, 250, 1);
   box-sizing: border-box;
+  margin-bottom: 100px;
+
 }
 
 .list-box image {
@@ -148,10 +150,9 @@
 position: fixed; 
 border: 0;
 background: rgba(0,0,0,0);
-right: 30rpx;
-width: 140rpx;
-height: 140rpx;
-bottom: 200rpx; 
+width: 180rpx;
+height: 180rpx;
+
 z-index: 999;
 }
 .kefu-log::after {
@@ -168,8 +169,6 @@ z-index: 999;
 }
 
 .erweima-box {
-  position: fixed;
-  bottom: 100rpx;
   width: 100%;
   text-align: center;
 }
@@ -185,4 +184,8 @@ z-index: 999;
 .erweima {
   width: 200rpx;
   height: 200rpx;
+}
+movable-view{
+  right: 30rpx;
+bottom: 200rpx; 
 }

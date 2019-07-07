@@ -7,7 +7,8 @@ Page({
    */
   data: {
     haiziDetails: {},
-    accShow:false
+    accShow: false,
+    honor: []
   },
 
   /**
@@ -16,24 +17,24 @@ Page({
   onLoad: function(options) {
     wx.showLoading({ 
     })
-    
+
   },
   // 跳转至echarts
-  reportDetails(e){
+  reportDetails(e) {
     wx.navigateTo({
       url: '/pages/footmark/echarts/echarts?cid=' + this.data.haiziDetails.id
     })
   },
   // 跳转到比赛列表
-  raceMore(e){
+  raceMore(e) {
     wx.navigateTo({
-      url: '/pages/footmark/raceList/racelist?id=' + e.currentTarget.id 
+      url: '/pages/footmark/raceList/racelist?id=' + e.currentTarget.id
     })
   },
   // 跳转到比赛详情
-  bisaiDetails(e){
+  bisaiDetails(e) {
     wx.navigateTo({
-      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id +'&cid='+this.data.haiziDetails.id+'&type=2'
+      url: '/pages/footmark/raceDetails/raceDetails?kid=' + e.currentTarget.id + '&cid=' + this.data.haiziDetails.id + '&type=2'
     })
   },
   // 跳转到荣誉详情
@@ -60,8 +61,21 @@ Page({
       success: res => {
         wx.hideLoading()
         console.log('获取足迹孩子详情接口返回', res)
+        if (res.data.data.course.length > 0) {
+          res.data.data.course.map(item => {
+            item.started_at = item.started_at.slice(5, 16)
+            item.ended_at = item.ended_at.slice(10, 16)
+          })
+
+        }
+        if (res.data.data.honor.length > 0) {
+          res.data.data.honor.map(item => {
+            item.created_at = item.created_at.slice(5, 11) + '获得'
+          })
+        }
+
         this.setData({
-          accShow:true,
+          accShow: true,
           haiziDetails: res.data.data,
         })
         wx.stopPullDownRefresh()

@@ -44,8 +44,7 @@ Page({
     }
   },
   onShow: function() {
-    // this.getImage()
-    // this.getNew()
+    this.isShowExperience()
   },
   // 是否显示体验课
   isShowExperience() {

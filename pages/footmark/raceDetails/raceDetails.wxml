@@ -76,7 +76,7 @@
     </view>
   </view>
 </view>
-<view wx:if="{{kDetails.get_coach_assess.length == 0}}">
+<view wx:if="{{kDetails.get_coach_assess.length == 0 }}">
   <view class='plan-1'>
     <text>还没有写总结，</text>
     <text class='green' bindtap='zongjie' >马上去总结>></text>
@@ -100,10 +100,10 @@
     </view>
     <!-- 教练信息部分结束 -->
     <view>
-      <text wx:for="{{item.get_coach_assess_label}}" class='jiaoliantitle'>{{item.get_label.name}}</text>
+      <text wx:for="{{item.get_coach_assess_label}}" class='jiaoliantitle'>{{item.name}}</text>
     </view>
     <view class='contetnt-box'>
-      <text class='contetnt'>{{kDetails.epilog}}</text>
+      <text class='contetnt'>{{kDetails.get_coach_assess[0].content}}</text>
     </view>
   </view>
 </view>
@@ -130,7 +130,7 @@
       <view class='star-box'>
         <block wx:for='{{scoreArray2}}' wx:key='item'>
           <view class='starLen' bindtouchmove='changeScore2' bindtap='changeScore2' id="{{index+1}}">
-            <image class='star' src="{{score>index?'/assets/image/red-star.png':'/assets/image/star.png'}}" />
+            <image class='star' src="{{score2>index?'/assets/image/red-star.png':'/assets/image/star.png'}}" />
           </view>
         </block>
         <!-- 显示当前评分 -->
@@ -138,7 +138,7 @@
     </view>
     <!-- 教练信息部分结束 -->
     <view>
-      <text wx:for="{{item.get_child_assess_label}}" class='jiaoliantitle'>{{item.get_label.name}}</text>
+      <text wx:for="{{item.get_child_assess_label}}" class='jiaoliantitle'>{{item.name}}</text>
     </view>
     <view class='contetnt-box'>
       <text class='contetnt'>{{item.content}}</text>

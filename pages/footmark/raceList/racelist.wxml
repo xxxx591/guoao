@@ -3,6 +3,9 @@
   <text class="{{type==1?'active':''}}" bindtap='gostudent' data-num="1">已上课</text>
   <text bindtap='gostudent' class="{{type==2?'active':''}}" data-num="2">课程计划</text>
 </view>
+
+<scroll-view scroll-y='true' style="height:{{height}}px" bindscrolltolower='lower'>
+
 <view wx:if="{{type==1}}" class='list-boxxx'>
   <view wx:for="{{dataList}}">
     <!-- type==2 -->
@@ -20,14 +23,15 @@
       </view>
       <view class='game-msg-space martop'>
         <!-- <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image> -->
-        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog==''}}" class='red'>待总结</text>
-        <text wx:if="{{item.get_child_assess.length>0 &&item.epilog==''}}">评价： 
-       </text>
-        <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.get_label.name}}</text>
-        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog!=''}}">评价：</text>
+        <text wx:if="{{item.get_coach_assess.length==0 &&item.get_coach_assess.length==0}}" class='red'>待总结</text>
+        <text class='green-box' wx:if="{{item.get_coach_assess.length>0 ||item.get_coach_assess.length>0}}">评价：</text>
+        <text class='green'  wx:for="{{item.get_coach_assess['0'].get_coach_assess_label}}">{{item.name}}</text> 
       </view>
-      <view class='onlypingyu'><text>{{item.epilog}}</text></view>
-      <image class='game-button' src=''></image>
+      <view class='onlypingyu'><text>{{item.get_coach_assess[0].content}}</text></view>
+      
+      <view class='game-button' >
+        <text wx:for="{{item.get_child_assess[0].get_child_assess_label}}" wx:if="{{item.type==1}}">{{item.name}}</text> 
+      </view>
     </view>
     <!-- end type==2 -->
     <!-- start type==1 -->
@@ -45,17 +49,24 @@
       </view>
       <view class='game-msg-space martop'>
         <!-- <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image> -->
-        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog==''}}" class='red'>待评价</text>
-        <text wx:if="{{item.get_child_assess.length>0 &&item.epilog==''}}">评价： 
-       </text>
-        <text class='green' wx:if="{{item.epilog!=''}}" wx:for="{{item.get_child_assess['0'].get_child_assess_label}}">{{item.get_label.name}}</text>
-        <text wx:if="{{item.get_child_assess.length==0 &&item.epilog!=''}}">评价：</text>
+        <text wx:if="{{item.get_coach_assess.length==0 && item.get_coach_assess.length==0}}" class='red'>待总结</text>
+       <text class='green-box' wx:if="{{item.get_coach_assess.length>0 ||item.get_coach_assess.length>0}}">评价：</text>
+        <text class='green'  wx:for="{{item.get_coach_assess['0'].get_coach_assess_label}}">{{item.name}}</text> 
       </view>
-      <view class='onlypingyu'><text>{{item.epilog}}</text></view>
-      <image class='game-button' src=''></image>
+      <view class='onlypingyu'><text>{{item.get_coach_assess[0].content}}</text></view>
+      
+      <view class='game-button' >
+        <text wx:for="{{item.get_child_assess[0].get_child_assess_label}}" wx:if="{{item.type==1}}">{{item.name}}</text> 
+      </view>
     </view>
     <!-- end type ==1 -->
   </view>
+
+
+
+
+
+
 
 </view>
    <!-- type==2 -->
@@ -120,3 +131,4 @@
 
   </view>
 </view>
+</scroll-view>

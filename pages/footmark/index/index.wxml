@@ -1,82 +1,98 @@
-<view wx:if="{{accShow}}">
-<view class='details'>
-  <view class='photo-1'>
-  <image src='/assets/image/top-banner-02.png' class='banner-02'></image>
-    <view class='img-box'>
-      <image src='{{haiziDetails.avatar}}'></image>
-    </view>
-  </view>
-  <view class='photo-2' bindtap='haiziDetails' id="{{haiziDetails.id}}">
-    <view class='photo-1-name'>
-      <text>{{haiziDetails.name}}</text>
-      <image src='/assets/image/man.png' wx:if="{{haiziDetails.sex ==1}}"></image>
-      <image src='/assets/image/woman.png' wx:if="{{haiziDetails.sex ==2}}"></image>
-      <image src='/assets/image/more-right.png' class='right'></image>
-    </view>
-    <view>
-    </view>
-  </view>
-</view>
-<view class='details-box'>
-  <view class='basic'>
-    <text wx:for="{{haiziDetails.label}}">{{item.name}}</text>
-    <text wx:if="{{haiziDetails.label.length>6}}">>></text>
-
-  </view>
-</view>
-<view class='details-year'>
-</view>
-<view class='rongyu-box'>
-  <view class='new-1'>
-    <view class='box1'>
-      <image src='/assets/image/a10-title.png'></image>
-      <text>荣誉</text>
-    </view>
-  </view>
-  <view class='new-2'>
-    <scroll-view scroll-x scroll-left>
-      <view class='scroll-view'>
-        <view class='view-item' wx:for="{{haiziDetails.honor}}" bindtap='rongyuDetails' id="{{item.team_library_id}}">
-          <view bindtap="trainDetails">
-            <image src="{{item.pic}}" class="slide-image" mode="aspectFit" />
-          </view>
-          <text>{{item.name}}</text>
+<movable-area>
+  <view wx:if="{{accShow}}">
+    <view class='details'>
+      <view class='photo-1'>
+        <image src='/assets/image/top-banner-02.png' class='banner-02'></image>
+        <view class='img-box'>
+          <image src='{{haiziDetails.avatar}}'></image>
         </view>
       </view>
-    </scroll-view>
-  </view>
-</view>
-<view class='details-text'>
-  <view class='new-1'>
-    <view class='box1'>
-      <image src='/assets/image/a10-title.png'></image>
-      <text>课程动态</text>
-    </view>
-    <view class='box2' bindtap='raceMore' id="{{haiziDetails.id}}">
-        <text>更多</text>
-        <image src='/assets/image/more.png'></image>
-      </view>
-  </view>
-  <view class='class-dongtai'>
-    <view class='dongtai-box' wx:for="{{haiziDetails.course}}" bindtap='bisaiDetails' id="{{item.id}}">
-      <view class='left-box'>
-        <text class='title-header'>比赛名称：{{item.name}}</text>
+      <view class='photo-2' bindtap='haiziDetails' id="{{haiziDetails.id}}">
+        <view class='photo-1-name'>
+          <text>{{haiziDetails.name}}</text>
+          <image src='/assets/image/man.png' wx:if="{{haiziDetails.sex ==1}}"></image>
+          <image src='/assets/image/woman.png' wx:if="{{haiziDetails.sex ==2}}"></image>
+          <image src='/assets/image/more-right.png' class='right'></image>
+        </view>
         <view>
-          <image src='/assets/image/time.png'></image>
-          <text class='title'>上课时间：</text>
-          <text class='title title-green'>{{item.started_at}}</text>
         </view>
-        <text class='title-red'>{{item.epilog == ''?'待总结':'总结：'+item.epilog}}</text>
       </view>
-      <view class='right-tight'>
-        <image class='img' src='{{item.get_child_assess[0].get_child_assess_label[0].get_label.pic}}'></image>
+    </view>
+    <view class='details-box'>
+      <view class='basic'>
+        <text wx:for="{{haiziDetails.label}}">{{item.name}}</text>
+        <text wx:if="{{haiziDetails.label.length>6}}">>></text>
+
       </view>
+    </view>
+    <view class='details-year'>
+    </view>
+    <view class='rongyu-box'>
+      <view class='new-1'>
+        <view class='box1'>
+          <image src='/assets/image/a10-title.png'></image>
+          <text>荣誉</text>
+        </view>
+        <view>
+          <text style='margin-right: 30rpx;font-size: 24rpx;color:  rgba(153, 153, 153, 1);'>滑动加载更多</text>
+        </view>
+      </view>
+      <view class='new-2'>
+        <scroll-view scroll-x scroll-left>
+          <view class='scroll-view'>
+            <view class='view-item' wx:for="{{haiziDetails.honor}}" bindtap='rongyuDetails' id="{{item.team_library_id}}">
+              <view bindtap="trainDetails">
+                <image src="{{item.pic}}" class="slide-image" mode="aspectFit" />
+              </view>
+              <text style='width: 66px;'>{{item.created_at}}</text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='details-text'>
+      <view class='new-1'>
+        <view class='box1'>
+          <image src='/assets/image/a10-title.png'></image>
+          <text>课程动态</text>
+        </view>
+        <view class='box2' bindtap='raceMore' id="{{haiziDetails.id}}">
+          <text>更多</text>
+          <image src='/assets/image/more.png'></image>
+        </view>
+      </view>
+      <view class='class-dongtai'>
+        <view class='dongtai-box' wx:for="{{haiziDetails.course}}" bindtap='bisaiDetails' id="{{item.id}}">
+          <view class='left-box' wx:if="{{index<2}}">
+            <text class='title-header'>比赛名称：{{item.name}}</text>
+            <view>
+              <image src='/assets/image/time.png'></image>
+              <text class='title'>上课时间：</text>
+              <text class='title title-green'>{{item.started_at}} -{{item.ended_at}}</text>
+            </view>
+            <view class='game-msg-space martop'>
+        <!-- <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image> -->
+        <text wx:if="{{item.get_coach_assess.length==0 &&item.get_coach_assess.length==0}}" class='red'>待总结</text>
+        <text class='green-box' wx:if="{{item.get_coach_assess.length>0 ||item.get_coach_assess.length>0}}">评价：</text>
+        <text class='green'  wx:for="{{item.get_coach_assess['0'].get_coach_assess_label}}">{{item.name}}</text> 
+      </view>
+       <view class='onlypingyu'><text>{{item.get_coach_assess[0].content}}</text></view>
+          </view>
+          <view class='right-tight' >
+            <image class='img' wx:for="{{item.get_child_assess[0].get_child_assess_label}}" wx:for-index="idx" wx:if="{{item.type==1}}" src='{{item.pic}}'></image> 
+          </view>
+
+        </view>
+      </view>
+      
+
+      <image class='banner' bindtap='reportDetails' id="{{haiziDetails.id}}" src='/assets/image/viewReport.png'></image>
 
     </view>
   </view>
-  <button open-type='share' class='kefu-log'>
-  <image src='/assets/image/kefu.png'></image></button>
-  <image class='banner' bindtap='reportDetails' id="{{haiziDetails.id}}"  src='/assets/image/viewReport.png'></image>
-
-</view>
-</view>
+  <movable-view direction="all" inertia="true">
+        <button open-type='share' class='kefu-log'>
+          <image src='/assets/image/kefu.png'></image>
+        </button>
+      </movable-view>
+</movable-area>

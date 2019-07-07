@@ -1,3 +1,5 @@
+
+  <movable-area>
 <form bindsubmit="formSubmit">
   <view class='appointment'>
 
@@ -27,5 +29,14 @@
     </view>
   </view>
 </form>
+<movable-view direction="all" inertia="true" class='kefu-view-01'>
 <button open-type="contact" class='kefu-log'>
   <image src='/assets/image/kefu-on.png'></image></button>
+</movable-view>
+
+<movable-view direction="all" inertia="true" class='kefu-view-02'>
+<button catchtap='backHome' class='kefu-log home-log'>
+  <image src='/assets/image/tiyanke.png'></image></button>
+</movable-view>
+
+  </movable-area>

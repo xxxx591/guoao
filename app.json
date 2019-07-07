@@ -26,7 +26,6 @@
     "pages/student/student",
     "pages/studentDetails/details",
     "pages/footmark/childInfo/childInfo",
-    "pages/footmark/rongyuDetails/rongyuDetails",
     "pages/footmark/raceList/racelist",
     "pages/footmark/raceDetails/raceDetails",
     "pages/footmark/assess/assess"

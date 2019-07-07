@@ -29,3 +29,22 @@
   width: 14rpx;
   height: 38rpx;
 }
+movable-area{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  min-height: 100vh;
+
+}
+movable-view{
+     display: inline-block;
+width: 160rpx;
+height: 160rpx; 
+position: absolute;
+bottom: 30rpx;
+right: 30rpx;
+top: auto;
+left: auto;
+z-index: 9999;
+}

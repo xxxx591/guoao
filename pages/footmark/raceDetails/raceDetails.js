@@ -7,8 +7,8 @@ Page({
    */
   data: {
     kDetails: {},
-    score: 3, //评价分数
-    score2: 3, //评价分数
+    score: 0, //评价分数
+    score2: 0, //评价分数
     scoreArray: [1, 2, 3, 4, 5], //分为1-5个评分层次
     scoreArray2: [1, 2, 3, 4, 5], //分为1-5个评分层次
     scoreText: ['1星', '2星', '3星', '4星', '5星'], //评分列表
@@ -89,18 +89,18 @@ Page({
         wx.setStorage({
           key: "jiaolian",
           data: jiaolianobj
-        })
+        }) 
         this.setData({
           kDetails: res.data.data,
           accShow:true
         })
-        if (res.data.data.get_coach_assess[0].score) {
+        if (res.data.data.get_coach_assess.length >0) {
           this.setData({
             score: res.data.data.get_coach_assess[0].score,
           })
 
         }
-        if (res.data.data.get_child_assess[0].score) {
+        if (res.data.data.get_child_assess.length>0) {
           this.setData({
             score2: res.data.data.get_child_assess[0].score,
           })
