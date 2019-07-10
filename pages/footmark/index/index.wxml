@@ -1,4 +1,4 @@
-<movable-area>
+<movable-area class='boxxxxx'>
   <view wx:if="{{accShow}}">
     <view class='details'>
       <view class='photo-1'>

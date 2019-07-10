@@ -69,6 +69,7 @@ Page({
       url: app.globalData.url + 'api/footprint/course/detail',
       data: {
         token: app.globalData.token,
+        // token: '6305a29c888109dcb8f617a75b80f429',
         team_library_id: parseInt(kid),
         child_id: parseInt(cid)
       },

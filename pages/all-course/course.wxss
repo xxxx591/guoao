@@ -108,6 +108,7 @@ line-height:48rpx;
   flex: 1.5;
   box-sizing: border-box;
   margin-right: 43rpx;
+  border-radius: 10rpx;
   /* border: 1px solid red; */
 }
 .new-right image{

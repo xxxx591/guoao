@@ -41,6 +41,11 @@ Page({
       cid: options.cid
     })
   },
+  backHome() {
+    wx.redirectTo({
+      url: '/pages/init/init?id=1',
+    })
+  },
   init_bar: function() {
     this.barComponent.init((canvas, width, height) => {
       // 初始化图表

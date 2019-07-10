@@ -1,4 +1,8 @@
+.boxxxxx{
+  overflow: hidden;
+}
 .details {
+
   position: relative;
 }
 

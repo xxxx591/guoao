@@ -1,3 +1,4 @@
+<movable-area class="boxxxxx">
 <view class='top-box'>
   <view class='left-box'>
     <picker mode="date" fields="month" value="{{date}}" start="2018-01-01" bindchange="getDateTime">
@@ -36,3 +37,9 @@
 <view class="container">
   <ec-canvas id="mychart-dom-bar2" canvas-id="mychart-bar" ec="{{ ecBar2 }}" style='height:400rpx;'></ec-canvas>
 </view>
+<movable-view direction="all" inertia="true" class='kefu-view-02'>
+<button catchtap='backHome' class='kefu-log home-log'>
+  <image src='/assets/image/tiyanke.png'></image></button>
+</movable-view>
+</movable-area>
+

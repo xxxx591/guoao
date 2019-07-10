@@ -20,11 +20,91 @@ Page({
   onLoad: function(options) {
     // 查看是否授权
     let _this = this
+    wx.login({
+      success: res => {
+        console.log('到后台换取 openId, sessionKey, unionId', res)
+        app.globalData.response = res
+        app.globalData.code = res.code
+        app.globalData.appId = 'wx5d7de4e63591f144'
+        app.globalData.key = '289f9b31a09d93db9420df18d60ba9bc'
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    })
+    // 获取用户信息
     wx.getSetting({
-      success(res) {
+      success: res => {
+        console.log('获取用户授权信息', res)
         if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: data => {
+              console.log(data)
+              // 可以将 res 发送给后台解码出 unionId
+              app.globalData.encryptedData = data.encryptedData
+              app.globalData.iv = data.iv
+              wx.request({
+                url: app.globalData.url + 'api/wechat/miniLogin',
+                header: {
+                  "content-type": "application/x-www-form-urlencoded"
+                }, // 设置请求的 header
+                data: {
+                  'encryptedData': data.encryptedData,
+                  'iv': data.iv,
+                  'code': app.globalData.code
+                },
+                method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                success: (res) => {
+                  console.log('转存token', res)
+                  app.globalData.token = res.data.data.token;
+                  app.globalData.prompt = res.data.data.prompt
+                  wx.setStorageSync('dayShow', true)
+                  wx.getLocation({
+                    type: 'wgs84',
+                    success(data) {
+                      console.log('地理位置', data)
+                      const latitude = data.latitude
+                      const longitude = data.longitude
+                      wx.request({
+                        url: app.globalData.url + 'api/user/upsite',
+                        method: 'POST',
+                        data: {
+                          token: app.globalData.token,
+                          lng: longitude + '',
+                          lat: latitude + ''
+                        },
+                        success: request => {
+                          console.log('地理位置返回信息', request)
+                          if (request.data.error_code == 0) {
+                            if (res.data.data.mobile == '') {
+                              wx.navigateTo({
+                                url: '/pages/login/login',
+                              })
 
+                            } else {
+                              // 转存token
+                              // app.globalData.token = '111';
+                              wx.switchTab({
+                                url: '/pages/index/index',
+                              })
+
+                            }
+                          }
+                        }
+                      })
+                    }
+                  })
+                },
+                fail: function (err) {
+                  console.log(err);
+                }
+              })
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 所以此处加入 callback 以防止这种情况
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
         } else {
           _this.setData({
             accShow: true

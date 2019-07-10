@@ -27,11 +27,7 @@ Page({
     params.school = e.detail.value.school;
     params.token = app.globalData.token;
     console.log(params)
-    if (params.token == ''){
-      wx.navigateTo({
-        url: '/pages/init/init',
-      }) 
-    }
+
     if (_this.data.courseId == null) {
       console.log(_this.data)
     } else {
@@ -86,36 +82,41 @@ Page({
             })
           }
         })
-      } else {
-        // wx.request({
-        //   url: app.globalData.url + 'api/course/signUp',
-        //   data: params,
-        //   method: 'post',
-        //   success: res => {
-        //     console.log('提交体验课接口返回', res)
-        //     if (res.data.error_code == 0) {
-        //       wx.showToast({
-        //         title: '预定成功',
-        //         icon: 'success',
-        //         duration: 2000,
-        //         success: function() {
-        //           setTimeout(_ => {
-        //             wx.navigateBack({
-        //               delta: 2
-        //             })
-        //           }, 1000)
+      } else if (params.token == '') {
 
-        //         }
-        //       })
-        //     } else {
-        //       wx.showToast({
-        //         title: res.data.error_msg,
-        //         icon: 'none',
-        //         duration: 2000,
-        //       })
-        //     }
-        //   }
-        // })
+        wx.navigateTo({
+          url: '/pages/init/init',
+        })
+      } else {
+        wx.request({
+          url: app.globalData.url + 'api/course/signUp',
+          data: params,
+          method: 'post',
+          success: res => {
+            console.log('提交体验课接口返回', res)
+            if (res.data.error_code == 0) {
+              wx.showToast({
+                title: '预定成功',
+                icon: 'success',
+                duration: 2000,
+                success: function() {
+                  setTimeout(_ => {
+                    wx.navigateBack({
+                      delta: 2
+                    })
+                  }, 1000)
+
+                }
+              })
+            } else {
+              wx.showToast({
+                title: res.data.error_msg,
+                icon: 'none',
+                duration: 2000,
+              })
+            }
+          }
+        })
       }
     } else {
       setTimeout(() => {
@@ -134,9 +135,7 @@ Page({
         title: '预约体验课',
       })
     } else if (app.globalData.token == '') {
-        wx.navigateTo({
-          url: '/pages/init/init',
-        }) 
+
     } else {
       wx.setNavigationBarTitle({
         title: options.name,

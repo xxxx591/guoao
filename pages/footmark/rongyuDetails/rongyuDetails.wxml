@@ -1,5 +1,5 @@
 <!--pages/footmark/rongyuDetails/rongyuDetails.wxml-->
-<movable-area>
+<movable-area class="boxxxx">
   <view class='top-box'>
     <image src='/assets/image/rongyuBanner.png' class='top-banner'></image>
     <image src='{{rongyuDetails.honor.pic}}' class='rongyu-logo'></image>

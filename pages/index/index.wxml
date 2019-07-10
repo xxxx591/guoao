@@ -16,7 +16,8 @@
   <swiper class='swiper' indicator-dots circular autoplay indicator-color="rgba(255,255,255,1)" indicator-active-color="green">
     <block wx:for="{{imgUrls}}" wx:key="index">
       <swiper-item class='swiper-item'>
-        <image src="{{item.pic}}" class="slide-image" mode="aspectFit" data-id='{{item.id}}' />
+      <view  style="background-image: url('{{item.pic}}')" class="slide-image slide-image1" mode="aspectFit" data-id='{{item.id}}'></view>
+        <!-- <image src="{{item.pic}}" class="slide-image slide-image1" mode="aspectFit" data-id='{{item.id}}' /> -->
       </swiper-item>
     </block>
   </swiper>
@@ -68,7 +69,8 @@
     <view class='scroll-view'>
       <view class='view-item' wx:for="{{coachList}}" wx:key="index">
         <view bindtap="trainDetails" data-id="{{item.id}}">
-          <image src="{{item.avatar}}" class="slide-image" mode="aspectFit" />
+          <view class="slide-image" style="background-image: url('{{item.avatar}}')"></view>
+          <!-- <image src="{{item.avatar}}" class="slide-image" mode="aspectFit" /> -->
         </view>
         <text>{{item.name}}</text>
       </view>
@@ -87,10 +89,10 @@
     </view>
   </view>
   <view class='new-2 new-2-box'>
-    <scroll-view scroll-x scroll-left>
+    <scroll-view  >
       <view class='scroll-view'>
-        <view class='view-item' wx:for="{{curriculumList}}" wx:key="index">
-          <view bindtap="storeDetails" id="{{item.id}}">
+        <view class='view-item' wx:for="{{curriculumList}}" wx:key="index" wx:if="{{index<2}}">
+          <view bindtap="storeDetails" id="{{item.id}}" >
             <image src="{{item.pic}}" class="slide-image" mode="aspectFit" />
           </view>
           <text>{{item.name}}</text>

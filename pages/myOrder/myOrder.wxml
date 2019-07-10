@@ -4,7 +4,7 @@
   <view class='game-msg'>
     <view class='game-msg-l'>
       <view class='game-msg-space'>
-        <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
+        <image lazy-load src='/assets/image/pay.png' mode='aspectFit'></image>
         <text>付费形式</text>
       </view>
        <view wx:if="{{item.price=='0.00'}}">免费</view>
@@ -19,7 +19,7 @@
     </view>
   </view>
   <view class='game-msg-space martop'>
-    <image lazy-load src='/assets/image/clocks.png' mode='aspectFit'></image>
+    <image lazy-load src='/assets/image/address.png' mode='aspectFit'></image>
     <text>比赛地点</text>
   </view>
   <view class='game-content'>{{item.address}}</view>

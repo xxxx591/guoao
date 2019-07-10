@@ -51,81 +51,47 @@ App({
       }
     })
     // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        console.log('获取用户授权信息', res)
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: data => {
-              console.log(data)
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.encryptedData = data.encryptedData
-              this.globalData.iv = data.iv
-              wx.request({
-                url: this.globalData.url + 'api/wechat/miniLogin',
-                header: {
-                  "content-type": "application/x-www-form-urlencoded"
-                }, // 设置请求的 header
-                data: {
-                  'encryptedData': data.encryptedData,
-                  'iv': data.iv,
-                  'code': this.globalData.code
-                },
-                method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                success: (res) => {
-                  console.log('转存token', res)
-                  this.globalData.token = res.data.data.token;
-                  wx.getLocation({
-                    type: 'wgs84',
-                    success(data) {
-                      console.log('地理位置', data)
-                      const latitude = data.latitude
-                      const longitude = data.longitude
-                      wx.request({
-                        url: _this.globalData.url + 'api/user/upsite',
-                        method: 'POST',
-                        data: {
-                          token: _this.globalData.token,
-                          lng: longitude + '',
-                          lat: latitude + ''
-                        },
-                        success: request => {
-                          console.log('地理位置返回信息', request)
-                          if (request.data.error_code == 0) {
-                            if (res.data.data.mobile == '') {
-                              wx.navigateTo({
-                                url: '/pages/login/login',
-                              })
-
-                            } else {
-                              // 转存token
-                              // app.globalData.token = '111';
-                              wx.switchTab({
-                                url: '/pages/index/index',
-                              })
-
-                            }
-                          }
-                        }
-                      })
-                    }
-                  })
-                },
-                fail: function(err) {
-                  console.log(err);
-                }
-              })
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
+    // wx.getSetting({
+    //   success: res => {
+    //     console.log('获取用户授权信息', res)
+    //     if (res.authSetting['scope.userInfo']) {
+    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+    //       wx.getUserInfo({
+    //         success: data => {
+    //           console.log(data)
+    //           // 可以将 res 发送给后台解码出 unionId
+    //           this.globalData.encryptedData = data.encryptedData
+    //           this.globalData.iv = data.iv
+    //           wx.request({
+    //             url: this.globalData.url + 'api/wechat/miniLogin',
+    //             header: {
+    //               "content-type": "application/x-www-form-urlencoded"
+    //             }, // 设置请求的 header
+    //             data: {
+    //               'encryptedData': data.encryptedData,
+    //               'iv': data.iv,
+    //               'code': this.globalData.code
+    //             },
+    //             method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    //             success: (res) => {
+    //               console.log('转存token', res)
+    //               this.globalData.token = res.data.data.token;
+                  
+    //             },
+    //             fail: function(err) {
+    //               console.log(err);
+    //             }
+    //           })
+    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+    //           // 所以此处加入 callback 以防止这种情况
+    //           if (this.userInfoReadyCallback) {
+    //             this.userInfoReadyCallback(res)
+    //           }
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
 
   },
   WxRequest(api, data, type) {
@@ -148,6 +114,7 @@ App({
     url: "https://api.yueyefc.com/",
     height: wx.getSystemInfoSync()['statusBarHeight'],
     lat: '',
-    lnt: ''
+    lnt: '',
+    prompt:{}
   }
 })

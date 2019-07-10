@@ -1,5 +1,8 @@
 /* pages/footmark/rongyuDetails/rongyuDetails.wxss */
 
+.boxxxx{
+  overflow: hidden;
+}
 .top-box {
   height: 322rpx;
   position: relative;

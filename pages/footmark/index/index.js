@@ -56,6 +56,7 @@ Page({
       url: app.globalData.url + 'api/footprint/homepage/child',
       data: {
         token: app.globalData.token,
+        // token: '6305a29c888109dcb8f617a75b80f429',
       },
       method: 'post',
       success: res => {
