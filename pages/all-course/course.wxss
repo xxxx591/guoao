@@ -108,12 +108,14 @@ line-height:48rpx;
   flex: 1.5;
   box-sizing: border-box;
   margin-right: 43rpx;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   /* border: 1px solid red; */
+  overflow: hidden;
 }
 .new-right image{
   width: 100%;
   height: 100%;
+  border-radius: 20rpx;
 }
 .button{
   position: absolute;

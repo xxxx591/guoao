@@ -42,7 +42,7 @@ movable-view{
 width: 160rpx;
 height: 160rpx; 
 position: absolute;
-bottom: 30rpx;
+bottom: 330rpx;
 right: 30rpx;
 top: auto;
 left: auto;

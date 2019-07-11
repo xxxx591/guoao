@@ -156,6 +156,7 @@
 .new-2 .new-right image {
   width: 200rpx;
   height: 200rpx;
+  border-radius: 20rpx;
 }
 
 .scroll-view {
@@ -206,6 +207,7 @@
   height: auto;
 }
 
-.new-2-box .view-item image {
+.new-2-box .view-item .slide-image {
+  width: 300rpx;
   height: 150rpx;
 }

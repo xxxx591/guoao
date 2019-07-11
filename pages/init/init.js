@@ -10,8 +10,9 @@ Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     flag: true,
-    accShow:false,
-    yaoqing:false
+    accShow: false,
+    yaoqing: false,
+    showFlag:false
   },
 
   /**
@@ -34,6 +35,7 @@ Page({
     wx.getSetting({
       success: res => {
         console.log('获取用户授权信息', res)
+        let userInfo = res.authSetting
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -58,43 +60,50 @@ Page({
                   app.globalData.token = res.data.data.token;
                   app.globalData.prompt = res.data.data.prompt
                   wx.setStorageSync('dayShow', true)
-                  wx.getLocation({
-                    type: 'wgs84',
-                    success(data) {
-                      console.log('地理位置', data)
-                      const latitude = data.latitude
-                      const longitude = data.longitude
-                      wx.request({
-                        url: app.globalData.url + 'api/user/upsite',
-                        method: 'POST',
-                        data: {
-                          token: app.globalData.token,
-                          lng: longitude + '',
-                          lat: latitude + ''
-                        },
-                        success: request => {
-                          console.log('地理位置返回信息', request)
-                          if (request.data.error_code == 0) {
-                            if (res.data.data.mobile == '') {
-                              wx.navigateTo({
-                                url: '/pages/login/login',
-                              })
+                  if (userInfo['scope.userLocation']) {
+                    wx.getLocation({
+                      type: 'wgs84',
+                      success(data) {
+                        console.log('地理位置', data)
+                        const latitude = data.latitude
+                        const longitude = data.longitude
+                        wx.request({
+                          url: app.globalData.url + 'api/user/upsite',
+                          method: 'POST',
+                          data: {
+                            token: app.globalData.token,
+                            lng: longitude + '',
+                            lat: latitude + ''
+                          },
+                          success: request => {
+                            console.log('地理位置返回信息', request)
+                            if (request.data.error_code == 0) {
+                              if (res.data.data.mobile == '') {
+                                wx.navigateTo({
+                                  url: '/pages/login/login',
+                                })
 
-                            } else {
-                              // 转存token
-                              // app.globalData.token = '111';
-                              wx.switchTab({
-                                url: '/pages/index/index',
-                              })
+                              } else {
+                                // 转存token
+                                // app.globalData.token = '111';
+                                wx.switchTab({
+                                  url: '/pages/index/index',
+                                })
 
+                              }
                             }
                           }
-                        }
-                      })
-                    }
-                  })
+                        })
+                      }
+                    })
+                  } else {
+                    this.setData({
+                      accShow: true,
+                      showFlag: true
+                    })
+                  }
                 },
-                fail: function (err) {
+                fail: function(err) {
                   console.log(err);
                 }
               })
@@ -113,6 +122,17 @@ Page({
       }
     })
   },
+  handler: function (e) {
+    if (e.detail.authSetting["scope.userLocation"]) {
+      this.setData({
+        showFlag: false
+      })
+      //返回时重新刷新首页页面
+      wx.reLaunch({
+        url: '/pages/init/init'
+      })
+    }
+  }, 
   bindGetUserInfo: function(e) {
     let that = this
     if (that.data.flag) {
@@ -172,6 +192,11 @@ Page({
                             }
                           }
                         }
+                      })
+                    },
+                    fail(res){
+                      wx.reLaunch({
+                        url: '/pages/init/init'
                       })
                     }
                   })

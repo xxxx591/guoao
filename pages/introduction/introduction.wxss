@@ -123,6 +123,7 @@
 .new-right image{
   width: 210rpx;
   height: 210rpx;
+  border-radius: 20rpx;
 }
 .new-two {
 }

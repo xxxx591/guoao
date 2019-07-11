@@ -46,13 +46,24 @@ Page({
   onShow: function() {
     this.isShowExperience()
     let flag = wx.getStorageSync('dayShow')
-    if (app.globalData.prompt.days <= 29 && flag){
+    if (app.globalData.prompt.days <= 29 && flag && app.globalData.prompt.flag == 0){
       wx.showModal({
         content: `您的合同【${app.globalData.prompt.name}】还有 ${app.globalData.prompt.days} 天到期，请 联系客服 进行续费` ,
         cancelText:'忽略',
         confirmText:'查看',
         success:res=>{
             wx.setStorageSync('dayShow', false)
+          wx.request({
+            url: app.globalData.url + 'api/user/prompt',
+            data: {
+              token: app.globalData.token,
+              contract_id: '' + app.globalData.prompt.contract_id
+            },
+            method: 'post',
+            success: res => {
+               console.log('asdasdasdas',res)
+            }
+          })
           if(res.confirm){
             console.log('用户点击确定')
             wx.navigateTo({

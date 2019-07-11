@@ -93,7 +93,8 @@
       <view class='scroll-view'>
         <view class='view-item' wx:for="{{curriculumList}}" wx:key="index" wx:if="{{index<2}}">
           <view bindtap="storeDetails" id="{{item.id}}" >
-            <image src="{{item.pic}}" class="slide-image" mode="aspectFit" />
+          <view class="slide-image" style="background-image: url('{{item.pic}}')"></view>
+            
           </view>
           <text>{{item.name}}</text>
         </view>
