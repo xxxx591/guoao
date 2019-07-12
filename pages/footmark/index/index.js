@@ -42,6 +42,9 @@ Page({
     wx.navigateTo({
       url: '/pages/footmark/rongyuDetails/rongyuDetails?id=' + e.currentTarget.id + '&haiziId=' + this.data.haiziDetails.id
     })
+    wx.navigateTo({
+      url: '',
+    })
   },
   // 跳转到孩子详情
   haiziDetails(e) {
@@ -56,7 +59,7 @@ Page({
       url: app.globalData.url + 'api/footprint/homepage/child',
       data: {
         token: app.globalData.token,
-        // token: '6305a29c888109dcb8f617a75b80f429',
+        // token: '1265dff788d82f1d8842772a3e78e3a5',
       },
       method: 'post',
       success: res => {
